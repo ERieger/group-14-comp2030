@@ -41,22 +41,22 @@
                 <div class="card-header card-header-no-border">
                     <h4>Overall Production</h4>
                 </div>
-                <div class="graph-preview" id="Overall Production"></div>
+                <div class="graph-preview" id="overall-production"></div>
             </div>
             <div class="card preview">
-                <div class="graph-preview" id="Overall Production"></div>
+                <div class="graph-preview" id=""></div>
             </div>
             <div class="card preview">
-                <div class="graph-preview" id="Overall Power Usage"></div>
+                <div class="graph-preview" id=""></div>
             </div>
             <div class="card preview">
-                <div class="graph-preview" id="Overall Power Usage"></div>
+                <div class="graph-preview" id=""></div>
             </div>
             <div class="card preview">
-                <div class="graph-preview" id="Overall Power Usage"></div>
+                <div class="graph-preview" id=""></div>
             </div>
             <div class="card preview">
-                <div class="graph-preview" id="Overall Power Usage"></div>
+                <div class="graph-preview" id=""></div>
             </div>
         </div>
         <div class="card scrolling-logs">
