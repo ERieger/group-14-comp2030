@@ -1,7 +1,27 @@
 class Chart {
     constructor(element, settings) {
-        this.element = element;
-        this.size = element.getBoundingClientRect();
+        this.chartArea = this.makeCanvas(element);
+        this.chartCtx = this.chartArea.getContext("2d");
+        this.size = this.chartArea.getBoundingClientRect();
+
+        this.settings = settings;
+
+        this.xScale = 1;
+        this.yScale = 1;
+        this.xUpper = Infinity;
+        this.xLower = -Infinity;
+        this.yUpper = Infinity;
+        this.yLower = -Infinity;
+        this.xOffset;
+        this.yOffset;
+
+        console.log(this.settings);
+    }
+
+    makeCanvas(element) {
+        let canvas = document.createElement("canvas");
+        let size = element.getBoundingClientRect();
+        console.log(size);
         /* In format:
         {
             width: x,
@@ -11,15 +31,14 @@ class Chart {
             left: b,
             right: c
         }*/
-        this.settings = settings;
-        this.xScale = 1;
-        this.yScale = 1;
-        this.xUpper = Infinity;
-        this.xLower = -Infinity;
-        this.yUpper = Infinity;
-        this.yLower = -Infinity;
 
-        console.log(this.settings);
+        canvas.width = size.width;
+        canvas.height = size.height;
+        canvas.id = element.id;
+
+        element.appendChild(canvas);
+        console.log(canvas);
+        return canvas;
     }
 
     roundTick(value) {
@@ -80,11 +99,24 @@ class Chart {
         this.xUpper = adjustedXTick * Math.ceil(1 + xMax / adjustedXTick);
         this.yUpper = adjustedYTick * Math.ceil(1 + yMax / adjustedYTick);
 
-        console.log(this.xScale, this.yScale, this.xLower, this.xUpper, this.yLower, this.yUpper);
+        console.log(
+            this.xScale,
+            this.yScale,
+            this.xLower,
+            this.xUpper,
+            this.yLower,
+            this.yUpper
+        );
     }
 
     render() {
         this.scaleValues();
-        console.log("a");
+        console.log(this.chartCtx);
+        // this.chartCtx.moveTo(this.size.left, this.size.bottom-10);
+        // this.chartCtx.lineTo(this.size.right, this.size.bottom-10);
+        // this.chartCtx.stroke();
+        this.chartCtx.moveTo(0, this.size.height);
+        this.chartCtx.lineTo(this.size.width, this.size.height);
+        this.chartCtx.stroke();
     }
 }
