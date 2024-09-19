@@ -4,7 +4,12 @@ window.addEventListener("load", (event) => {
 
 let settings = {
     chart: {
-        type: "line",
+        type: "stepline", // Line, Stepline, Smooth Line
+        style: {
+            fill: "#007bff48", // --primary-50p
+            stroke: "#007bff", // --primary
+        },
+        pointSize: 3,
         xAxis: {
             scale: "none",
             ticks: 10,
@@ -21,9 +26,10 @@ let settings = {
         {
             data: [
                 [1, 34],
-                [3, 54],
-                [5, 23],
-                [15, 43],
+                [3, 38],
+                [5, 40],
+                [10, 35],
+                [15, 37],
             ],
         },
     ],
