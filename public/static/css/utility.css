@@ -1,0 +1,59 @@
+.spacer {
+    margin-left: auto;
+}
+
+.scroll {
+    overflow-x: auto;
+}
+
+.table {
+    padding: .6rem;
+    border-collapse: collapse;
+
+    th, td {
+        padding: .75rem;
+        white-space: nowrap;
+        border-bottom: 1px solid var(--secondary-light);
+    }
+    
+    th {
+        text-align: left;
+        color: var(--secondary);
+        background-color: var(--light);
+        font-weight: bold;
+    }   
+}
+
+.card {
+    margin: 1rem;
+    border: .1rem solid hsl(208.24, 7.3%, 65.69%);
+    border-radius: .3rem;
+    padding: .7rem;
+    height: min-content;
+    background-color: var(--white);
+
+    & .card-header {
+        border-bottom: .1rem solid hsl(208.24, 7.3%, 65.69%);
+        padding: 0 .7rem;
+        padding-bottom: .7rem;
+        margin: 0 -.7rem;
+        margin-bottom: .7rem;
+
+        & p, h1, h2, h3, h4, h5 {
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+.card-header-no-border {
+    border: none !important;
+}
+
+.text-toupper {
+    text-transform: capitalize;
+}
+
+.text-secondary {
+    color: var(--secondary);
+}
