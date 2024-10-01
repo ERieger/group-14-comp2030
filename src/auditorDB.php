@@ -8,10 +8,43 @@
     <link rel="stylesheet" href="../public/static/css/colours.css">
     <link rel="stylesheet" href="../public/static/css/utility.css">
     <link rel="stylesheet" href="../public/static/css/index.css">
-</head>
+    <link rel="stylesheet" href="../public/static/css/auditor.css">
 
+</head>
 <body>
 <header>
+        <div class="navbar">
+            <img src="../public/static/images/logo.png" alt="COMPANY LOGO" class="logo">
+            <p>Dashboard</p>
+            <div class="spacer"></div>
+            <div class="nav-item">
+                <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON">
+                <p>Logout</p>
+            </div>
+            <div class="nav-item">
+                <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
+                <p>Factory</p>
+            </div>
+            <div class="nav-item">
+                <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
+                <p>Tasks</p>
+            </div>
+            <div class="nav-item">
+                <img src="../public/static/images/icons/menu.png" alt="MENU ICON">
+                <p>Menu</p>
+            </div>
+        </div>
+    </header>
+<main class="table-content">
+    <div class="header">  
+        <h3>Live Archived</h3>
+        <div class="spacer"></div>
+        <div class="download">Summary</div>   
+    </div>
+<div class="test">
+    <div class="filter">test</div>
+    <div class="content">
+=======
 
 </header>
 <main class="table-content">
@@ -51,7 +84,8 @@
     </tbody>
 
 </table>
-
+    </div>
+</div>
 </main>
 </body>
 
