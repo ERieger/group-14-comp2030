@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="../public/static/css/utility.css">
     <link rel="stylesheet" href="../public/static/css/index.css">
     <link rel="stylesheet" href="../public/static/css/auditor.css">
-</head>
 
+</head>
 <body>
 <header>
         <div class="navbar">
@@ -44,6 +44,11 @@
 <div class="test">
     <div class="filter">test</div>
     <div class="content">
+=======
+
+</header>
+<main class="table-content">
+
 <table class="table1"> 
     <thead>
         <tr>
