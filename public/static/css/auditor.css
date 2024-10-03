@@ -14,26 +14,13 @@ img {
     margin-right: 0;
 }
 
-.table1 {
-    justify-content: center;
-    align-items: center;
-}
-
 table, th, td {
     padding: 1rem;
-}
-
-.table1 {
-    width: 82vw;
-    height: 90vh;
-    background-color: white;
-    padding: 1rem;
-    border-radius: .8rem;
-    overflow: hidden;
+    border-collapse: separate;
 }
 
 body {
-    background-color: rgb(215, 215, 215);
+    background-color: white;
 }
 
 tbody {
@@ -41,3 +28,104 @@ tbody {
     max-height: 89%;
     
 }
+
+table {
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+.table-wrapper {
+    margin: 10px 70px 70px;
+    width: 85%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+}
+
+.f1-table {
+    border-radius: 5px;
+    white-space: nowrap;
+    border-spacing: 0px 1rem;
+    overflow-x: auto;
+    overflow-y: auto;
+    display: block;
+}
+
+.col1 {
+    /* position: absolute; */
+}
+
+.f1-table th, .f1-table td {
+    text-align: center;
+    padding: 8px;
+}
+
+.f1-table th {
+    color: grey;
+    background-color: lightgray;
+    border: 0px;
+    margin: 0px;
+}
+
+.f1-table tr {
+    background-color: white;
+    box-shadow: 0px 0px 9px 0px grey;
+    
+}
+
+.f1-table td {
+   
+    
+}
+ /* this is the filter, if parent has a position value, then the child is relative to that */
+.form1 {
+    position: relative;
+}
+
+
+.filter-item {
+    display: flex;
+    margin-top: 20px;
+    margin-right: 20px;
+    
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-input-container {
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.filter-item-spacer {
+    margin-right: 900px;
+}
+
+.nav-container {
+    list-style-type: none;
+}
+
+ul {
+    list-style-type: none;
+    display: inline;
+}
+
+li {
+    display: inline;
+}
+
+.status {
+    background-color: red;
+    padding: .4rem 0;
+    border-radius: 2rem;
+}
+
+.active {
+    background-color: lightgreen;
+}
+

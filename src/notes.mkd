@@ -1,0 +1,14 @@
+    '<tr>
+            <td>' . $row["machine_name"] . '</td>
+            <td>' . $row["operational_status"] . '</td>
+            <td>' . $row["timestamp"] . '</td>
+            <td>' . $row["temperature"] . '</td>
+            <td>' . $row["pressure"] . '</td>
+            <td>' . $row["vibration"] . '</td>
+            <td>' . $row["humidity"] . '</td>
+            <td>' . $row["error_code"] . '</td>
+            <td>' . $row["power_consumption"] . '</td>
+            <td>' . $row["production_count"] . '</td>
+            <td>' . $row["maintenance_log"] . '</td>
+            <td>' . $row["speed"] . '</td>
+        </tr>';
