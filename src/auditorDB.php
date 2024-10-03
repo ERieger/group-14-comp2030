@@ -35,24 +35,49 @@
             </div>
         </div>
     </header>
+
+   
+
 <main class="table-content">
-    <div class="header">  
-        <h3>Live Archived</h3>
-        <div class="spacer"></div>
-        <div class="download">Summary</div>   
+<!--filter-->
+<div class="filter">
+    <div class="nav-container">
+        <ul>
+            <li><a>Dashboard</a></li>
+            <li><a>Summary</a></li>
+        </ul>
     </div>
-<div class="test">
-    <div class="filter">test</div>
+
+    <form class="form-container" action="" method="GET">
+    <div class="filter-item-spacer">
+            
+        </div>
+        <div class="filter-item">
+            <label for="i1" class="form-label-container">Beginning Date </label>
+            <input id="i1" class="form-input-container" type="date" name="from_date" value="<?= isset($_GET['from_date']) == true ? $_GET['from_date']:'' ?>" required>
+        </div>
+        <div class="filter-item">
+            <label for="i130" class="form-label-container">End Date </label>
+            <input id="i130" class="form-input-container" type="date" name="to_date" value="<?= isset($_GET['to_date']) == true ? $_GET['to_date']:'' ?>" required>
+        </div>
+        <div class="filter-item">
+            <button id="i2" class="form-button-container" type="submit">Filter</button>
+        </div>
+        <div class="filter-item">
+        <a id="i3" class="form-reset-container" href="auditorDB.php?" class="i3">Reset</a>
+        </div>
+    </form>
+
+
+</div>
+
+<div class="table-wrapper">
+    <div class="filter"></div>
     <div class="content">
-=======
-
-</header>
-<main class="table-content">
-
-<table class="table1"> 
+<table class="f1-table"> 
     <thead>
         <tr>
-            <th>MACHINE_NAME</th>
+            <th class="col1">MACHINE_NAME</th>
             <th>OPERATIONAL_STATUS</th>
             <th>TIMESTAMP</th>
             <th>TEMPERATURE</th>
@@ -66,21 +91,43 @@
             <th>SPEED</th>
         </tr>
     </thead>
+    
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-            <td>11</td>
-            <td>12</td>
-        </tr>
+    <?php 
+    require_once "dbconn.inc.php"; 
+
+    if(isset($_GET['from_date']) && isset($_GET['from_date']) != '' && isset($_GET['to_date']) && isset($_GET['to_date']) != '') {
+        $from_date = $_GET['from_date'];
+        $to_date = $_GET['to_date'];
+        $sql = "SELECT * FROM testtable WHERE date BETWEEN '$from_date' AND '$to_date';";
+    } else {
+        $sql = "SELECT * FROM testtable;";
+    }
+
+    if ($result = mysqli_query($conn, $sql)) {
+        if (mysqli_num_rows($result) >= 1) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo 
+            '<tr>
+            <td><strong>' . $row["H1"] . '</strong></td>
+            <td><p class="status ' . $row["status"] . '">' . $row["status"] . '</p></td>
+            <td>' . $row["date"] . '</td>
+            <td>' . $row["H4"] . '</td>
+            <td>' . $row["H5"] . '</td>
+            <td>' . $row["H6"] . '</td>
+            <td>' . $row["H7"] . '</td>
+            <td>' . $row["H8"] . '</td>
+            <td>' . $row["H9"] . '</td>
+            <td>' . $row["H10"] . '</td>
+            <td>' . $row["H11"] . '</td>
+            <td>' . $row["H12"] . '</td>
+        </tr>';
+            }
+        }
+    } mysqli_free_result($result);
+    mysqli_close($conn);
+
+    ?>
     </tbody>
 
 </table>
