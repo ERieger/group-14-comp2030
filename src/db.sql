@@ -18,25 +18,25 @@ CREATE TABLE factory_logs(
     production_count decimal(10, 2),
     maintenance_log varchar(100),
     speed decimal(10, 2)
-) 
+);
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON COMP2030_Group14_DB.factory_logs TO dbadmin@localhost;
 
 
 INSERT INTO factory_logs(machine_name) VALUES('CNC Machine
-')
+');
 INSERT INTO factory_logs(operational_status) VALUES('active
-')
+');
 INSERT INTO factory_logs(time_stamp) VALUES(1/04/2024 0:00
-)
-INSERT INTO factory_logs(temperature) VALUES(7)
-INSERT INTO factory_logs(pressure) VALUES(7.89)
-INSERT INTO factory_logs(vibration) VALUES(30)
-INSERT INTO factory_logs(humidity) VALUES(78)
+);
+INSERT INTO factory_logs(temperature) VALUES(7);
+INSERT INTO factory_logs(pressure) VALUES(7.89);
+INSERT INTO factory_logs(vibration) VALUES(30);
+INSERT INTO factory_logs(humidity) VALUES(78);
 INSERT INTO factory_logs(error_code) VALUES('E306
-')
-INSERT INTO factory_logs(power_consumption) VALUES(25.45)
-INSERT INTO factory_logs(production_count) VALUES(10)
-INSERT INTO factory_logs(maintenance_log) VALUES('had a problem, is now fixed')
-INSERT INTO factory_logs(speed) VALUES(99.99)
+');
+INSERT INTO factory_logs(power_consumption) VALUES(25.45);
+INSERT INTO factory_logs(production_count) VALUES(10);
+INSERT INTO factory_logs(maintenance_log) VALUES('had a problem, is now fixed');
+INSERT INTO factory_logs(speed) VALUES(99.99);
