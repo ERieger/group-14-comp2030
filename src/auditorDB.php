@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="../public/static/css/utility.css">
     <link rel="stylesheet" href="../public/static/css/index.css">
     <link rel="stylesheet" href="../public/static/css/auditor.css">
-</head>
 
+</head>
 <body>
 <header>
         <div class="navbar">
