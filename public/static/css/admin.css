@@ -1,0 +1,69 @@
+body {
+    
+}
+
+
+
+.f2-table {
+    border-radius: 5px;
+    white-space: nowrap;
+    border-spacing: 0px 1rem;
+    overflow-x: auto;
+    overflow-y: auto;
+    display: block;
+    font-size: 30px;
+
+   
+}
+
+.f2-table th, .f2-table td {
+    text-align: center;
+    padding: 8px;
+}
+
+.f2-table th {
+    color: grey;
+    background-color: lightgray;
+    border: 0px;
+    margin: 0px;
+}
+
+.f2-table tr {
+    background-color: white;
+    box-shadow: 0px 0px 9px 0px grey;
+    
+}
+
+/* grid items  */
+.grid-container {
+    display: grid;
+    grid-template-rows: 5% 90% 5%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "header header"
+    "l r"
+    "footer footer";
+    height: 100%;
+    width: 100%;
+}
+
+.grid-item-header {
+    grid-area: header;
+    background-color: white;
+}
+
+.grid-item1 {
+    grid-area: l;
+    background-color: grey;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid-item2 {
+    background-color: grey;
+    grid-area: r;
+}
+
+.grid-item3 {
+    background-color: white;
+    grid-area: footer;
+}
