@@ -1,7 +1,7 @@
 <?php
 require_once "../dbconn.inc.php";
 
-$sql = "SELECT * FROM logs WHERE `timestamp` BETWEEN '{$_GET["startTimestamp"]}' AND '{$_GET["endTimestamp"]}';";
+$sql = "SELECT * FROM logs WHERE `timestamp` BETWEEN '{$_GET["startTimestamp"]}' AND '{$_GET["endTimestamp"]}' AND machine_name LIKE '{$_GET["machine"]}';";
 $result = mysqli_query($conn, $sql);
 
 $data = [];
