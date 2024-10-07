@@ -2,6 +2,23 @@ window.addEventListener("load", (event) => {
     console.log("Hello World!");
 });
 
+$.ajax({
+    url: "/factory-dashboard/src/api/dashboard/fetch-logs.php",
+    type: "GET",
+    dataType: "json",
+    data: {
+        startTimestamp: "2024-04-01 00:00:00",
+        endTimestamp: "2024-04-01 00:00:00"
+    },
+    success: (data) => {
+        console.log(data);
+    },
+    error: (jqXHR, textStatus, errorThrown) => {
+        console.error("AJAX Error: ", textStatus, errorThrown);
+    }
+});
+
+
 let settings = {
     chart: {
         type: "stepline", // Line, Stepline, Smooth Line
