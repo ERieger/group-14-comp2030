@@ -35,32 +35,46 @@
             </div>
         </div>
     </header>
-    <main class="dashboard-content">
+    <main class="dashboard-container">
         <div class="dashboard-content">
-            <div class="quick-stats">
-                <div class="card preview">
+            <div class="quick-stats card card-50p">
+                <div class="card card-50p preview">
                     <div class="card-header card-header-no-border">
                         <h4>Overall Production</h4>
                     </div>
                     <div class="graph-preview" id="overall-production"></div>
                 </div>
-                <div class="card preview">
-                    <div class="graph-preview" id=""></div>
+                <div class="card card-50p preview">
+                    <div class="card-header card-header-no-border">
+                        <h4>Overall Status</h4>
+                    </div>
                 </div>
-                <div class="card preview">
-                    <div class="graph-preview" id=""></div>
+                <div class="card card-50p preview">
+                    <div class="card-header card-header-no-border">
+                        <h4>Overall Power Usage</h4>
+                    </div>
+                    <div class="graph-preview" id="overall-power-usage"></div>
                 </div>
-                <div class="card preview">
-                    <div class="graph-preview" id=""></div>
+                <div class="card card-50p preview">
+                    <div class="card-header card-header-no-border">
+                        <h4>Average Speed</h4>
+                    </div>
+                    <div class="graph-preview" id="average-speed"></div>
                 </div>
-                <div class="card preview">
-                    <div class="graph-preview" id=""></div>
+                <div class="card card-50p preview">
+                    <div class="card-header card-header-no-border">
+                        <h4>Factory Humidity</h4>
+                    </div>
+                    <div class="graph-preview" id="average-humidity"></div>
                 </div>
-                <div class="card preview">
-                    <div class="graph-preview" id=""></div>
+                <div class="card card-50p preview">
+                    <div class="card-header card-header-no-border">
+                        <h4>Factory Temperature</h4>
+                    </div>
+                    <div class="graph-preview" id="factory-temperature"></div>
                 </div>
             </div>
-            <div class="card scrolling-logs">
+            <div class="card card-50p scrolling-logs">
                 <div class="card-header logs-head">
                     <h3>Current Log Messages</h3>
                     <div class="spacer"></div>
@@ -156,14 +170,25 @@
                     </table>
                 </div>
             </div>
+            <div class="break"></div>
+            <div class="card card-50p">
+                <div class="card-header logs-head">
+                    <h3>Machine Status: 3D Printer 1</h3>
+                </div>
+                <div class="card-content scroll">
+                </div>
+            </div>
+
+            <div class="card card-50p">
+                <div class="card-header logs-head">
+                    <h3>Current Log Messages</h3>
+                </div>
+                <div class="card-content scroll">
+
+                </div>
+            </div>
         </div>
-        <div class="break"></div>
-        <div class="card">
-            <div class="card-header logs-head">
-                <h3>Machine Status: 3D Printer 1</h3>
-            </div>
-            <div class="card-content scroll">
-            </div>
+
     </main>
 
     <script src="../public/static/js/Chart.js"></script>

@@ -32,6 +32,7 @@
     padding: 0.7rem;
     height: min-content;
     background-color: var(--white);
+    box-sizing: border-box;
 
     & .card-header {
         border-bottom: 0.1rem solid hsl(208.24, 7.3%, 65.69%);
@@ -50,6 +51,16 @@
             margin: 0;
         }
     }
+}
+
+.card-50p {
+    width: calc(50% - 2rem);    
+    box-sizing: border-box;
+}
+
+.card-25p {
+    width: calc(25% - 2rem);    
+    box-sizing: border-box;
 }
 
 .card-header-no-border {
