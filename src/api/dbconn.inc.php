@@ -12,16 +12,17 @@ function loadEnv($filePath) {
     }
 }
 
-loadEnv('../../.env');
+loadEnv('../../../.env');
 
+// Use constants to define your connection parameters
 define("DB_HOST", getenv("DB_HOSTNAME"));
 define("DB_NAME", getenv("DB_DATABASE"));
 define("DB_USER", getenv("DB_USERNAME"));
 define("DB_PASS", getenv("DB_PASSWORD"));
 
-$conn = @mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+// Establish connection
+$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if (!$conn) {
-    // Something went wrong...
     echo "Error: Unable to connect to database.<br>";
     echo "Debugging errno: " . mysqli_connect_errno() . "<br>";
     echo "Debugging error: " . mysqli_connect_error() . "<br>";
