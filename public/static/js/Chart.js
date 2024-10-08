@@ -29,7 +29,7 @@ class Chart {
             this.chartArea = this.makeCanvas(element);
             this.chartCtx = this.chartArea.getContext("2d");
             this.size = this.chartArea.getBoundingClientRect();
-            chart.render();
+            this.render();
         });
     }
 

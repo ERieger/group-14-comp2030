@@ -63,6 +63,8 @@ function updatePage(logs) {
         `);
     });
 
+    $("#logs-table").paging({ limit: 7 });
+
     let data = formatDataSeries(logs);
     let statusGraphs = [
         "production",
