@@ -63,7 +63,7 @@
                 </div>
                 <div class="card card-50p preview">
                     <div class="card-header card-header-no-border">
-                        <h4>Factory Humidity</h4>
+                
                     </div>
                     <div class="graph-preview" id="humidity"></div>
                 </div>
