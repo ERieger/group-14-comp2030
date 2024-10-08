@@ -21,15 +21,15 @@ class Chart {
 
         this.adjustedXY = [];
 
-        console.log(this.settings);
+        // console.log(this.settings);
 
         addEventListener("resize", (event) => {
-            console.log("Window resized!");
+            // console.log("Window resized!");
             this.chartArea.remove();
             this.chartArea = this.makeCanvas(element);
             this.chartCtx = this.chartArea.getContext("2d");
             this.size = this.chartArea.getBoundingClientRect();
-            chart.render();
+            this.render();
         });
     }
 
@@ -47,7 +47,7 @@ class Chart {
             left: b,
             right: c
         }*/
-        console.log(size);
+        // console.log(size);
 
         // Set size of canvas to be static, set unique id based on parent
         canvas.width = size.width;
@@ -55,7 +55,7 @@ class Chart {
         canvas.id = `${element.id}-chart`;
 
         element.appendChild(canvas);
-        console.log(canvas);
+        // console.log(canvas);
         return canvas;
     }
 
@@ -115,16 +115,16 @@ class Chart {
         this.yUpper = yMax;
 
         // Debug message
-        console.log(`
-xLower: ${this.xLower}
-xUpper: ${this.xUpper}
-yLower: ${this.yLower}
-yUpper: ${this.yUpper}
-adjustedXTick: ${this.adjustedXTick}
-adjustedYTick: ${this.adjustedYTick}
-xRange: ${this.xRange}
-yRange: ${this.yRange}
-        `);
+//         console.log(`
+// xLower: ${this.xLower}
+// xUpper: ${this.xUpper}
+// yLower: ${this.yLower}
+// yUpper: ${this.yUpper}
+// adjustedXTick: ${this.adjustedXTick}
+// adjustedYTick: ${this.adjustedYTick}
+// xRange: ${this.xRange}
+// yRange: ${this.yRange}
+//         `);
     }
 
     // Function to draw a point at arbitrary coordinate
@@ -165,7 +165,7 @@ yRange: ${this.yRange}
 
     // Main chart render function
     render() {
-        console.log("Rendering");
+        // console.log("Rendering");
         // Clear canvas
         this.chartCtx.clearRect(0, 0, this.size.width, this.size.height);
         this.scaleValues(); // Calculate scaling values
@@ -187,7 +187,7 @@ yRange: ${this.yRange}
             this.adjustedXY.push([xPos, yPos]);
 
             // Log the positions to debug
-            console.log(xPos, yPos);
+            // console.log(xPos, yPos);
         });
 
         // Get line type

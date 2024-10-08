@@ -61,6 +61,7 @@ div.dashboard-content {
     }
 
     .scrolling-logs {
+        min-height: 432.7px;
         & .logs-head {
             display: flex;
             align-items: center;
