@@ -13,3 +13,7 @@ if (!$conn) {
     echo "Debugging error: " . mysqli_connect_error() . "<br>";
     exit;
 }
+
+
+
+// .git ignore do not upload the password to the database

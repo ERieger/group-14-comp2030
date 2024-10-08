@@ -35,26 +35,23 @@
             </div>
         </div>
     </header>
-    <!-- <div class="nav-container">
-        <ul>
-            <li><a>View</a></li>
-            <li><a>Roles</a></li>
-            <li><a>Create</a></li>
-            <li><a>Delete</a></li>
-        </ul>
-    </div> -->
     <div class="grid-container">
         <div class="grid-item-header"></div>
     <div class="grid-item1">
-        <table class="f2-table">
+        <div class="card-header1">
+            <h3 class="card-header1-item1">Users</h3>
+            <div class="spacer"></div>
+            <a href="add-user.php"><h3 class="add-user">+</h3></a>
+        </div>
+        <table class="f2-table" id="DisplayTable">
             <thead>
                 <tr>
                     <th>id</th>
                     <th>fName</th>
                     <th>lName</th>
                     <th>role</th>
-                    <th></th>
-                    <th></th>
+                    <th>details</th>
+                    <th>delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -71,8 +68,8 @@
                                     <td>' . $row['fName'] . '</td>
                                     <td>' . $row['lName'] . '</td>
                                     <td>' . $row['role'] . '</td>
-                                    <td>Details</td>
-                                    <td>Delete</td>'
+                                    <td> <a class="details-btn" href=admin-details.php?id=' . $row['id'] . '>details</a> </td>
+                                    <td> <a class="delete-btn" href=delete.php?id=' . $row['id'] . '>delete</a> </td>'
                                     ;
                             }
                         }
@@ -90,5 +87,7 @@
     </div>
     <div class="grid-item3"></div>
     </div>
+
+    
 </body>
 </html>
