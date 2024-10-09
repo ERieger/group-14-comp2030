@@ -12,7 +12,8 @@ function loadEnv($filePath) {
     }
 }
 
-loadEnv('../../.env');
+loadEnv('../.env');
+
 
 define("DB_HOST", getenv("DB_HOSTNAME"));
 define("DB_NAME", getenv("DB_DATABASE"));

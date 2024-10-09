@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,9 +6,8 @@
     <title>Admin</title>
     <link rel="stylesheet" href="../public/static/css/normalize.css">
     <link rel="stylesheet" href="../public/static/css/colours.css">
-    <link rel="stylesheet" href="../public/static/css/utility.css">
-    <link rel="stylesheet" href="../public/static/css/index.css">
-    <link rel="stylesheet" href="../public/static/css/admin.css">
+    <link rel="stylesheet" href="../public/static/css/style.css">
+    <script src="../public/static/js/factorymanager.js" defer></script>
 </head>
 <body>
    <main>
@@ -24,98 +23,82 @@
             <a rel="noopener" target="_blank" >Machine F</a>
     </div>
    </div>
-   <button class="button2">+</button>
-   <button class="button3">People</button>
-   <button class="button4">Machine</button>
-   <details class="R1">
-    <summary>Richard</summary>
-    <p>Current- Machine A</p>
-    <p>Assigned- Machine B</p>
-   </details>
+   
+   <!--<button class="button3">People</button>
+   <button class="button4">Machine</button>-->
+   
+    <div class="div-1">
+        <button class="button2">+</button>
 
-   <details class="M1">
-    <summary>Maria</summary>
-    <p>Current- Machine F</p>
-    <p>Assiged- Machine C</p>
-   </details>
+        <details class="R1">
+        <summary>Richard</summary>
+        <p>Current- Machine A</p>
+        <p>Assigned- Machine B</p>
+        </details>
+   
+        <details class="M1">
+        <summary>Maria</summary>
+        <p>Current- Machine F</p>
+        <p>Assiged- Machine C</p>
+        </details>
+    
+        <details class="D1">
+        <summary>Damon</summary>
+        <p>Current- Machine D</p>
+        <p>Assiged- Machine E</p>
+        </details>
 
-   <details class="D1">
-    <summary>Damon</summary>
-    <p>Current- Machine D</p>
-    <p>Assiged- Machine E</p>
-   </details>
-   <button class="save">Save</button>
-   <button class="publish">Publish</button>
-
-   <button class="time">Time</button>
-   <button class="role">Role</button>
-   <div CLass="row">
-    <div class="column" style="background-color:#aaa;">
-      <h2 class="h">Machine A</h2>
-      <p class="p">Not Working</p>
-      <p1 class="p1">CODE-4088</p1>
+        <!--<button class="save">Save</button>
+        <button class="publish">Publish</button>-->
+    
     </div>
 
-    <div class="column" style="background-color:#aaa;">
-        <h2 class="h">Machine B</h2>
-        <p class="p">Not Working</p>
-        <p1 class="p1">CODE-9078</p1>
-      </div>
-
-      <div class="column" style="background-color:#aaa;">
-        <h2 class="h">Machine C</h2>
-        <p class="p">Working</p>
-        <p1 class="p11">CODE-5423</p1>
-      </div>
-
-      <div class="column" style="background-color:#aaa;">
-        <h2 class="h">Machine D</h2>
-        <p class="p">Moderately Working</p>
-        <p1 class="p12">CODE-8765</p1>
-      </div>
-
-      <div class="column" style="background-color:#aaa;">
-        <h2 class="h">Machine E</h2>
-        <p class="p">Working</p>
-        <p1 class="p11">CODE-6125</p1>
-      </div>
-
-      <div class="column" style="background-color:#aaa;">
-        <h2 class="h">Machine F</h2>
-        <p class="p">Moderately Working</p>
-        <p1 class="p12">CODE-3153</p1>
-      </div>
-      
-      
+    
+    <div class="time-role-container">
+        <button class="role">Role</button>
+        <button id="time"></button>
     </div>
-  </div>
+
+    <div>
+        <table class="machine_details">
+            <thead>
+                <tr>
+                    <th>Machine Name</th>
+                    <th>Status</th>
+                    <th id="Error-Code">Error Code</th>
+                </tr>
+            </thead>
+             <tbody>
+
+                    <?php
+                    require '../src/api/dbconn.inc.php';
+
+
+                    $sql = "SELECT DISTINCT machine_name, status, error_code FROM logs";
+                    $result = mysqli_query($conn, $sql);
+
+
+
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            
+                            echo "<tr>
+                                    <td>" . htmlspecialchars($row['machine_name']) . "</td>
+                                    <td>" . htmlspecialchars($row['status']) . "</td>
+                                    <td id='Error-Code'>" . htmlspecialchars($row['error_code']) . "</td>
+                                </tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='3'>No data available</td></tr>";
+                    }
+
+
+                    mysqli_close($conn);
+                    ?>
+            </tbody>
+        </table>
+    </div>
    </main>
-
-
-            <?php
-            // Include the external database connection file
-            require_once "dbconn.inc.php"; 
-
-            // Query to fetch machine details
-            $sql = "SELECT machine_name, status, code FROM machines"; 
-            $result = mysqli_query($conn, $sql); // Use the connection variable from dbconn.inc.php
-
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>
-                            <td>" . $row['machine_name'] . "</td>
-                            <td>" . $row['status'] . "</td>
-                            <td>" . $row['error_code'] . "</td>
-                          </tr>";
-                }
-            } else {
-                echo "<tr><td colspan='3'>No data available</td></tr>";
-            }
-
-            // Close the connection
-            mysqli_close($conn); // Close the connection
-            ?>
-
-</body>
+ </body>
 </html>
 
