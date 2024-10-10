@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../public/static/css/normalize.css">
     <link rel="stylesheet" href="../public/static/css/colours.css">
     <link rel="stylesheet" href="../public/static/css/style.css">
+    <link rel="stylesheet" href="../public/static/css/utility.css">
+    <link rel="stylesheet" href="../public/static/css/index.css">
     <script src="../public/static/js/factorymanager.js" defer></script>
 </head>
 <body>
