@@ -93,12 +93,12 @@
 
 
             <?php
-            // Include the external database connection file
+            
             require_once "dbconn.inc.php"; 
 
-            // Query to fetch machine details
+            
             $sql = "SELECT machine_name, status, code FROM machines"; 
-            $result = mysqli_query($conn, $sql); // Use the connection variable from dbconn.inc.php
+            $result = mysqli_query($conn, $sql); 
 
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -112,8 +112,8 @@
                 echo "<tr><td colspan='3'>No data available</td></tr>";
             }
 
-            // Close the connection
-            mysqli_close($conn); // Close the connection
+            
+            mysqli_close($conn); 
             ?>
 
 </body>
