@@ -10,6 +10,27 @@
     <script src="../public/static/js/factorymanager.js" defer></script>
 </head>
 <body>
+<div class="navbar">
+    <img src="../public/static/images/logo.png" alt="COMPANY LOGO" class="logo">
+    <p>Dashboard</p>
+    <div class="spacer"></div>
+    <div class="nav-item">
+        <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON">
+        <p>Logout</p>
+    </div>
+    <div class="nav-item">
+        <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
+        <p>Factory</p>
+    </div>
+    <div class="nav-item">
+        <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
+        <p>Tasks</p>
+    </div>
+    <div class="nav-item">
+        <img src="../public/static/images/icons/menu.png" alt="MENU ICON">
+        <p>Menu</p>
+    </div>
+</div>
    <main>
     <div class='dropdown'>
         <button class="button">Select Jobs</button>
