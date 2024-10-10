@@ -20,7 +20,7 @@
     text-align: center;
   }
 
-/.button3{
+.button3{
     border-radius: 50px;
     border-color: #000000;
     border-width: 0.5px;
@@ -197,32 +197,38 @@
 
 .machine_details {
         
-        top: 183px;
-        position: absolute;
-        bottom: 80px;
-        right: 20px; 
-        left: 30%;   
-        width: 45%;  
-        height: auto; 
+        
+        width:100%; 
         border: 1px solid #ccc; 
         background-color: #f9f9f9; 
     }
-
-.table-container{
-  
-    border-radius: 5px;
-    white-space: nowrap;
-    border-spacing: 0px 1rem;
-    overflow-x: auto;
-    overflow-y: auto;
-    display: block;
-}
     
     
 #Error-Code{
   text-align: center;
   
 }
+
+
+
+.table-container {
+  height: 260px;  /* Set the height of the scrollable area */
+  width: 30px;   /* Optional: set width if needed */
+  overflow-y: auto;  /* Enable vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  border: 1px solid #ddd; /* Optional: border to see container */
+  top: 183px;
+  position: absolute;
+  bottom: 80px;
+  right: 20px; 
+  left: 30%;   
+  width: 45%;
+  border-radius: 5px;
+  white-space: nowrap;
+    
+}
+
+
 
 
 
