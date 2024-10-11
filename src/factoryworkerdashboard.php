@@ -21,6 +21,10 @@
         <p>Logout</p>
     </div>
     <div class="nav-item">
+        <img src="../public/static/images/icons/notes icon.png" alt="NOTES ICON ICON">
+        <p>Notes</p>
+    </div>
+    <div class="nav-item">
         <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
         <p>Factory</p>
     </div>
