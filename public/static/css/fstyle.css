@@ -9,7 +9,6 @@ body {
     width: 100vw;
 }
 
-
 .navbar {
   width: 100vw;
   display: flex;
@@ -44,14 +43,39 @@ body {
 }
 
 
-
-
-
 .dropdown {
     display: inline-block;
     position: relative;
+    display: flex;
     padding-top: 120px;
     z-index: 1;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    font-size: 20px;
+    overflow: auto;
+    z-index: -1;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+  }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    background-color: #ddd;
+  }
+
+.dropdown-content a {
+    display: block;
+    color: #080808;
+    padding: 5px;
+    text-decoration: none;
+  }
+
+.dropdown-content a:hover {
+    color: #FFFFFF;
+    background-color: #00A4BD;
   }
 
 .button{
@@ -92,32 +116,6 @@ body {
     text-align: center;
   }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    width: 100%;
-    font-size: 20px;
-    overflow: auto;
-    z-index: -1;
-    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
-  }
-
-.dropdown:hover .dropdown-content {
-    display: block;
-    background-color: #ddd;
-  }
-
-.dropdown-content a {
-    display: block;
-    color: #080808;
-    padding: 5px;
-    text-decoration: none;
-  }
-
-.dropdown-content a:hover {
-    color: #FFFFFF;
-    background-color: #00A4BD;
-  }
 
 .R1{
     padding-top: 10px;
@@ -216,30 +214,7 @@ body {
 .column{
         margin-bottom: 10px;
       }
-.p1{
-        text-align:left;
-        display:inline;
-        margin: 300px;
-      }
-.p11{
-        text-align:left;
-        display:inline;
-        margin: 330px;
-      }
-.p12{
-        text-align:left;
-        display:inline;
-        margin: 250px;
-      }
-.p{
-        text-align: justify;
-        display: inline;
-        margin: 50px;
-      }
-.h{
-        text-align: justify;
-        display: inline;
-      }
+
 
 .machine_details th{
         background-color:#ddd;
