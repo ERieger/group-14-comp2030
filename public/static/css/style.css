@@ -1,4 +1,8 @@
 /*senna test*/
+
+
+
+
 .dropdown {
     display: inline-block;
     position: relative;
@@ -119,18 +123,8 @@
       text-align: center;
     }
 
-    .time{
-        border-radius: 50px;
-        border-color: #000000;
-        border-width: 0.5px;
-        position: absolute;
-        right: 865px;
-        top: 139px;
-        font-size: 20px;
-        text-align: center;
-      }
 
-      .role{
+ .role{
         border-radius: 50px;
         border-color: #000000;
         border-width: 0.5px;
@@ -152,28 +146,4 @@
 
       .column{
         margin-bottom: 10px;
-      }
-      .p1{
-        text-align:left;
-        display:inline;
-        margin: 300px;
-      }
-      .p11{
-        text-align:left;
-        display:inline;
-        margin: 330px;
-      }
-      .p12{
-        text-align:left;
-        display:inline;
-        margin: 250px;
-      }
-      .p{
-        text-align: justify;
-        display: inline;
-        margin: 50px;
-      }
-      .h{
-        text-align: justify;
-        display: inline;
       }
