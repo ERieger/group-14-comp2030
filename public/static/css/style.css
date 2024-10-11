@@ -211,12 +211,12 @@
 
 
 
-.table-container {
-  height: 260px;  /* Set the height of the scrollable area */
-  width: 30px;   /* Optional: set width if needed */
-  overflow-y: auto;  /* Enable vertical scrollbar */
-  overflow-x: hidden; /* Hide horizontal scrollbar */
-  border: 1px solid #ddd; /* Optional: border to see container */
+.machines-table-container {
+  height: 260px; 
+  width: 30px;   
+  overflow-y: auto;  
+  overflow-x: hidden; 
+  border: 1px solid #ddd; 
   top: 183px;
   position: absolute;
   bottom: 80px;

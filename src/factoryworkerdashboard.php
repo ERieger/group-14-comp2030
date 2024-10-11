@@ -53,13 +53,13 @@
     <div class="div-1">
         <button class="button2">+</button>
 
-        <details class="R1">
+        <details class="D1">
         <summary>Richard</summary>
         <p>Current- Machine A</p>
         <p>Assigned- Machine B</p>
         </details>
    
-        <details class="M1">
+        <details class="D1">
         <summary>Maria</summary>
         <p>Current- Machine F</p>
         <p>Assiged- Machine C</p>
@@ -82,7 +82,7 @@
         <button id="time"></button>
     </div>
 
-    <div class="table-container">
+    <div class="machines-table-container">
         <table class="machine_details">
             <thead>
                 <tr>
@@ -94,16 +94,16 @@
              <tbody>
 
                     <?php
-                    require '../src/api/dbconn.inc.php';
+                    require_once '../src/api/dbconn.inc.php';
 
 
-                    $sql = "SELECT DISTINCT machine_name, status, error_code FROM logs";
-                    $result = mysqli_query($conn, $sql);
+                    $sql_machines = "SELECT DISTINCT machine_name, status, error_code FROM logs";
+                    $result_machines = mysqli_query($conn, $sql_machines);
 
 
 
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
+                    if (mysqli_num_rows($result_machines) > 0) {
+                        while ($row = mysqli_fetch_assoc($result_machines)) {
                             
                             echo "<tr>
                                     <td>" . htmlspecialchars($row['machine_name']) . "</td>
@@ -115,12 +115,40 @@
                         echo "<tr><td colspan='3'>No data available</td></tr>";
                     }
 
-
-                    mysqli_close($conn);
+                    
                     ?>
             </tbody>
         </table>
     </div>
+
+    <div class="employees-table-container">
+        <table class="employees_details">
+             <tbody>
+
+                    <?php
+                    
+                    $sql_workers = "SELECT DISTINCT name FROM employees";
+                    $result_workers = mysqli_query($conn, $sql_workers);
+
+
+
+                    if (mysqli_num_rows($result_workers) > 0) {
+                        while ($row = mysqli_fetch_assoc($result_workers)) {
+                            
+                            echo "<tr>
+                                    <td class='D1'>" . htmlspecialchars($row['name']) . "</td>
+                                    
+                                </tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='3'>No data available</td></tr>";
+                    }
+
+                    mysqli_close($conn);
+                    ?>
+                    </tbody>
+            </table>
+        </div>
    </main>
  </body>
 </html>
