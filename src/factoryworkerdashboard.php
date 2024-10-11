@@ -127,16 +127,16 @@
 
                     <?php
                     
-                    $sql_workers = "SELECT DISTINCT name FROM employees";
+                    $sql_workers = "SELECT DISTINCT f_name, l_name FROM employees";
                     $result_workers = mysqli_query($conn, $sql_workers);
 
 
 
                     if (mysqli_num_rows($result_workers) > 0) {
                         while ($row = mysqli_fetch_assoc($result_workers)) {
-                            
+                            $full_name= htmlspecialchars($row['f_name']).' '. htmlspecialchars($row['l_name']);
                             echo "<tr>
-                                    <td class='D1'>" . htmlspecialchars($row['name']) . "</td>
+                                    <td class='D1'>" . $full_name . "</td>
                                     
                                 </tr>";
                         }
