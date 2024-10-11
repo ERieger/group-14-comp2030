@@ -40,21 +40,17 @@
 <body>
    <main>
     <div class='dropdown'>
-        <button class="button">Select Jobs</button>
+        <button class="drpbutton">Select Jobs</button>
     <div class="dropdown-content">
+            
             <a rel="noopener" target="_blank" >Machine A</a>
             <a rel="noopener" target="_blank" >Machine B</a>
-            <a rel="noopener" target="_blank" >Machine C</a>
             <a rel="noopener" target="_blank" >Machine C</a>
             <a rel="noopener" target="_blank" >Machine D</a>
             <a rel="noopener" target="_blank" >Machine E</a>
             <a rel="noopener" target="_blank" >Machine F</a>
     </div>
    </div>
-   
-   <!--<button class="button3">People</button>
-   <button class="button4">Machine</button>-->
-   
     <div class="div-1">
         <button class="button2">+</button>
 
@@ -82,10 +78,6 @@
     </div>
 
     
-    <div class="time-role-container">
-        <button class="role">Role</button>
-        <button id="time"></button>
-    </div>
 
     <div class="machines-table-container">
         <table class="machine_details">
@@ -132,16 +124,16 @@
 
                     <?php
                     
-                    $sql_workers = "SELECT DISTINCT name FROM employees";
+                    $sql_workers = "SELECT DISTINCT f_name, l_name FROM employees";
                     $result_workers = mysqli_query($conn, $sql_workers);
 
 
 
                     if (mysqli_num_rows($result_workers) > 0) {
                         while ($row = mysqli_fetch_assoc($result_workers)) {
-                            
+                            $full_name= htmlspecialchars($row['f_name']).' '. htmlspecialchars($row['l_name']);
                             echo "<tr>
-                                    <td class='D1'>" . htmlspecialchars($row['name']) . "</td>
+                                    <td class='D1'>" . $full_name . "</td>
                                     
                                 </tr>";
                         }
