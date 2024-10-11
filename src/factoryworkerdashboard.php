@@ -36,21 +36,17 @@
 <body>
    <main>
     <div class='dropdown'>
-        <button class="button">Select Jobs</button>
+        <button class="drpbutton">Select Jobs</button>
     <div class="dropdown-content">
+            
             <a rel="noopener" target="_blank" >Machine A</a>
             <a rel="noopener" target="_blank" >Machine B</a>
-            <a rel="noopener" target="_blank" >Machine C</a>
             <a rel="noopener" target="_blank" >Machine C</a>
             <a rel="noopener" target="_blank" >Machine D</a>
             <a rel="noopener" target="_blank" >Machine E</a>
             <a rel="noopener" target="_blank" >Machine F</a>
     </div>
    </div>
-   
-   <!--<button class="button3">People</button>
-   <button class="button4">Machine</button>-->
-   
     <div class="div-1">
         <button class="button2">+</button>
 
@@ -78,10 +74,6 @@
     </div>
 
     
-    <div class="time-role-container">
-        <button class="role">Role</button>
-        <button id="time"></button>
-    </div>
 
     <div class="machines-table-container">
         <table class="machine_details">

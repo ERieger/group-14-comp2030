@@ -47,8 +47,11 @@ body {
     display: inline-block;
     position: relative;
     display: flex;
+    display: flex;
     padding-top: 120px;
     z-index: 1;
+    width: 145px;
+    height: 30px;
   }
 
   .dropdown-content {
@@ -78,8 +81,8 @@ body {
     background-color: #00A4BD;
   }
 
-.button{
-    font-size: 30px;
+.drpbutton{
+    font-size: 25px;
   }
 
 .button2{
@@ -89,29 +92,6 @@ body {
     position: relative;
     left: 10px;
     display: flexbox;
-    font-size: 20px;
-    text-align: center;
-  }
-
-.button3{
-    border-radius: 50px;
-    border-color: #000000;
-    border-width: 0.5px;
-    position: absolute;
-    display: flexbox;
-    left: 360px;
-    top: 139px;
-    font-size: 20px;
-    text-align: center;
-  }
-  
-.button4{
-    border-radius: 50px;
-    border-color: #040404;
-    top: 139px;
-    border-width: 0.5px;
-    position: absolute;
-    left: 205px;
     font-size: 20px;
     text-align: center;
   }
@@ -177,29 +157,6 @@ body {
       text-align: center;
     }
 
-#time{
-        border-radius: 50px;
-        border-color: #000000;
-        border-width: 0.5px;
-        position: absolute;
-        right: 865px;
-        top: 125px;
-        font-size: 20px;
-        text-align: center;
-        
-      }
-
-.role{
-        border-radius: 50px;
-        border-color: #000000;
-        border-width: 0.5px;
-        position: absolute;
-        right: 800px;
-        top: 125px;
-        font-size: 20px;
-        text-align: center;
-      }
-
 
       
 .row {
@@ -237,7 +194,7 @@ body {
 
 .machines-table-container {
   height: 260px; 
-  width: 30px;   
+  width: 50%;   
   overflow-y: auto;  
   overflow-x: hidden; 
   border: 1px solid #ddd; 
