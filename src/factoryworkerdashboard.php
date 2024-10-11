@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,22 +11,44 @@
     <link rel="stylesheet" href="../public/static/css/admin.css">
 </head>
 <body>
+<header>
+        <div class="navbar">
+            <img src="../public/static/images/logo.png" alt="COMPANY LOGO" class="logo">
+            <p>Dashboard</p>
+            <div class="spacer"></div>
+            <div class="nav-item">
+                <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON">
+                <p>Logout</p>
+            </div>
+            <div class="nav-item">
+                <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
+                <p>Factory</p>
+            </div>
+            <div class="nav-item">
+                <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
+                <p>Tasks</p>
+            </div>
+            <div class="nav-item">
+                <img src="../public/static/images/icons/menu.png" alt="MENU ICON">
+                <p>Menu</p>
+            </div>
+        </div>
+    </header>
    <main>
-    <div class='dropdown'>
-        <button class="button">Select Jobs</button>
-    <div class="dropdown-content">
-            <a rel="noopener" target="_blank"  >Machine A</a>
-            <a rel="noopener" target="_blank" >Machine B</a>
-            <a rel="noopener" target="_blank" >Machine C</a>
-            <a rel="noopener" target="_blank" >Machine C</a>
-            <a rel="noopener" target="_blank" >Machine D</a>
-            <a rel="noopener" target="_blank" >Machine E</a>
-            <a rel="noopener" target="_blank" >Machine F</a>
-    </div>
-   </div>
+   <div class="dropdown">
+  <button class="dropbtn">Select Jobs</button>
+  <div class="dropdown-content">
+    <a >Machine A</a>
+    <a >Mahcine B</a>
+    <a >Machine C</a>
+    <a >Machine D</a>
+    <a >Machine E</a>
+    <a >Machine F</a>
+  </div>
+</div>
    <button class="button2">+</button>
-   <button class="button3">People</button>
-   <button class="button4">Machine</button>
+   
+   
    <details class="R1">
     <summary>Richard</summary>
     <p>Current- Machine A</p>
@@ -44,47 +66,13 @@
     <p>Current- Machine D</p>
     <p>Assiged- Machine E</p>
    </details>
+   
+   
    <button class="save">Save</button>
    <button class="publish">Publish</button>
 
    <button class="time">Time</button>
    <button class="role">Role</button>
-   <div CLass="row">
-    <div class="column" style="background-color:#aaa;">
-      <h2 class="h">Machine A</h2>
-      <p class="p">Not Working</p>
-      <p1 class="p1">CODE-4088</p1>
-    </div>
-
-    <div class="column" style="background-color:#aaa;">
-        <h2 class="h">Machine B</h2>
-        <p class="p">Not Working</p>
-        <p1 class="p1">CODE-9078</p1>
-      </div>
-
-      <div class="column" style="background-color:#aaa;">
-        <h2 class="h">Machine C</h2>
-        <p class="p">Working</p>
-        <p1 class="p11">CODE-5423</p1>
-      </div>
-
-      <div class="column" style="background-color:#aaa;">
-        <h2 class="h">Machine D</h2>
-        <p class="p">Moderately Working</p>
-        <p1 class="p12">CODE-8765</p1>
-      </div>
-
-      <div class="column" style="background-color:#aaa;">
-        <h2 class="h">Machine E</h2>
-        <p class="p">Working</p>
-        <p1 class="p11">CODE-6125</p1>
-      </div>
-
-      <div class="column" style="background-color:#aaa;">
-        <h2 class="h">Machine F</h2>
-        <p class="p">Moderately Working</p>
-        <p1 class="p12">CODE-3153</p1>
-      </div>
       
       
     </div>
