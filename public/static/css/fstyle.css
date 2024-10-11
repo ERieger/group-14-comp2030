@@ -1,48 +1,57 @@
 /*senna test*/
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+.navbar {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid var(--dark);
+
+  > a,
+  p {
+      padding-left: 0.75rem;
+  }
+
+  .nav-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0.4rem;
+
+      border-left: 1px solid var(--dark);
+      min-width: 6rem;
+
+      p {
+          margin: 0.1rem 0;
+          padding-left: 0;
+      }
+
+      img {
+          width: 2.5rem;
+      }
+  }
+}
+
+
 .dropdown {
     display: inline-block;
     position: relative;
+    display: flex;
     padding-top: 120px;
     z-index: 1;
   }
 
-.button{
-    font-size: 30px;
-  }
-
-.button2{
-    border-radius: 50px;
-    border-color: #000000;
-    border-width: 0.5px;
-    position: relative;
-    left: 10px;
-    font-size: 20px;
-    text-align: center;
-  }
-
-.button3{
-    border-radius: 50px;
-    border-color: #000000;
-    border-width: 0.5px;
-    position: absolute;
-    left: 360px;
-    top: 139px;
-    font-size: 20px;
-    text-align: center;
-  }
-  
-.button4{
-    border-radius: 50px;
-    border-color: #040404;
-    top: 139px;
-    border-width: 0.5px;
-    position: absolute;
-    left: 205px;
-    font-size: 20px;
-    text-align: center;
-  }
-
-.dropdown-content {
+  .dropdown-content {
     display: none;
     position: absolute;
     width: 100%;
@@ -68,6 +77,45 @@
     color: #FFFFFF;
     background-color: #00A4BD;
   }
+
+.button{
+    font-size: 30px;
+  }
+
+.button2{
+    border-radius: 50px;
+    border-color: #000000;
+    border-width: 0.5px;
+    position: relative;
+    left: 10px;
+    display: flexbox;
+    font-size: 20px;
+    text-align: center;
+  }
+
+.button3{
+    border-radius: 50px;
+    border-color: #000000;
+    border-width: 0.5px;
+    position: absolute;
+    display: flexbox;
+    left: 360px;
+    top: 139px;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+.button4{
+    border-radius: 50px;
+    border-color: #040404;
+    top: 139px;
+    border-width: 0.5px;
+    position: absolute;
+    left: 205px;
+    font-size: 20px;
+    text-align: center;
+  }
+
 
 .R1{
     padding-top: 10px;
@@ -166,30 +214,7 @@
 .column{
         margin-bottom: 10px;
       }
-.p1{
-        text-align:left;
-        display:inline;
-        margin: 300px;
-      }
-.p11{
-        text-align:left;
-        display:inline;
-        margin: 330px;
-      }
-.p12{
-        text-align:left;
-        display:inline;
-        margin: 250px;
-      }
-.p{
-        text-align: justify;
-        display: inline;
-        margin: 50px;
-      }
-.h{
-        text-align: justify;
-        display: inline;
-      }
+
 
 .machine_details th{
         background-color:#ddd;
@@ -206,7 +231,6 @@
     
 #Error-Code{
   text-align: center;
-  
 }
 
 
