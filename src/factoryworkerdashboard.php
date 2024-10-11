@@ -38,7 +38,7 @@
     <div class='dropdown'>
         <button class="button">Select Jobs</button>
     <div class="dropdown-content">
-            <a rel="noopener" target="_blank"  >Machine A</a>
+            <a rel="noopener" target="_blank" >Machine A</a>
             <a rel="noopener" target="_blank" >Machine B</a>
             <a rel="noopener" target="_blank" >Machine C</a>
             <a rel="noopener" target="_blank" >Machine C</a>
@@ -63,13 +63,13 @@
         <details class="D1">
         <summary>Maria</summary>
         <p>Current- Machine F</p>
-        <p>Assiged- Machine C</p>
+        <p>Assigned- Machine C</p>
         </details>
     
         <details class="D1">
         <summary>Damon</summary>
         <p>Current- Machine D</p>
-        <p>Assiged- Machine E</p>
+        <p>Assigned- Machine E</p>
         </details>
 
         <!--<button class="save">Save</button>
