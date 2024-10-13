@@ -131,8 +131,7 @@ body {
   text-align: left;
   }
 
-  
-.save{
+  .save{
     border-radius: 50px;
     border-color: #040404;
     display: flex;
@@ -141,10 +140,13 @@ body {
     align-self: baseline;
     font-size: 20px;
     text-align: center;
-    bottom: 50px
+    top: 275px;
+    left: 90px;
+  
+  }
 
     
-  }  
+   
 
 .publish{
   border-radius: 50px;
@@ -157,16 +159,6 @@ body {
   text-align: center;
   top: 275px;
   left: 90px;
-      /*border-radius: 50px;
-      border-color: #040404;
-      top: 300px;
-      right: 50px;
-      border-width: 0.5px;
-      position: relative;
-      display: flex;
-      left: 80px;
-      font-size: 20px;
-      text-align: center;*/
     }
 
 .machine_details th{

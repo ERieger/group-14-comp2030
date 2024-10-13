@@ -52,7 +52,7 @@
     </div>
    </div>
 
-        <button class="save">Save</button>
+        <button class="save">save</button>
         <button class="publish">Publish</button>
     
     </div>
