@@ -51,21 +51,20 @@
             <a rel="noopener" target="_blank" >Machine F</a>
     </div>
    </div>
-    <div class="div-1">
+
         <button class="save">Save</button>
         <button class="publish">Publish</button>
-        
+    
     </div>
 
     
-
     <div class="machines-table-container">
         <table class="machine_details">
             <thead>
                 <tr>
                     <th>Machine Name</th>
                     <th>Status</th>
-                    <th id="Error-Code">Error Code</th>
+                    <th id="Machine_Id">Machine ID</th>
                 </tr>
             </thead>
              <tbody>
@@ -74,7 +73,7 @@
                     require_once '../src/api/dbconn.inc.php';
 
 
-                    $sql_machines = "SELECT DISTINCT machine_name, status, error_code FROM logs";
+                    $sql_machines = "SELECT DISTINCT machine_name, status, machine_id FROM logs";
                     $result_machines = mysqli_query($conn, $sql_machines);
 
 
@@ -85,34 +84,37 @@
                             echo "<tr>
                                     <td>" . htmlspecialchars($row['machine_name']) . "</td>
                                     <td>" . htmlspecialchars($row['status']) . "</td>
-                                    <td id='Error-Code'>" . htmlspecialchars($row['error_code']) . "</td>
+                                    <td id='Machine_Id'>" . htmlspecialchars($row['machine_id']) . "</td>
                                 </tr>";
                         }
                     } else {
                         echo "<tr><td colspan='3'>No data available</td></tr>";
                     }
 
-                    
                     ?>
             </tbody>
         </table>
     </div>
 
-    <div class="employees-table-container">
+        
+        <div class="employees-table-container">
         <table class="employees_details">
              <tbody>
 
-                    <?php
-                    
-                    $sql_workers = "SELECT DISTINCT f_name, l_name FROM employees";
-                    $result_workers = mysqli_query($conn, $sql_workers);
+        <?php //php connection for fetching current jobs from database
+                        
+                        $sql_jobs = "SELECT e.f_name, e.l_name, m.machine_name
+                        FROM employees e
+                        JOIN jobs j ON e.employee_id = j.employee_id
+                        JOIN machines m ON j.machine_id = m.machine_id";
+                        $result_jobs = mysqli_query($conn, $sql_jobs);
 
 
 
                     if (mysqli_num_rows($result_workers) > 0) {
                         while ($row = mysqli_fetch_assoc($result_workers)) {
                             $full_name= htmlspecialchars($row['f_name']).' '. htmlspecialchars($row['l_name']);
-                            echo "<tr class='tablede'>
+                            echo "<tr>
                                     <td class='D1'>" . $full_name . "</td>
                                     
                                 </tr>";
@@ -121,11 +123,11 @@
                         echo "<tr><td colspan='3'>No data available</td></tr>";
                     }
 
-                    mysqli_close($conn);
-                    ?>
-                    </tbody>
+                        mysqli_close($conn);
+                        ?>
+                        </tbody>
             </table>
-        </div>
+        </div> 
    </main>
  </body>
 </html>

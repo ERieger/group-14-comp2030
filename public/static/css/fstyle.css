@@ -82,6 +82,55 @@ body {
 .drpbutton{
     font-size: 25px;
   }
+
+.button2{
+    border-radius: 50px;
+    border-color: #000000;
+    border-width: 0.5px;
+    position: relative;
+    left: 10px;
+    display: flexbox;
+    font-size: 20px;
+    text-align: center;
+  }
+
+
+.R1{
+    padding-top: 10px;
+    font-size: 25px;
+    border-color: #000000;
+  border: 1px solid ;
+  border-radius: 3px;
+  background-color: rgb(163, 168, 172);
+  box-shadow: 3px 3px 4px black;
+  width:220px;
+  text-align: left;
+  }
+
+.M1{
+    padding-top: 10px;
+    font-size: 25px;
+    border-color: #000000;
+  border: 1px solid ;
+  border-radius: 3px;
+  background-color: rgb(163, 168, 172);
+  box-shadow: 3px 3px 4px black;
+  width: 220px;
+  text-align: left;
+  }
+
+.D1{
+    padding-top: 10px;
+    font-size: 25px;
+    border-color: #000000;
+  border: 1px solid ;
+  border-radius: 3px;
+  background-color: rgb(163, 168, 172);
+  box-shadow: 3px 3px 4px black;
+  width: 220px;
+  text-align: left;
+  }
+
   
 .save{
     border-radius: 50px;
@@ -131,7 +180,7 @@ body {
     }
     
     
-#Error-Code{
+#Machine_Id{
   text-align: center;
 }
 
@@ -141,7 +190,7 @@ body {
   overflow-y: auto;  
   overflow-x: hidden; 
   border: 1px solid #ddd; 
-  top: 183px;
+  top: 183px;                     /*style for the machine details table*/
   position: absolute;
   display: flex;
   bottom: 80px;
@@ -152,6 +201,7 @@ body {
   white-space: nowrap;
     
 }
+
 
 .tablede{
     padding-top: 10px;
