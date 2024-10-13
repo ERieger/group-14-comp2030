@@ -96,43 +96,18 @@ body {
     text-align: center;
   }
 
-
-.R1{
-    padding-top: 10px;
-    font-size: 25px;
-    border-color: #000000;
+.details{                  
+  padding-top: 10px;
+  font-size: 25px;
+  border-color: #000000;
   border: 1px solid ;
   border-radius: 3px;
-  background-color: rgb(163, 168, 172);
-  box-shadow: 3px 3px 4px black;
-  width:220px;
-  text-align: left;
-  }
-
-.M1{
-    padding-top: 10px;
-    font-size: 25px;
-    border-color: #000000;
-  border: 1px solid ;
-  border-radius: 3px;
-  background-color: rgb(163, 168, 172);
+  background-color: rgb(163, 168, 172);   /*style for the employee job assignment table*/
   box-shadow: 3px 3px 4px black;
   width: 220px;
   text-align: left;
+  display: block;
   }
-
-.D1{
-    padding-top: 10px;
-    font-size: 25px;
-    border-color: #000000;
-  border: 1px solid ;
-  border-radius: 3px;
-  background-color: rgb(163, 168, 172);
-  box-shadow: 3px 3px 4px black;
-  width: 220px;
-  text-align: left;
-  }
-
   
 .save{
     border-radius: 50px;
@@ -186,7 +161,7 @@ body {
     }
     
     
-#Error-Code{
+#Machine_Id{
   text-align: center;
 }
 
@@ -198,7 +173,7 @@ body {
   overflow-y: auto;  
   overflow-x: hidden; 
   border: 1px solid #ddd; 
-  top: 183px;
+  top: 183px;                     /*style for the machine details table*/
   position: absolute;
   bottom: 80px;
   right: 20px; 
@@ -208,6 +183,7 @@ body {
   white-space: nowrap;
     
 }
+
 
 
 
