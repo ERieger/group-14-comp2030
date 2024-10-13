@@ -58,7 +58,7 @@
     </div>
 
     
-    <div class="machines-table-container">
+    <div class="machines-table-container"> <!-- table for machines-->
         <table class="machine_details">
             <thead>
                 <tr>
@@ -69,7 +69,7 @@
             </thead>
              <tbody>
 
-                    <?php
+                    <?php //php connection for fetching machines from database
                     require_once '../src/api/dbconn.inc.php';
 
 
@@ -97,7 +97,7 @@
     </div>
 
         
-        <div class="employees-table-container">
+        <div class="employees-table-container"> <!-- table for job assignment-->
         <table class="employees_details">
              <tbody>
 
