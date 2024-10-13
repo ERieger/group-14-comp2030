@@ -110,21 +110,28 @@
                         $result_jobs = mysqli_query($conn, $sql_jobs);
 
 
-
-                    if (mysqli_num_rows($result_workers) > 0) {
-                        while ($row = mysqli_fetch_assoc($result_workers)) {
-                            $full_name= htmlspecialchars($row['f_name']).' '. htmlspecialchars($row['l_name']);
-                            echo "<tr>
-                                    <td class='D1'>" . $full_name . "</td>
-                                    
-                                </tr>";
+                        if (mysqli_num_rows($result_jobs) > 0) {
+                            while ($row = mysqli_fetch_assoc($result_jobs)) {
+                                $full_name = htmlspecialchars($row['f_name']) . ' ' . htmlspecialchars($row['l_name']);
+                                $machine_name = htmlspecialchars($row['machine_name']);
+                        
+                                echo "<tr>
+                                        <td>
+                                            <details class='details'>
+                                            <summary class='employee_name'>$full_name</summary>
+                                            <p class='current'>Current- $machine_name</p>
+                                            </details>
+                                        </td>
+                                      </tr>";
+                            } 
+                        } else {
+                            echo "<tr><td colspan='3'>No data available</td></tr>";
                         }
-                    } else {
-                        echo "<tr><td colspan='3'>No data available</td></tr>";
-                    }
+                        
 
                         mysqli_close($conn);
                         ?>
+
                         </tbody>
             </table>
         </div> 
