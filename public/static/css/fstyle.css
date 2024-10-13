@@ -95,7 +95,7 @@ body {
   }
 
 
-.R1{
+.details{
     padding-top: 10px;
     font-size: 25px;
     border-color: #000000;
@@ -107,44 +107,18 @@ body {
   text-align: left;
   }
 
-.M1{
-    padding-top: 10px;
-    font-size: 25px;
-    border-color: #000000;
-  border: 1px solid ;
-  border-radius: 3px;
-  background-color: rgb(163, 168, 172);
-  box-shadow: 3px 3px 4px black;
-  width: 220px;
-  text-align: left;
-  }
-
-.D1{
-    padding-top: 10px;
-    font-size: 25px;
-    border-color: #000000;
-  border: 1px solid ;
-  border-radius: 3px;
-  background-color: rgb(163, 168, 172);
-  box-shadow: 3px 3px 4px black;
-  width: 220px;
-  text-align: left;
-  }
-
   
-.save{
+  .save{
     border-radius: 50px;
     border-color: #040404;
-    display: flex;
+    top: 20px;
     border-width: 0.5px;
     position: relative;
-    align-self: baseline;
+    left: 0px;
     font-size: 20px;
     text-align: center;
-    bottom: 50px
-
-    
   }  
+ 
 
 .publish{
   border-radius: 50px;
