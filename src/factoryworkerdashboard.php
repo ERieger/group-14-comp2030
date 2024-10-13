@@ -52,29 +52,9 @@
     </div>
    </div>
     <div class="div-1">
-        <button class="button2">+</button>
-
-        <details class="D1">
-        <summary>Richard</summary>
-        <p>Current- Machine A</p>
-        <p>Assigned- Machine B</p>
-        </details>
-   
-        <details class="D1">
-        <summary>Maria</summary>
-        <p>Current- Machine F</p>
-        <p>Assigned- Machine C</p>
-        </details>
-    
-        <details class="D1">
-        <summary>Damon</summary>
-        <p>Current- Machine D</p>
-        <p>Assigned- Machine E</p>
-        </details>
-
-        <!--<button class="save">Save</button>
-        <button class="publish">Publish</button>-->
-    
+        <button class="save">Save</button>
+        <button class="publish">Publish</button>
+        
     </div>
 
     
@@ -132,7 +112,7 @@
                     if (mysqli_num_rows($result_workers) > 0) {
                         while ($row = mysqli_fetch_assoc($result_workers)) {
                             $full_name= htmlspecialchars($row['f_name']).' '. htmlspecialchars($row['l_name']);
-                            echo "<tr>
+                            echo "<tr class='tablede'>
                                     <td class='D1'>" . $full_name . "</td>
                                     
                                 </tr>";

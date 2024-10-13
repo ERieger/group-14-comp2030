@@ -41,14 +41,12 @@ body {
       }
   }
 }
-
-
 .dropdown {
     display: inline-block;
     position: relative;
+    bottom: 10px;
     display: flex;
-    display: flex;
-    padding-top: 120px;
+    padding-top: 100px;
     z-index: 1;
     width: 145px;
     height: 30px;
@@ -84,102 +82,49 @@ body {
 .drpbutton{
     font-size: 25px;
   }
-
-.button2{
-    border-radius: 50px;
-    border-color: #000000;
-    border-width: 0.5px;
-    position: relative;
-    left: 10px;
-    display: flexbox;
-    font-size: 20px;
-    text-align: center;
-  }
-
-
-.R1{
-    padding-top: 10px;
-    font-size: 25px;
-    border-color: #000000;
-  border: 1px solid ;
-  border-radius: 3px;
-  background-color: rgb(163, 168, 172);
-  box-shadow: 3px 3px 4px black;
-  width:220px;
-  text-align: left;
-  }
-
-.M1{
-    padding-top: 10px;
-    font-size: 25px;
-    border-color: #000000;
-  border: 1px solid ;
-  border-radius: 3px;
-  background-color: rgb(163, 168, 172);
-  box-shadow: 3px 3px 4px black;
-  width: 220px;
-  text-align: left;
-  }
-
-.D1{
-    padding-top: 10px;
-    font-size: 25px;
-    border-color: #000000;
-  border: 1px solid ;
-  border-radius: 3px;
-  background-color: rgb(163, 168, 172);
-  box-shadow: 3px 3px 4px black;
-  width: 220px;
-  text-align: left;
-  }
-
   
 .save{
     border-radius: 50px;
     border-color: #040404;
-    top: 20px;
+    display: flex;
     border-width: 0.5px;
     position: relative;
-    left: 0px;
+    align-self: baseline;
     font-size: 20px;
     text-align: center;
+    bottom: 50px
+
+    
   }  
 
 .publish{
-      border-radius: 50px;
+  border-radius: 50px;
+  border-color: #040404;
+  display: flex;
+  border-width: 0.5px;
+  position: relative;
+  align-self: baseline;
+  font-size: 20px;
+  text-align: center;
+  top: 275px;
+  left: 90px;
+      /*border-radius: 50px;
       border-color: #040404;
-      top: 20px;
+      top: 300px;
       right: 50px;
       border-width: 0.5px;
       position: relative;
-      left: 30px;
+      display: flex;
+      left: 80px;
       font-size: 20px;
-      text-align: center;
+      text-align: center;*/
     }
-
-
-      
-.row {
-        display: block;
-        position: absolute;
-        flex-direction: column;
-        width: 69%;
-        margin-left: 400px;
-        bottom: 300px;
-      }
-
-.column{
-        margin-bottom: 10px;
-      }
-
 
 .machine_details th{
         background-color:#ddd;
       }
 
 .machine_details {
-        
-        
         width:100%; 
         border: 1px solid #ccc; 
         background-color: #f9f9f9; 
@@ -190,8 +135,6 @@ body {
   text-align: center;
 }
 
-
-
 .machines-table-container {
   height: 260px; 
   width: 50%;   
@@ -200,6 +143,7 @@ body {
   border: 1px solid #ddd; 
   top: 183px;
   position: absolute;
+  display: flex;
   bottom: 80px;
   right: 20px; 
   left: 30%;   
@@ -209,7 +153,22 @@ body {
     
 }
 
-
+.tablede{
+    padding-top: 10px;
+    font-size: 25px;
+    border-color: #000000;
+    border: 1px solid ;
+    border-radius: 3px;
+    background-color: rgb(163, 168, 172);
+    box-shadow: 3px 3px 4px black;
+    text-align: left;
+    display: flex;
+    position: relative;
+    bottom: 30px;
+    width: 120%; /* set the width of the box to 80% of its parent container */
+    padding-bottom: 5%; /* set the height of the box to be the same as its width */
+    background-color: rgb(152, 152, 154);
+}
 
 
 
