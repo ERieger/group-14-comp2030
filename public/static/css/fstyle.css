@@ -158,17 +158,21 @@ body {
         background-color: #f9f9f9; 
     }
     
+.dot{
+      width: 1%;
+      bottom: 20px;
+      left: 350px;
+      body {margin:0;}
+    }
+
+    nav{width:100%;position:relative;}
+.logo{position:absolute;top:0;left:0;width:150px;height:150px;background:#ededed;}
     
 #Machine_Id{
   text-align: center;
 }
 
-.dot{
-  height: auto;
-  width: 1%;
-  top: 20px;
-  left: 350px;
-}
+
 .machines-table-container {
   height: 260px; 
   width: 50%;   
