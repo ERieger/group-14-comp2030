@@ -132,7 +132,7 @@ body {
   font-size: 20px;
   text-align: center;
   top: 130px;
-  left: 5px;
+  left: 10px;
 }    
 
 .machine_details th{
@@ -182,8 +182,8 @@ body {
     display: flex;
     position: relative;
     bottom: 30px;
-    width: 120%; 
-    padding-bottom: 5%; 
+    width: 120%; /* set the width of the box to 80% of its parent container */
+    padding-bottom: 5%; /* set the height of the box to be the same as its width */
     background-color: rgb(152, 152, 154);
 }
 
@@ -193,7 +193,7 @@ body {
   display: flex;
   position: relative;
   bottom: 80px;
-  left: 2px;
+  left: px;
   border-color: #000000;
 border: 1px solid ;
 border-radius: 3px;
