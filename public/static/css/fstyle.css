@@ -50,6 +50,7 @@ body {
     z-index: 1;
     width: 145px;
     height: 30px;
+    left: 5px;
   }
 
   .dropdown-content {
@@ -93,21 +94,7 @@ body {
     font-size: 20px;
     text-align: center;
   }
-
-
-.details{
-    padding-top: 10px;
-    font-size: 25px;
-    border-color: #000000;
-  border: 1px solid ;
-  border-radius: 3px;
-  background-color: rgb(163, 168, 172);
-  box-shadow: 3px 3px 4px black;
-  width:220px;
-  text-align: left;
-  }
-
-  
+ 
   .save{
     border-radius: 50px;
     border-color: #040404;
@@ -144,7 +131,7 @@ body {
   align-self: baseline;
   font-size: 20px;
   text-align: center;
-  top: 220px;
+  top: 130px;
   left: 5px;
 }    
 
@@ -158,16 +145,7 @@ body {
         background-color: #f9f9f9; 
     }
     
-.dot{
-      width: 1%;
-      bottom: 20px;
-      left: 350px;
-      body {margin:0;}
-    }
 
-    nav{width:100%;position:relative;}
-.logo{position:absolute;top:0;left:0;width:150px;height:150px;background:#ededed;}
-    
 #Machine_Id{
   text-align: center;
 }
@@ -209,6 +187,21 @@ body {
     background-color: rgb(152, 152, 154);
 }
 
+.details{
+  padding-top: 10px;
+  font-size: 25px;
+  display: flex;
+  position: relative;
+  bottom: 80px;
+  left: 2px;
+  border-color: #000000;
+border: 1px solid ;
+border-radius: 3px;
+background-color: rgb(163, 168, 172);
+box-shadow: 3px 3px 4px black;
+width:220px;
+text-align: left;
+}
 
 
 
