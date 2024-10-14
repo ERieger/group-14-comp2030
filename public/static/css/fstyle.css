@@ -200,8 +200,8 @@ body {
     display: flex;
     position: relative;
     bottom: 30px;
-    width: 120%; /* set the width of the box to 80% of its parent container */
-    padding-bottom: 5%; /* set the height of the box to be the same as its width */
+    width: 120%; 
+    padding-bottom: 5%; 
     background-color: rgb(152, 152, 154);
 }
 
