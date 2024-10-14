@@ -111,12 +111,14 @@ body {
   .save{
     border-radius: 50px;
     border-color: #040404;
-    top: 20px;
+    display: flex;
     border-width: 0.5px;
     position: relative;
-    left: 0px;
+    align-self: baseline;
     font-size: 20px;
     text-align: center;
+    top: 250px;
+    left: 460px;
   }  
  
 
@@ -129,9 +131,22 @@ body {
   align-self: baseline;
   font-size: 20px;
   text-align: center;
-  top: 275px;
-  left: 90px;
+  top: 223px;
+  left: 550px;
     }
+
+.new{
+  border-radius: 50px;
+  border-color: #040404;
+  display: flex;
+  border-width: 0.5px;
+  position: relative;
+  align-self: baseline;
+  font-size: 20px;
+  text-align: center;
+  top: 220px;
+  left: 5px;
+}    
 
 .machine_details th{
         background-color:#ddd;
@@ -148,6 +163,12 @@ body {
   text-align: center;
 }
 
+.dot{
+  height: auto;
+  width: 1%;
+  top: 20px;
+  left: 350px;
+}
 .machines-table-container {
   height: 260px; 
   width: 50%;   

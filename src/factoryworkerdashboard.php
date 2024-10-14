@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../public/static/css/utility.css">
     <link rel="stylesheet" href="../public/static/css/index.css">
     <script src="../public/static/js/factorymanager.js" defer></script>
+    <img src="../public/static/images/dot.png" class="dot"
 </head>
 
 <div class="navbar">
@@ -52,8 +53,9 @@
     </div>
    </div>
 
-        <button class="save">save</button>
+        <button class="save">Save</button>
         <button class="publish">Publish</button>
+        <button class="new">Add new Employee</button>
     
     </div>
 
