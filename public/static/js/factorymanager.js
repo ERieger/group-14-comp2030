@@ -1,15 +1,9 @@
 
-function getTime()
-{
-    var dt = new Date();
-document.getElementById("time").innerHTML = dt.toLocaleTimeString();
+function deleteMachine(button)
+{   if (confirm("Are you sure you want to delete this machine?")) {
+    let row= button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+    }
 }
-window.onload= function(){
-
-getTime();
-setInterval(getTime,1000);
-};
-
-
 
   

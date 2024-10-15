@@ -66,6 +66,7 @@
                     <th>Machine Name</th>
                     <th>Status</th>
                     <th id="Machine_Id">Machine ID</th>
+                    <th id="Actions_header"> Actions </th>
                 </tr>
             </thead>
              <tbody>
@@ -86,6 +87,12 @@
                                     <td>" . htmlspecialchars($row['machine_name']) . "</td>
                                     <td>" . htmlspecialchars($row['status']) . "</td>
                                     <td id='Machine_Id'>" . htmlspecialchars($row['machine_id']) . "</td>
+                                    <td class='actions_data'>
+                                        <form method= 'POST' action=''>
+                                        <input type= 'hidden' name= 'machine_id' value='". $row['machine_id']."'>
+                                        <button type='submit' name='deleteMachine' class='actions_button'>🗑</button>
+                                        <button class='actions_button' onclick='updateMachine(". $row['machine_id'].")'>🔧</button>
+                                    </td>
                                 </tr>";
                         }
                     } else {
@@ -129,13 +136,26 @@
                             echo "<tr><td colspan='3'>No data available</td></tr>";
                         }
                         
-
-                        mysqli_close($conn);
                         ?>
 
                         </tbody>
             </table>
         </div> 
+
+        <?php
+            if(isset($_POST['deleteMachine'])){
+            $machineId = $_POST['machine_id'];
+
+            $sql = "DELETE FROM logs WHERE machine_id = '$machineId'";
+            if ($conn->query($sql) === TRUE) {
+                
+            } else {
+                
+            }
+            }
+            mysqli_close($conn);
+            ?>
+
    </main>
  </body>
 </html>
