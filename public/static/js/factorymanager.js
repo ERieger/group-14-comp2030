@@ -6,35 +6,9 @@ function deleteMachine(button)
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Handle panel toggle
-    const buttons = document.querySelectorAll('.new'); // Changed .btn to .new
-    buttons.forEach(function(button) {
-      button.addEventListener('click', function() {
-        const panelID = this.getAttribute('data-panel');
-        const panel = document.querySelector(`.${panelID}`);
-        if (panel) {
-          panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
-        }
-      });
-    });
+const add_button = document.getElementById("newmach");
+add_button.addEventListener("click", function(){
   
-    // Handle navigation hover
-    const navigationItems = document.querySelectorAll('.navigation li');
-    navigationItems.forEach(function(item) {
-      item.addEventListener('mouseenter', function() {
-        const subMenu = this.querySelector('ul');
-        if (subMenu) {
-          subMenu.style.display = 'block';
-        }
-      });
-      item.addEventListener('mouseleave', function() {
-        const subMenu = this.querySelector('ul');
-        if (subMenu) {
-          subMenu.style.display = 'none';
-        }
-      });
-    });
-  });
+}
   
   

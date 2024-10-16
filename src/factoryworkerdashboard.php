@@ -52,7 +52,7 @@
         <button class="save">Save</button>
         <button class="publish">Publish</button>
         <button class="new">Add new Employee</button>
-        <button class="newmach">Add Machines</button>
+        <button id="newmach">Add Machine</button>
     
     </div>
 
@@ -62,7 +62,6 @@
             <thead>
                 <tr>
                     <th>Machine Name</th>
-                    
                     <th id="Machine_Id">Machine ID</th>
                     <th id="Actions_header"> Actions </th>
                 </tr>
@@ -151,7 +150,7 @@
             if(isset($_POST['deleteMachine'])){
             $machineId = $_POST['machine_id'];
 
-            $sql = "DELETE FROM logs WHERE machine_id = '$machineId'";
+            $sql = "DELETE FROM machines WHERE machine_id = '$machineId'";
             if ($conn->query($sql) === TRUE) {
                 
             } else {
