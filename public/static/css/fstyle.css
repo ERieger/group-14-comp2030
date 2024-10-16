@@ -72,8 +72,8 @@ body {
     align-self: baseline;
     font-size: 20px;
     text-align: center;
-    top: 250px;
-    left: 460px;
+    top: 370px;
+    left: 980px;
   }  
  
 
@@ -86,8 +86,8 @@ body {
   align-self: baseline;
   font-size: 20px;
   text-align: center;
-  top: 223px;
-  left: 550px;
+  top: 344px;
+  left: 1055px;
     }
 
 .new{
@@ -112,8 +112,8 @@ body {
   align-self: baseline;
   font-size: 20px;
   text-align: center;
-  top: 200px;
-  left: 550px;
+  top: 280px;
+  left: 455px;
 }
 
 /* Theresa Styles*/
@@ -124,7 +124,6 @@ body {
 
 .machine_details {
         width:100%; 
-
         border: 1px solid #ccc;       /* style for the machine details body */
         background-color: #f9f9f9; 
     }
@@ -170,12 +169,12 @@ body {
   bottom: 110px;
   left: px;
   border-color: #000000;
-border: 1px solid ;
-border-radius: 3px;
-background-color: rgb(163, 168, 172);
-box-shadow: 3px 3px 4px black;
-width:220px;
-text-align: left;
+  border: 1px solid ;
+  border-radius: 3px;
+  background-color: rgb(163, 168, 172);
+  box-shadow: 3px 3px 4px black;
+  width:220px;
+  text-align: left;
 }
 
 
