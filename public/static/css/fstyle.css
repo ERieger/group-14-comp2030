@@ -50,6 +50,7 @@ body {
     z-index: 1;
     width: 145px;
     height: 30px;
+    left: 5px;
   }
 
   .dropdown-content {
@@ -93,21 +94,7 @@ body {
     font-size: 20px;
     text-align: center;
   }
-
-
-.details{
-    padding-top: 10px;
-    font-size: 25px;
-    border-color: #000000;
-  border: 1px solid ;
-  border-radius: 3px;
-  background-color: rgb(163, 168, 172);
-  box-shadow: 3px 3px 4px black;
-  width:220px;
-  text-align: left;
-  }
-
-  
+ 
   .save{
     border-radius: 50px;
     border-color: #040404;
@@ -144,8 +131,8 @@ body {
   align-self: baseline;
   font-size: 20px;
   text-align: center;
-  top: 220px;
-  left: 5px;
+  top: 130px;
+  left: 10px;
 }    
 
 /* Theresa Styles*/
@@ -189,6 +176,21 @@ body {
   text-align: center;
 }
 
+.details{
+  padding-top: 10px;
+  font-size: 25px;
+  display: flex;
+  position: relative;
+  bottom: 80px;
+  left: px;
+  border-color: #000000;
+border: 1px solid ;
+border-radius: 3px;
+background-color: rgb(163, 168, 172);
+box-shadow: 3px 3px 4px black;
+width:220px;
+text-align: left;
+}
 
 
 
