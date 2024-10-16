@@ -146,7 +146,7 @@
             </table>
         </div> 
 
-        <?php
+        <?php     //php connection for deleting machine from database
             if(isset($_POST['deleteMachine'])){
             $machineId = $_POST['machine_id'];
 

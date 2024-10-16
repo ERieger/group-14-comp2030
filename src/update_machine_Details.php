@@ -1,46 +1,63 @@
 <?php
 require_once '../src/api/dbconn.inc.php';
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Retrieve form data
-    $machineName = isset($_POST['machine_name']) ? $_POST['machine_name'] : null;
-    $status = isset($_POST['status']) ? $_POST['status'] : null;
-    $machineId = isset($_POST['machine_id']) ? $_POST['machine_id'] : null;
-}
-    // Validate that the required data is provided
-    if ($machineName === null || $status === null || $machineId === null) {
-        die("Missing required form data.");
-    }
-// Assuming you have established a connection to the database in $conn
-$machineName = $_POST['machine_name'];
-$status = $_POST['status'];
-$machineId = $_POST['machine_id'];
 
-// Initialize a statement
-$statement = mysqli_stmt_init($conn);
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['machine_id'])) {
+    $machineId = $_POST['machine_id'];
 
-// Prepare the query
-$sql = "UPDATE logs SET machine_name = ?, status = ? WHERE machine_id = ?";
+    // Fetching the curent machine details
+    $sql = "SELECT machine_name, status FROM logs WHERE machine_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-// Check if the preparation is successful
-if (mysqli_stmt_prepare($statement, $sql)) {
-    
-    // Bind parameters to the statement: 2 strings (ss) and 1 integer (i)
-    mysqli_stmt_bind_param($statement, "ssi", $machineName, $status, $machineId);
-    
-    // Execute the statement
-    if (mysqli_stmt_execute($statement)) {
-        echo "Record updated successfully";
+    if ($row = $result->fetch_assoc()) {
+        $machineName = $row['machine_name'];
+        $status = $row['status'];
     } else {
-        echo "Error executing query: " . mysqli_stmt_error($statement);
+        die("Invalid machine ID.");
     }
-    
-    // Close the statement
-    mysqli_stmt_close($statement);
-
-} else {
-    echo "Error preparing query: " . mysqli_stmt_error($statement);
+    $stmt->close();
 }
 
-// Close the connection
-mysqli_close($conn);
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['updateMachine'])) {
+    $machineName = $_POST['machine_name'];
+    $status = $_POST['status'];
+    $machineId = $_POST['machine_id'];
+
+    // Update machine details
+    $sql = "UPDATE logs SET machine_name = ?, status = ? WHERE machine_id = ?";
+    $stmt = $conn->prepare($sql);
+
+    if ($stmt->execute()) {
+        echo "Machine updated successfully.";
+    } else {
+        echo "Error updating machine: " . $conn->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+    header("Location: factoryworkerdashboard.php"); 
+    exit;
+}
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Machine</title>
+</head>
+<body>
+    <form method="POST" action="update_machine_Details.php">
+        <input type="hidden" name="machine_id" value="<?php echo htmlspecialchars($machineId); ?>">
+        <label for="machine_name">Machine Name:</label>
+        <input type="text" id="machine_name" name="machine_name" value="<?php echo htmlspecialchars($machineName); ?>" required>
+
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" value="<?php echo htmlspecialchars($status); ?>" required>
+
+        <button type="submit" name="updateMachine">Update Machine</button>
+    </form>
+</body>
+</html>
