@@ -85,10 +85,17 @@
                                     <td>" . htmlspecialchars($row['status']) . "</td>
                                     <td id='Machine_Id'>" . htmlspecialchars($row['machine_id']) . "</td>
                                     <td class='actions_data'>
-                                        <form method= 'POST' action=''>
+
+                                        <form id='deleteForm' method= 'POST' action=''> 
                                         <input type= 'hidden' name= 'machine_id' value='". $row['machine_id']."'>
                                         <button type='submit' name='deleteMachine' class='actions_button'>🗑</button>
-                                        <button class='actions_button' onclick='updateMachine(". $row['machine_id'].")'>🔧</button>
+                                        </form>
+
+                                        <form id='editForm' method='POST' action='update_machine_Details.php'>
+                                        <input type= 'hidden' name= 'machine_id' value='". $row['machine_id']."'>
+                                        <button type='submit' class='actions_button'>🔧</button>
+                                        </form>
+
                                     </td>
                                 </tr>";
                         }
