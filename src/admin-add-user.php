@@ -122,7 +122,11 @@
             </div>
             <div class="input-box">
                 <span class="details">Email</span> 
-                <input type="text" name="email" placeholder="" required>
+                <input type="email" name="email" placeholder="" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Password</span> 
+                <input type="text" name="pwd" placeholder="" required>
             </div>
             
 
