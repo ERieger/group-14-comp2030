@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['machine_id'])) {
     $machineId = $_POST['machine_id'];
 
     // Fetching the curent machine details
-    $sql = "SELECT machine_name, status FROM logs WHERE machine_id = ?";
+    $sql = "SELECT machine_name, status FROM machines WHERE machine_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $machineId);
     $stmt->execute();
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['updateMachine'])) {
     $machineId = $_POST['machine_id'];
 
     // Update machine details
-    $sql = "UPDATE logs SET machine_name = ?, status = ? WHERE machine_id = ?";
+    $sql = "UPDATE machines SET machine_name = ?, status = ? WHERE machine_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssi", $machineName, $status, $machineId);
 
