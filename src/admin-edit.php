@@ -37,11 +37,11 @@
     </header>
     <div class="grid-container">
         <div class="grid-item-header"></div>
-    <div class="grid-item1">
+    <div class="card">
         <div class="card-header1">
             <h3 class="card-header1-item1">Users</h3>
             <div class="spacer"></div>
-            <a href="add-user.php"><h3 class="add-user">+</h3></a>
+            <a href="admin-add-user.php"><img class="add-img" src="../public\static/images/icons/add-user.png"></a>
         </div>
         <table class="f2-table" id="DisplayTable">
             <thead>
@@ -55,21 +55,21 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
-                    require_once "dbconn.inc.php"; 
-                    $sql = "SELECT * FROM users;";
+            <?php
+                    require_once "./api/dbconn.inc.php"; 
+                    $sql = "SELECT * FROM employees;";
 
                     if($result = mysqli_query($conn, $sql)) {
                         if(mysqli_num_rows($result) >= 1) {
                             while($row = mysqli_fetch_assoc($result)) {
                                 echo 
-                                '<tr>
-                                    <td>' . $row['id'] . '</td>
-                                    <td>' . $row['fName'] . '</td>
-                                    <td>' . $row['lName'] . '</td>
+                                '<tr class="row-hover">
+                                    <td>' . $row['employee_id'] . '</td>
+                                    <td>' . $row['f_name'] . '</td>
+                                    <td>' . $row['l_name'] . '</td>
                                     <td>' . $row['role'] . '</td>
-                                    <td> <a class="details-btn" href=admin-details.php?id=' . $row['id'] . '>details</a> </td>
-                                    <td> <a class="delete-btn" href=delete.php?id=' . $row['id'] . '>delete</a> </td>'
+                                    <td> <a class="details-btn" href=admin-view-details.php?id=' . $row['employee_id'] . '>details</a> </td>
+                                    <td> <a class="delete-btn" href=api/admin/admin-delete.php?id=' . $row['employee_id'] . '><img class="delete-img" src="../public\static/images/icons/delete-user.png"></a> </td>'
                                     ;
                             }
                         }
@@ -82,41 +82,43 @@
 
     </div>
 <!-- grid-item2 - I want to act as a dynamic card interface, that allows me to add and edit users -->
-    <div class="grid-item2">
+    <div class="card">
         <div class="card-header1">
         <h3 class="card-header1-item1">User Details</h3> 
         
         <?php 
-        require_once "dbconn.inc.php";
+        require_once "./api/dbconn.inc.php";
         $id = $_GET["id"];
         echo
-        '<div><a class="edit-btn" href=edit.php?id="'. $id . '">edit</a></div>';
+        '<div><a class="edit-btn" href=admin-edit.php?id='. $id . '><img class="add-img" src="../public\static/images/icons/edit-user.png"></a></div>';
         ?>
         
     
     </div>
     <div class="grid-item2-content">
+        <p>Input values into the fields that you would like to edit</p>
         <?php 
-        require_once "dbconn.inc.php";
+        require_once "./api/dbconn.inc.php";
         $id = $_GET["id"];
-        $sql = "SELECT * FROM users WHERE id = $id;";
+        $sql = "SELECT * FROM employees WHERE employee_id = $id;";
 
         if($result = mysqli_query($conn, $sql)) {
             $row = mysqli_fetch_assoc($result);
             echo 
-            '<form action="includes/admin-edit.php" method="post">
-            <input type="hidden" name="id" value' . $row["id"] . '>
+            '<form action="api/admin/admin-edit-handler.php" method="post">
+            <input type="hidden" name="id" value="' . $row["employee_id"] . '">
             <div class="input-box">
                 <span class="details">First Name</span> 
-                <input type="text" name="fname" placeholder="' . $row["fName"] . '" required>
+                <input type="text" name="fname">
             </div>
             <div class="input-box">
                 <span class="details">Last Name</span> 
-                <input type="text" name="lname" placeholder="' . $row["lName"] . '" required>
+                <input type="text" name="lname">
             </div>
             <div class="input-box">
                 <span class="details">Role</span> 
-                <select name="role" id="role" placeholder="' . $row["role"] . '">
+                <select name="role" id="role">
+                    <option value="unchanged">unchanged</option>
                     <option value="Admin">Admin</option>
                     <option value="Factory Manager">Factory Manager</option>
                     <option value="Factory Worker">Factory Worker</option>
@@ -125,20 +127,16 @@
             </div>
             <div class="input-box">
                 <span class="details">Phone Number</span> 
-                <input type="text" name="phno" placeholder="' . $row["phoneNumber"] . '" required>
+                <input type="text" name="phno">
             </div>
-            <div class="gender-details">
-                <span class="gender-title">Gender</span>
-                <select name="gender" id="gender" placeholder="' . $row["gender"] . '">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                </select>
+            <div class="input-box">
+                <span class="email-title">Email</span>
+                <input type="text" name="email">
             </div>
 
         
            <div class="button">
-                <input type="submit" name="submit" value="Update User">
+                <input class="submit-btn" type="submit" name="submit" value="Update User">
            </div>
         </form>'
             
