@@ -12,7 +12,8 @@ function loadEnv($filePath) {
     }
 }
 
-loadEnv('../../../.env');
+loadEnv('C:\xampp\htdocs\www\webSolution\test\.env');
+
 
 // Use constants to define your connection parameters
 define("DB_HOST", getenv("DB_HOSTNAME"));

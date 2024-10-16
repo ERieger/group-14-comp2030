@@ -6,18 +6,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // ensures you access this page the 
     $lname = $_POST["lname"];
     $role = $_POST["role"];
     $phno = $_POST["phno"];
-    $gender = $_POST["gender"];
+    // $gender = $_POST["gender"];
+    $email = $_POST["email"];
 
-    require_once "../dbconn.inc.php";
+    require_once __DIR__ . "/../dbconn.inc.php";
    
 
-    $sql = "INSERT INTO users (fname, lname, role, phoneNumber, gender)
+    $sql = "INSERT INTO employees (f_name, l_name, role, phoneNo, email)
     VALUES (?, ?, ?, ?, ?);";
 
 $statement = mysqli_stmt_init($conn); // will intialise new SQL statment using stablised db connection stored in $conn
 mysqli_stmt_prepare($statement, $sql);
 
-mysqli_stmt_bind_param($statement, "sssss", $fname, $lname, $role, $phno, $gender);
+mysqli_stmt_bind_param($statement, "sssss", $fname, $lname, $role, $phno, $email);
 // set id to auto increment
 
 
@@ -27,14 +28,22 @@ mysqli_stmt_bind_param($statement, "sssss", $fname, $lname, $role, $phno, $gende
 // mysqli_stmt_bind_param($statement, ':d', $phno); 
 // mysqli_stmt_bind_param($statement, ':e', $gender); 
 
+$sql1 = "SELECT MAX(employee_id) AS id FROM employees;";
+        
+if($result = mysqli_query($conn, $sql1)) {
+    
+    $row = mysqli_fetch_assoc($result);
+    $id = $row["id"] +1;
+}
+
 if (mysqli_stmt_execute($statement)) {
-    header("location: ../adminIndex.php"); }
-    else {        
-        echo mysqli_error($conn);
+header("Location: ../../admin-view-details.php?id=" . $id); }
+else {        
+    echo mysqli_error($conn);
 }
 mysqli_close($conn);
 
-    header("Location: ../adminIndex.php"); // sends page back to index page
+header("Location: ../../admin-view-details.php?id=". $id); // sends page back to index page
 } else {
-    header("Location: ../adminIndex.php"); // fail safe for security 
-}
+header("Location: ../../admin-view-details.php?id=". $id); // fail safe for security 
+} // only problem is if there are know users

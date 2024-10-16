@@ -21,6 +21,7 @@ body {
     border-collapse: collapse;
     white-space: nowrap;
     margin: .7rem;
+    
 }
 
 table, th, tr {
@@ -28,12 +29,18 @@ table, th, tr {
     white-space: nowrap;
     border-bottom: 1px solid var(--secondary-light);
     font-size: large;
+    width: 100%;
 }
+
+
 
 td {
     padding: .2rem;
     font-size: large;
+    width: 100%;
+    margin-right: 40px;
 }
+
 
 /* .f2-table th, .f2-table td {
     text-align: center;
@@ -74,6 +81,12 @@ td {
     display: inline-block;
 }
 
+.card-header1 {
+    display: flex;
+    justify-content: space-between;
+
+}
+
 
 .grid-item1 {
     grid-area: l;
@@ -86,6 +99,79 @@ td {
     margin-right: 30px;
     border-radius: .3rem;
     border: .1rem solid hsl(208.24, 7.3%, 65.69%);
+} 
+
+.hidden {
+    /* overflow: hidden; */
+    max-height: 500px;
+    
+    
+}
+
+thead, tbody { display: block; }
+
+tbody {
+    height: 350px;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
+    
+    
+}
+
+#cs {
+    /* height: 500px; */
+    /* overflow: scroll; */
+    height: 500px;
+}
+
+form {
+    /* width: px; */
+    margin-left: 20px;
+    background-color: aquamarine;
+}
+
+.input-box {
+    display: flex;
+    margin-top: 20px;
+    font-size: 20px;
+    border-bottom: 1px grey;
+
+}
+
+input {
+    width: 300px;
+    margin-right: 80px;
+}
+
+select {
+    width: 309px;
+    margin-right: 80px;
+}
+
+input select {
+    margin-right: 50px;
+
+   
+    
+}
+
+span {
+    margin-right: auto;
+    margin-left: 80px;
+}
+
+.button {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+.submit-btn {
+    width: 300px;
+    height: 50px;
+    margin-left: 22px;
 }
 
 .card-header1 {
@@ -148,10 +234,12 @@ td {
     /* height: 100vh; */
     /* margin: 0px;
     background-color: white; */
+    padding: 10px 30px 30px;
+    
 }
 
 .grid-item3 {
-    background-color: #f8f9fa;
+    /* background-color: #f8f9fa; */
     grid-area: footer;
 }
 
@@ -164,34 +252,23 @@ p {
 }
 /* buttons */
 .details-btn {
-    background-color: lightgrey;
+    /* background-color: lightgrey; */
     text-decoration: none;
     padding: 1px 1px;
     border-radius: .1rem;
 }
 
-.delete-btn {
-    background-color: lightcoral;
-    text-decoration: none;
-    padding: 1px 1px;
-    border-radius: .1rem;
-}
+
 
 .details-btn:visited {
     color: black;
 }
 
-.delete-btn:visited {
-    color: black;
-}
 
 .details-btn:hover {
-    background-color: lightgreen;
+    color: lightgreen;
 }
 
-.delete-btn:hover {
-    background-color: red;
-}
 
 .spacer {
     margin-left: auto;
@@ -206,3 +283,91 @@ p {
     display: flex;
     justify-content: space-between;
 } */
+
+.split-words {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+/* .split-words {
+    display: flex;
+    justify-content: space-between;  
+} */
+
+.left {
+    margin-left: 50px;
+    margin-right: auto;
+}
+
+.right {
+    margin-right: 70px;
+    margin-left: auto;
+}
+
+.spacer1 {
+    /* align-self: center;
+    background-color: azure; */
+
+}
+
+
+/* images and links */
+.add-img {
+    width: 50px;
+}
+
+.add-img:hover {
+    filter: brightness(0.9) invert(.7) sepia(.5) hue-rotate(100deg) saturate(200%);
+}
+
+.delete-img {
+    width: 50px;
+}
+
+.delete-img:hover {
+    filter: invert(50%) sepia(84%) saturate(2867%) hue-rotate(329deg) brightness(112%) contrast(110%);
+    cursor: pointer;
+}
+
+.row-hover:hover {
+    background-color: rgb(237, 237, 237);
+}
+
+.delete-popup {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 0px 30px 30px;
+    background-color: white;
+    visibility: hidden;
+}
+
+.delete-popup button {
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.delete-popup button {
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    
+}
+
+.danger-btn {
+    background-color: rgb(255, 117, 117);
+    border-color: rgb(255, 117, 117);
+}
+
+.danger-btn:hover {
+    background-color: rgb(255, 64, 64);
+    border-color:rgb(255, 64, 64);
+    color: white;
+}
