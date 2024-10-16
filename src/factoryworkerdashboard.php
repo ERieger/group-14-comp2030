@@ -61,7 +61,7 @@
             <thead>
                 <tr>
                     <th>Machine Name</th>
-                    <th>Status</th>
+                    
                     <th id="Machine_Id">Machine ID</th>
                     <th id="Actions_header"> Actions </th>
                 </tr>
@@ -72,7 +72,7 @@
                     require_once '../src/api/dbconn.inc.php';
 
 
-                    $sql_machines = "SELECT DISTINCT machine_name, status, machine_id FROM logs";
+                    $sql_machines = "SELECT DISTINCT machine_name, machine_id FROM machines";
                     $result_machines = mysqli_query($conn, $sql_machines);
 
 
@@ -82,7 +82,7 @@
                             
                             echo "<tr>
                                     <td>" . htmlspecialchars($row['machine_name']) . "</td>
-                                    <td>" . htmlspecialchars($row['status']) . "</td>
+                                    
                                     <td id='Machine_Id'>" . htmlspecialchars($row['machine_id']) . "</td>
                                     <td class='actions_data'>
 
