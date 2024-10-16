@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['machine_id'])) {
     // Fetching the curent machine details
     $sql = "SELECT machine_name, status FROM logs WHERE machine_id = ?";
     $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $machineId);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -27,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['updateMachine'])) {
     // Update machine details
     $sql = "UPDATE logs SET machine_name = ?, status = ? WHERE machine_id = ?";
     $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssi", $machineName, $status, $machineId);
 
     if ($stmt->execute()) {
         echo "Machine updated successfully.";
