@@ -1,24 +1,74 @@
 window.addEventListener("load", (event) => {
     console.log("Hello World!");
+    fetchOverviewData();
+    fetchMachineData();
 });
 
-$.ajax({
-    url: "/factory-dashboard/src/api/dashboard/fetch-logs.php",
-    type: "GET",
-    dataType: "json",
-    data: {
-        startTimestamp: "2024-04-01 00:00:00",
-        endTimestamp: "2024-04-01 10:30:00",
-        machine: "3D Printer",
-    },
-    success: (data) => {
-        console.log(data);
-        updatePage(data);
-    },
-    error: (jqXHR, textStatus, errorThrown) => {
-        console.error("AJAX Error: ", textStatus, errorThrown);
-    },
+let machine = "3D Printer";
+let start = "2024-04-13 02:30:00";
+let end = "2024-04-13 21:00:00";
+
+$("#filter-form").submit(function (e) {
+    e.preventDefault();
+    machine = $("#machine-select").val();
+    start = $("#start").val();
+    end = $("#end").val();
+
+    $("#logs-table tr").not(":first").remove();
+
+    fetchOverviewData();
+    fetchMachineData();
 });
+
+function fetchMachineData() {
+    console.log("Requesting Machine Data", {
+        startTimestamp: start,
+        endTimestamp: end,
+        machine: machine,
+    });
+    $.ajax({
+        url: "/factory-dashboard/src/api/dashboard/fetch-logs.php",
+        type: "GET",
+        dataType: "json",
+        data: {
+            startTimestamp: start,
+            endTimestamp: end,
+            machine: machine,
+        },
+        success: (data) => {
+            console.log("Received Machine Data: ", data);
+            updateMachine(data);
+        },
+        error: (jqXHR, textStatus, errorThrown) => {
+            console.error("AJAX Error: ", textStatus, errorThrown);
+        },
+    });
+}
+
+function fetchOverviewData() {
+    console.log("Requesting Overview Data: ", {
+        startTimestamp: start,
+        endTimestamp: end,
+        machine: "*",
+    });
+    $.ajax({
+        url: "/factory-dashboard/src/api/dashboard/fetch-logs.php",
+        type: "GET",
+        dataType: "json",
+        data: {
+            startTimestamp: start,
+            endTimestamp: end,
+            machine: "*",
+        },
+        success: (data) => {
+            console.log("Retrieved Overview Data: ", data);
+            updateOverview(data);
+        },
+        error: (jqXHR, textStatus, errorThrown) => {
+            console.error("AJAX Error: ", textStatus, errorThrown);
+        },
+    });
+}
 
 function formatDataSeries(logs) {
     let data = {
@@ -45,27 +95,57 @@ function formatDataSeries(logs) {
     return data;
 }
 
-function updatePage(logs) {
-    logs.forEach((log) => {
-        $("#logs-table tr:last").after(`
-        <tr>
-            <td>${log.timestamp}</td>
-            <td>${log.machine_name}</td>
-            <td>${log.status}</td>
-            <td>${log.error_code}</td>
-            <td>${log.maintenance_log}</td>
-            <td>${log.production}%</td>
-            <td>${log.vibration} g</td>
-            <td>${log.humidity}%</td>
-            <td>${log.power_consumption} W</td>
-            <td>${log.speed} RPM</td>
-        </tr>
-        `);
-    });
+function summariseSeries(data) {
+    let total = 0;
+    let items = 0;
+    let summarised = [];
 
-    $("#logs-table").paging({ limit: 7 });
+    data.sort((a, b) => new Date(a[0]) - new Date(b[0]));
 
+    for (let i = 0; i < data.length; i++) {
+        const currentVal = parseFloat(data[i][1]);
+
+        if (i > 0 && Date.parse(data[i][0]) === Date.parse(data[i - 1][0])) {
+            total += currentVal;
+            items++;
+        } else {
+            if (i > 0) {
+                summarised.push([
+                    new Date(data[i - 1][0]),
+                    (total / items).toFixed(2),
+                ]);
+            }
+            total = currentVal;
+            items = 1;
+        }
+    }
+
+    if (items > 0) {
+        summarised.push([
+            new Date(data[data.length - 1][0]),
+            (total / items).toFixed(2),
+        ]);
+    }
+
+    return summarised;
+}
+
+function updateOverview(logs) {
     let data = formatDataSeries(logs);
+    let dataTemp = {
+        humidity: summariseSeries(data.humidity),
+        power_consumption: summariseSeries(data.power_consumption),
+        pressure: summariseSeries(data.pressure),
+        production: summariseSeries(data.production),
+        speed: summariseSeries(data.speed),
+        temperature: summariseSeries(data.temperature),
+        vibration: summariseSeries(data.vibration),
+    };
+
+    // console.log(dataTemp);
+
+    data = dataTemp;
+
     let statusGraphs = [
         "production",
         "power_consumption",
@@ -75,7 +155,7 @@ function updatePage(logs) {
     ];
 
     statusGraphs.forEach((graph) => {
-        console.log(graph);
+        // console.log(graph);
         let settings = {
             chart: {
                 type: "stepline", // Line, Stepline, Smooth Line
@@ -103,9 +183,74 @@ function updatePage(logs) {
             ],
         };
 
-        console.log(settings);
+        // console.log(settings);
 
         let chart = new Chart($(`#${graph}`)[0], settings);
+        chart.render();
+    });
+}
+
+function updateMachine(logs) {
+    logs.forEach((log) => {
+        $("#logs-table tr:last").after(`
+        <tr>
+            <td>${log.timestamp}</td>
+            <td>${log.machine_name}</td>
+            <td>${log.status}</td>
+            <td>${log.error_code}</td>
+            <td>${log.maintenance_log}</td>
+            <td>${log.production}%</td>
+            <td>${log.vibration} g</td>
+            <td>${log.humidity}%</td>
+            <td>${log.power_consumption} W</td>
+            <td>${log.speed} RPM</td>
+        </tr>
+        `);
+    });
+
+    $("#logs-table").paging({ limit: 7 });
+
+    let data = formatDataSeries(logs);
+    let machineGraphs = [
+        "production",
+        "power_consumption",
+        "speed",
+        "humidity",
+        "temperature",
+    ];
+
+    machineGraphs.forEach((graph) => {
+        // console.log(graph);
+        let settings = {
+            chart: {
+                type: "stepline", // Line, Stepline, Smooth Line
+                style: {
+                    fill: "#007bff48", // --primary-50p
+                    stroke: "#007bff", // --primary
+                },
+                pointSize: 3,
+                xAxis: {
+                    scale: "none",
+                    ticks: 10,
+                },
+                yAxis: {
+                    scale: "none",
+                    ticks: 10,
+                },
+            },
+            stroke: {
+                curve: "smooth",
+            },
+            series: [
+                {
+                    data: data[graph],
+                },
+            ],
+        };
+
+        // console.log(settings);
+
+        let chart = new Chart($(`#m-${graph}`)[0], settings);
         chart.render();
     });
 }
