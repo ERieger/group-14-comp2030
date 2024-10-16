@@ -99,7 +99,11 @@
         
         <?php 
         require_once "./api/dbconn.inc.php";
-        $id = $_GET["id"];
+        if (isset($_GET["id"])) {
+        $id = $_GET["id"]; } else {
+            $id = 1;
+        }
+    
         echo
         '<div><a class="edit-btn" href=admin-edit.php?id='. $id . '><img class="add-img" src="../public\static/images/icons/edit-user.png"></a></div>';
         ?>

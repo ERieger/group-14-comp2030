@@ -8,17 +8,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // ensures you access this page the 
     $phno = $_POST["phno"];
     // $gender = $_POST["gender"];
     $email = $_POST["email"];
+    $password = $_POST["pwd"];
+
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     require_once __DIR__ . "/../dbconn.inc.php";
    
 
-    $sql = "INSERT INTO employees (f_name, l_name, role, phoneNo, email)
-    VALUES (?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO employees (f_name, l_name, role, phoneNo, email, password)
+    VALUES (?, ?, ?, ?, ?, ?);";
 
 $statement = mysqli_stmt_init($conn); // will intialise new SQL statment using stablised db connection stored in $conn
 mysqli_stmt_prepare($statement, $sql);
 
-mysqli_stmt_bind_param($statement, "sssss", $fname, $lname, $role, $phno, $email);
+mysqli_stmt_bind_param($statement, "ssssss", $fname, $lname, $role, $phno, $email, $hashedPassword);
 // set id to auto increment
 
 
