@@ -52,6 +52,7 @@
         <button class="save">Save</button>
         <button class="publish">Publish</button>
         <button class="new">Add new Employee</button>
+        <button class="newmach">Add Machines</button>
     
     </div>
 

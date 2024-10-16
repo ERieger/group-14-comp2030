@@ -9,38 +9,6 @@ body {
     width: 100vw;
 }
 
-.navbar {
-  width: 100vw;
-  display: flex;
-  align-items: center;
-
-  border-bottom: 1px solid var(--dark);
-
-  > a,
-  p {
-      padding-left: 0.75rem;
-  }
-
-  .nav-item {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 0.4rem;
-
-      border-left: 1px solid var(--dark);
-      min-width: 6rem;
-
-      p {
-          margin: 0.1rem 0;
-          padding-left: 0;
-      }
-
-      img {
-          width: 2.5rem;
-      }
-  }
-}
 .dropdown {
     display: inline-block;
     position: relative;
@@ -133,7 +101,20 @@ body {
   text-align: center;
   top: 130px;
   left: 10px;
-}    
+}
+
+.newmach{
+  border-radius: 50px;
+  border-color: #040404;
+  display: flex;
+  border-width: 0.5px;
+  position: relative;
+  align-self: baseline;
+  font-size: 20px;
+  text-align: center;
+  top: 200px;
+  left: 550px;
+}
 
 /* Theresa Styles*/
 
@@ -143,11 +124,15 @@ body {
 
 .machine_details {
         width:100%; 
+
         border: 1px solid #ccc;       /* style for the machine details body */
         background-color: #f9f9f9; 
     }
     
-    
+.machines-table-container{
+  display: flex;
+  
+}
 #Machine_Id{
   text-align: center;
 }
@@ -182,7 +167,7 @@ body {
   font-size: 25px;
   display: flex;
   position: relative;
-  bottom: 80px;
+  bottom: 110px;
   left: px;
   border-color: #000000;
 border: 1px solid ;
