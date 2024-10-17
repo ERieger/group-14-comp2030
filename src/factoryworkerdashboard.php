@@ -120,25 +120,20 @@
 
         <?php //php connection fetching current jobs from database
                         
-                        $sql_jobs = "SELECT DISTINCT e.f_name, e.l_name, m.machine_name
-                        FROM employees e
-                        JOIN jobs j ON e.employee_id = j.employee_id
-                        JOIN machines m ON j.machine_id = m.machine_id";
-
+                        $sql_jobs = "SELECT DISTINCT e.f_name, e.l_name, j.job_name FROM employees e JOIN jobs j ON e.employee_id = j.employee_id";
                         $result_jobs = mysqli_query($conn, $sql_jobs);
                         
 
-
                         if (mysqli_num_rows($result_jobs) > 0) {
-                            while ($row = mysqli_fetch_assoc($result_jobs)) {
-                                $full_name = htmlspecialchars($row['f_name']) . ' ' . htmlspecialchars($row['l_name']);
-                                $machine_name = htmlspecialchars($row['machine_name']);
-                        
+                                while ($row = mysqli_fetch_assoc($result_jobs)) {
+                                    $full_name = htmlspecialchars($row['f_name']) . ' ' . htmlspecialchars($row['l_name']);
+                                    $job_name= htmlspecialchars(($row['job_name']));
+                            
                                 echo "<tr>
                                         <td>
                                             <details class='details'>
                                             <summary class='employee_name'>$full_name</summary>
-                                            <p class='current'>Current- $machine_name</p>
+                                            <p class='current'>Current- $job_name</p>
                                             </details>
                                         </td>
                                       </tr>";
