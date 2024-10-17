@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // ensures you access this page the 
 if($result = mysqli_query($conn, $sql)) {
     
     $row = mysqli_fetch_assoc($result);
+    $password = $row["password"];
 
     $role = $row["role"] ??= "no value";
     if($role == "no value") {
@@ -20,10 +21,10 @@ if($result = mysqli_query($conn, $sql)) {
     }
 }
 
-$hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
+// $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
 
-if (password_verify($pwd, $hashedPwd)) {
+if (password_verify($pwd, $password)) {
    
     if ($role == "Admin") {
         header("Location: ../../admin-view-details.php?id=1");
@@ -41,4 +42,4 @@ if (password_verify($pwd, $hashedPwd)) {
 
 }
 mysqli_close($conn);
-header("Location: ../../login.php?"); // sends page back to index page
+// header("Location: ../../login.php?"); // sends page back to index page
