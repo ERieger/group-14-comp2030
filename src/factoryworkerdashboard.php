@@ -52,7 +52,6 @@
         <button class="save">Save</button>
         <button class="publish">Publish</button>
         <button class="new">Add new Employee</button>
-        <button id="newmach">Add Machine</button>
     
     </div>
 
@@ -68,7 +67,7 @@
             </thead>
              <tbody>
 
-                    <?php //php connection for fetching machines from database
+                    <?php //php connection fetching machines for machine details table
                     require_once '../src/api/dbconn.inc.php';
 
 
@@ -86,10 +85,11 @@
                                     <td id='Machine_Id'>" . htmlspecialchars($row['machine_id']) . "</td>
                                     <td class='actions_data'>
 
-                                        <form id='deleteForm' method= 'POST' action=''> 
+                                        <form id='deleteForm' method= 'POST' action='delete_machine.php'> 
                                         <input type= 'hidden' name= 'machine_id' value='". $row['machine_id']."'>
-                                        <button type='submit' name='deleteMachine' class='actions_button'>🗑</button>
+                                        <button type='submit' onclick= 'return confirmDelete()' name='deleteMachine' class='actions_button'>🗑</button>
                                         </form>
+
 
                                         <form id='editForm' method='POST' action='update_machine_Details.php'>
                                         <input type= 'hidden' name= 'machine_id' value='". $row['machine_id']."'>
@@ -108,18 +108,25 @@
         </table>
     </div>
 
+    <form action="add_machine.php" method="POST">
+    <button id="add_button" type="submit">Add Machine</button>
+    </form>
+
+
         
         <div class="employees-table-container"> <!-- table for job assignment-->
         <table class="employees_details">
              <tbody>
 
-        <?php //php connection for fetching current jobs from database
+        <?php //php connection fetching current jobs from database
                         
-                        $sql_jobs = "SELECT e.f_name, e.l_name, m.machine_name
+                        $sql_jobs = "SELECT DISTINCT e.f_name, e.l_name, m.machine_name
                         FROM employees e
                         JOIN jobs j ON e.employee_id = j.employee_id
                         JOIN machines m ON j.machine_id = m.machine_id";
+
                         $result_jobs = mysqli_query($conn, $sql_jobs);
+                        
 
 
                         if (mysqli_num_rows($result_jobs) > 0) {
@@ -145,21 +152,6 @@
                         </tbody>
             </table>
         </div> 
-
-        <?php     //php connection for deleting machine from database
-            if(isset($_POST['deleteMachine'])){
-            $machineId = $_POST['machine_id'];
-
-            $sql = "DELETE FROM machines WHERE machine_id = '$machineId'";
-            if ($conn->query($sql) === TRUE) {
-                
-            } else {
-                
-            }
-            }
-            mysqli_close($conn);
-            ?>
-
    </main>
  </body>
 </html>

@@ -4,16 +4,16 @@ require_once '../src/api/dbconn.inc.php';
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['machine_id'])) {
     $machineId = $_POST['machine_id'];
 
-    // Fetching the curent machine details
-    $sql = "SELECT machine_name, status FROM machines WHERE machine_id = ?";
+    // Fetching the current machine details (machine_id and machine_name)
+    $sql = "SELECT machine_name, machine_id FROM machines WHERE machine_id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $machineId);
+    $stmt->bind_param("i", $machineId); // 'i' for integer
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($row = $result->fetch_assoc()) {
         $machineName = $row['machine_name'];
-        $status = $row['status'];
+        $machineId = $row['machine_id'];  // Redundant here, since you already have it
     } else {
         die("Invalid machine ID.");
     }
@@ -22,13 +22,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['machine_id'])) {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['updateMachine'])) {
     $machineName = $_POST['machine_name'];
-    $status = $_POST['status'];
     $machineId = $_POST['machine_id'];
 
-    // Update machine details
-    $sql = "UPDATE machines SET machine_name = ?, status = ? WHERE machine_id = ?";
+    // Update machine details (only machine_name based on machine_id)
+    $sql = "UPDATE machines SET machine_name = ? WHERE machine_id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssi", $machineName, $status, $machineId);
+    $stmt->bind_param("si", $machineName, $machineId); // 's' for string, 'i' for integer
 
     if ($stmt->execute()) {
         echo "Machine updated successfully.";
@@ -38,19 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['updateMachine'])) {
 
     $stmt->close();
     $conn->close();
-    header("Location: factoryworkerdashboard.php"); 
+    
+    header("Location: factoryworkerdashboard.php");
     exit;
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Machine</title>
-</head>
-<body>
+
     <form method="POST" action="update_machine_Details.php">
         <input type="hidden" name="machine_id" value="<?php echo htmlspecialchars($machineId); ?>">
         <label for="machine_name">Machine Name:</label>
@@ -61,5 +54,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['updateMachine'])) {
 
         <button type="submit" name="updateMachine">Update Machine</button>
     </form>
-</body>
-</html>
+
