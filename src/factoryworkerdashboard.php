@@ -155,7 +155,7 @@
 <?php // PHP connection for fetching machines from the database
 require_once '../src/api/dbconn.inc.php';
 
-$sql_machines = "SELECT DISTINCT machine_name, status, machine_id FROM logs";
+$sql_machines = "SELECT DISTINCT machine_name FROM machines";
 $result_machines = mysqli_query($conn, $sql_machines);
 
 ?>
