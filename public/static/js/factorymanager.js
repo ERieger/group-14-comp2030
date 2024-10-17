@@ -1,14 +1,9 @@
 
-function deleteMachine(button)
-{   if (confirm("Are you sure you want to delete this machine?")) {
-    let row= button.parentNode.parentNode;
-    row.parentNode.removeChild(row);
-    }
+function confirmDelete()
+{   return confirm('Are you sure you want to delete?');
 }
 
 const add_button = document.getElementById("newmach");
 add_button.addEventListener("click", function(){
 
 });
-  
-  
