@@ -12,7 +12,7 @@ body {
 .dropdown {
     display: inline-block;
     position: relative;
-    bottom: 200px;
+    bottom: 50px;
     display: flex;
     padding-top: 0px;
     z-index: 1;
