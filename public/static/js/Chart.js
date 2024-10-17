@@ -25,7 +25,8 @@ class Chart {
 
         addEventListener("resize", (event) => {
             // console.log("Window resized!");
-            this.chartArea.remove();
+            $(this.chartArea).remove();
+            this.adjustedXY = [];
             this.chartArea = this.makeCanvas(element);
             this.chartCtx = this.chartArea.getContext("2d");
             this.size = this.chartArea.getBoundingClientRect();
@@ -115,16 +116,16 @@ class Chart {
         this.yUpper = yMax;
 
         // Debug message
-//         console.log(`
-// xLower: ${this.xLower}
-// xUpper: ${this.xUpper}
-// yLower: ${this.yLower}
-// yUpper: ${this.yUpper}
-// adjustedXTick: ${this.adjustedXTick}
-// adjustedYTick: ${this.adjustedYTick}
-// xRange: ${this.xRange}
-// yRange: ${this.yRange}
-//         `);
+        //         console.log(`
+        // xLower: ${this.xLower}
+        // xUpper: ${this.xUpper}
+        // yLower: ${this.yLower}
+        // yUpper: ${this.yUpper}
+        // adjustedXTick: ${this.adjustedXTick}
+        // adjustedYTick: ${this.adjustedYTick}
+        // xRange: ${this.xRange}
+        // yRange: ${this.yRange}
+        //         `);
     }
 
     // Function to draw a point at arbitrary coordinate
@@ -167,6 +168,7 @@ class Chart {
     render() {
         // console.log("Rendering");
         // Clear canvas
+
         this.chartCtx.clearRect(0, 0, this.size.width, this.size.height);
         this.scaleValues(); // Calculate scaling values
 

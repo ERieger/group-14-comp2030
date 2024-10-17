@@ -14,7 +14,27 @@ $("#filter-form").submit(function (e) {
     start = $("#start").val();
     end = $("#end").val();
 
-    $("#logs-table tr").not(":first").remove();
+    $("canvas").remove();
+    // $("#logs-table tr").not(":first").remove();
+    $(".paging-nav").remove();
+    $("#machine-name").text(`Machine Status: ${machine}`);
+
+    $("#logs-table").remove();
+    $("#logs-table-container").append(`
+    <table id="logs-table" class="table">
+        <tr class="text-toupper">
+            <th>Timestamp</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Error Code</th>
+            <th>Maintenance</th>
+            <th>Production</th>
+            <th>Vibration</th>
+            <th>Humidity</th>
+            <th>Power</th>
+            <th>Speed</th>
+        </tr>
+    </table>`);
 
     fetchOverviewData();
     fetchMachineData();
@@ -191,6 +211,8 @@ function updateOverview(logs) {
 }
 
 function updateMachine(logs) {
+    $("#machine-name").text(`Machine Status: ${machine}`);
+
     logs.forEach((log) => {
         $("#logs-table tr:last").after(`
         <tr>

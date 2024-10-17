@@ -37,7 +37,7 @@
     </header>
     <main class="dashboard-container">
         <div class="dashboard-content">
-            <div class="quick-stats card card-50p">
+            <div class="quick-stats card-main card card-50p">
                 <div class="card-header">
                     <h3>Overall Factory Status</h3>
                 </div>
@@ -79,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card card-50p scrolling-logs">
+            <div class="card card-main card-50p scrolling-logs">
                 <div class="card-header logs-head">
                     <h3>Current Log Messages</h3>
                     <div class="spacer"></div>
@@ -106,7 +106,7 @@
                         <button type="submit"><img src="../public/static/images/icons/filter.png" alt="FILTER" id="filter"></button>
                     </form>
                 </div>
-                <div class="card-content scroll">
+                <div id="logs-table-container" class="card-content scroll">
                     <table id="logs-table" class="table">
                         <tr class="text-toupper">
                             <th>Timestamp</th>
@@ -124,7 +124,7 @@
                 </div>
             </div>
             <div class="break"></div>
-            <div class="card card-50p">
+            <div class="card card-main card-50p">
                 <div class="card-header current-task logs-head">
                     <h3>Current Task</h3>
                 </div>
@@ -133,9 +133,9 @@
                 </div>
             </div>
 
-            <div class="card machine-stats card-50p">
+            <div class="card card-main machine-stats card-50p">
                 <div class="card-header logs-head">
-                    <h3>Machine Status: MACHINE_NAME_HERE</h3>
+                    <h3 id="machine-name"></h3>
                 </div>
                 <div class="card-content">
                     <div class="card card-50p preview">
