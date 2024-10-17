@@ -35,8 +35,8 @@
         </div>
 </header>
 <body>
-   <main>
-   </div>
+   <main class= "main_content">
+   <div class="buttons-section">
 
         <button class="save">Save</button>
         <button class="publish">Publish</button>
@@ -44,7 +44,7 @@
     
     </div>
 
-    
+    <div class="tables-section">
     <div class="machines-table-container"> <!-- table for machines-->
         <table class="machine_details">
             <thead>
@@ -134,8 +134,9 @@
                         ?>
 
                         </tbody>
-            </table>
-        </div> 
+                </table>
+            </div> 
+        </div>
         <?php     //php connection for deleting machine from database
             if(isset($_POST['deleteMachine'])){
             $machineId = $_POST['machine_id'];
@@ -160,25 +161,26 @@ $result_machines = mysqli_query($conn, $sql_machines);
 
 ?>
 
-<div class='dropdown'>
-    <form action="assign_machine.php" method="post">
-        <button class="drpbutton">Select Jobs</button>
-        <div class="dropdown-content">
-            <?php
-            if (mysqli_num_rows($result_machines) > 0) {
-                while ($row = mysqli_fetch_assoc($result_machines)) {
-                    $machineName = htmlspecialchars($row['machine_name']);
-                    echo "<button type='submit' name='machineName' value='$machineName'>" . $machineName . "</button>";
-                }
-            } else {
-                echo "<p>No Machines Available</p>";
-            }
-            mysqli_close($conn);
-            ?>
+<div class="dropdown-section">
+    <div class='dropdown'>
+            <form action="assign_machine.php" method="post">
+                <button class="drpbutton">Select Jobs</button>
+                <div class="dropdown-content">
+                    <?php
+                    if (mysqli_num_rows($result_machines) > 0) {
+                        while ($row = mysqli_fetch_assoc($result_machines)) {
+                            $machineName = htmlspecialchars($row['machine_name']);
+                            echo "<button type='submit' name='machineName' value='$machineName'>" . $machineName . "</button>";
+                        }
+                    } else {
+                        echo "<p>No Machines Available</p>";
+                    }
+                    mysqli_close($conn);
+                    ?>
+                </div>
+            </form>
         </div>
-    </form>
-</div>
-
+    </div>
 <?php
 require_once '../src/api/dbconn.inc.php';
 
