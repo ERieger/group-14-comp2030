@@ -26,8 +26,10 @@
                 <p>Factory</p>
             </div>
             <div class="nav-item">
-                <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
-                <p>Tasks</p>
+                <a href="/factory-dashboard/src/tasks.php">
+                    <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
+                    <p>Tasks</p>
+                </a>
             </div>
             <div class="nav-item">
                 <img src="../public/static/images/icons/menu.png" alt="MENU ICON">
