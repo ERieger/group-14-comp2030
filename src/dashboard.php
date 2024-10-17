@@ -64,6 +64,7 @@
                             <h4>Average Speed</h4>
                         </div>
                         <div class="graph-preview" id="speed"></div>
+
                     </div>
                     <div class="card card-50p preview">
                         <div class="card-header card-header-no-border">

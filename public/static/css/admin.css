@@ -1,10 +1,10 @@
 body {
-    
+    background-color: var(--light);
 }
 
 
 
-.f2-table {
+/* .f2-table {
     border-radius: 5px;
     white-space: nowrap;
     border-spacing: 0px 1rem;
@@ -12,27 +12,53 @@ body {
     overflow-y: auto;
     display: block;
     font-size: 30px;
+    margin: 10px;
 
    
+} */
+
+.f2-table {
+    border-collapse: collapse;
+    white-space: nowrap;
+    margin: .7rem;
+    
 }
 
-.f2-table th, .f2-table td {
+table, th, tr {
+    padding: .75rem;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--secondary-light);
+    font-size: large;
+    width: 100%;
+}
+
+
+
+td {
+    padding: .2rem;
+    font-size: large;
+    width: 100%;
+    margin-right: 40px;
+}
+
+
+/* .f2-table th, .f2-table td {
     text-align: center;
     padding: 8px;
-}
+} */
 
 .f2-table th {
-    color: grey;
-    background-color: lightgray;
-    border: 0px;
-    margin: 0px;
+    text-align: left;
+    color: var(--secondary);
+    background-color: var(--light);
+    font-weight: bold;
 }
 
-.f2-table tr {
+/* .f2-table tr {
     background-color: white;
     box-shadow: 0px 0px 9px 0px grey;
     
-}
+} */
 
 /* grid items  */
 .grid-container {
@@ -42,28 +68,306 @@ body {
     grid-template-areas: "header header"
     "l r"
     "footer footer";
-    height: 100%;
+    height: 80%;
     width: 100%;
 }
 
 .grid-item-header {
     grid-area: header;
-    background-color: white;
+    background-color: #f8f9fa;
 }
+.grid-item-header {
+    justify-content: space-between;
+    display: inline-block;
+}
+
+.card-header1 {
+    display: flex;
+    justify-content: space-between;
+
+}
+
 
 .grid-item1 {
     grid-area: l;
     background-color: grey;
-    margin-left: auto;
+    margin-left: auto; 
     margin-right: auto;
+    /* this is what squishes the left card */
+
+    background-color: white;
+    margin-right: 30px;
+    border-radius: .3rem;
+    border: .1rem solid hsl(208.24, 7.3%, 65.69%);
+} 
+
+.hidden {
+    /* overflow: hidden; */
+    max-height: 500px;
+    
+    
 }
 
+thead, tbody { display: block; }
+
+tbody {
+    height: 350px;       
+    overflow-y: auto;   
+    overflow-x: hidden;  
+    
+    
+}
+
+#cs {
+    /* height: 500px; */
+    /* overflow: scroll; */
+    height: 500px;
+}
+
+form {
+    /* width: px; */
+    margin-left: 20px;
+    background-color: aquamarine;
+}
+
+.input-box {
+    display: flex;
+    margin-top: 20px;
+    font-size: 20px;
+    border-bottom: 1px grey;
+
+}
+
+input {
+    width: 300px;
+    margin-right: 80px;
+}
+
+select {
+    width: 309px;
+    margin-right: 80px;
+}
+
+input select {
+    margin-right: 50px;
+
+   
+    
+}
+
+span {
+    margin-right: auto;
+    margin-left: 80px;
+}
+
+.button {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+.submit-btn {
+    width: 300px;
+    height: 50px;
+    margin-left: 22px;
+}
+
+.card-header1 {
+        border-bottom: .1rem solid hsl(208.24, 7.3%, 65.69%);
+        padding: 0 .7rem;
+        padding-bottom: 0;
+        margin: 0;
+        margin-bottom: .7rem;
+
+        /* justify-content: space-between; */
+      
+}
+
+.card-header1 h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+.card-header1-item1 {
+    display: inline;
+    /* float: left; */
+    /* this puts plus where I want, but messes up the otherside */
+}
+
+.card-header1-item2 {
+    display: inline;
+    float: right;
+}
+
+.add-user {
+    background-color: rgb(162, 255, 170);
+    padding: .1rem 0;
+    border-radius: 2rem;
+
+    width: 1.7rem;
+                height: 1.7rem;
+}   
+
 .grid-item2 {
-    background-color: grey;
+    
     grid-area: r;
+    background-color: white;
+    margin-right: 30px;
+    border-radius: .3rem;
+    border: .1rem solid hsl(208.24, 7.3%, 65.69%);
+}
+
+/* cant get css to work for a lot of stuff atm */
+.grid-item2-content {
+    /* display: flex;
+    flex-direction: column; */
+    /* justify-content: center; */
+    align-items: left; /*this was center,*/
+    /* height: 100vh; */
+    /* margin: 0px;
+    background-color: white; */
+    padding: 10px 30px 30px;
+    
 }
 
 .grid-item3 {
-    background-color: white;
+    /* background-color: #f8f9fa; */
     grid-area: footer;
+}
+
+.navbar {
+    background-color: white;
+}
+
+p {
+    /* color: wheat; */
+}
+/* buttons */
+.details-btn {
+    /* background-color: lightgrey; */
+    text-decoration: none;
+    padding: 1px 1px;
+    border-radius: .1rem;
+}
+
+
+
+.details-btn:visited {
+    color: black;
+}
+
+
+.details-btn:hover {
+    color: lightgreen;
+}
+
+
+.spacer {
+    margin-left: auto;
+}
+
+/* div {
+    display: block;
+    unicode-bidi: isolate;
+} */
+
+/* .grid-item2 {
+    display: flex;
+    justify-content: space-between;
+} */
+
+.split-words {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+/* .split-words {
+    display: flex;
+    justify-content: space-between;  
+} */
+
+.left {
+    margin-left: 50px;
+    margin-right: auto;
+}
+
+.right {
+    margin-right: 70px;
+    margin-left: auto;
+}
+
+.spacer1 {
+    /* align-self: center;
+    background-color: azure; */
+
+}
+
+
+/* images and links */
+.add-img {
+    width: 50px;
+}
+
+.add-img:hover {
+    filter: brightness(0.9) invert(.7) sepia(.5) hue-rotate(100deg) saturate(200%);
+}
+
+.delete-img {
+    width: 50px;
+}
+
+.delete-img:hover {
+    filter: invert(50%) sepia(84%) saturate(2867%) hue-rotate(329deg) brightness(112%) contrast(110%);
+    cursor: pointer;
+}
+
+.row-hover:hover {
+    background-color: rgb(237, 237, 237);
+}
+
+.delete-popup {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 0px 30px 30px;
+    background-color: white;
+    visibility: hidden;
+}
+
+.delete-popup button {
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.delete-popup button {
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    
+}
+
+.danger-btn {
+    background-color: rgb(255, 117, 117);
+    border-color: rgb(255, 117, 117);
+}
+
+.danger-btn:hover {
+    background-color: rgb(255, 64, 64);
+    border-color:rgb(255, 64, 64);
+    color: white;
 }

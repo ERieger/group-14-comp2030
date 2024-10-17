@@ -1,22 +1,70 @@
 /*senna test*/
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box {
+  flex: 1 1 300px; /* Flex-grow, flex-shrink, and base width */
+  margin: 10px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
 .dropdown {
-    display: inline-block;
-    position: relative;
-    padding-top: 120px;
-    z-index: 1;
-  }
-  .button{
-    font-size: 30px;
-  }
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+  
   .button2{
-    border-radius: 50px;
-    border-color: #000000;
-    border-width: 0.5px;
-    position: relative;
-    left: 10px;
-    font-size: 20px;
+    background-color: #909291;
+    border: none;
+    color: white;
+    padding: 20px;
     text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
   }
+
   .button3{
     border-radius: 50px;
     border-color: #000000;
@@ -37,29 +85,7 @@
     font-size: 20px;
     text-align: center;
   }
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    width: 100%;
-    font-size: 20px;
-    overflow: auto;
-    z-index: -1;
-    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
-  }
-  .dropdown:hover .dropdown-content {
-    display: block;
-    background-color: #ddd;
-  }
-  .dropdown-content a {
-    display: block;
-    color: #080808;
-    padding: 5px;
-    text-decoration: none;
-  }
-  .dropdown-content a:hover {
-    color: #FFFFFF;
-    background-color: #00A4BD;
-  }
+
   .R1{
     padding-top: 10px;
     font-size: 25px;
@@ -119,18 +145,8 @@
       text-align: center;
     }
 
-    .time{
-        border-radius: 50px;
-        border-color: #000000;
-        border-width: 0.5px;
-        position: absolute;
-        right: 865px;
-        top: 139px;
-        font-size: 20px;
-        text-align: center;
-      }
 
-      .role{
+ .role{
         border-radius: 50px;
         border-color: #000000;
         border-width: 0.5px;
@@ -139,41 +155,4 @@
         top: 139px;
         font-size: 20px;
         text-align: center;
-      }
-      
-      .row {
-        display: block;
-        position: absolute;
-        flex-direction: column;
-        width: 69%;
-        margin-left: 400px;
-        bottom: 300px;
-      }
-
-      .column{
-        margin-bottom: 10px;
-      }
-      .p1{
-        text-align:left;
-        display:inline;
-        margin: 300px;
-      }
-      .p11{
-        text-align:left;
-        display:inline;
-        margin: 330px;
-      }
-      .p12{
-        text-align:left;
-        display:inline;
-        margin: 250px;
-      }
-      .p{
-        text-align: justify;
-        display: inline;
-        margin: 50px;
-      }
-      .h{
-        text-align: justify;
-        display: inline;
       }
