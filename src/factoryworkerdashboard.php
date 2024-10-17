@@ -36,17 +36,6 @@
 </header>
 <body>
    <main>
-    <div class='dropdown'>
-        <button class="drpbutton">Select Jobs</button>
-    <div class="dropdown-content">
-            
-            <a rel="noopener" target="_blank" >Machine A</a>
-            <a rel="noopener" target="_blank" >Machine B</a>
-            <a rel="noopener" target="_blank" >Machine C</a>
-            <a rel="noopener" target="_blank" >Machine D</a>
-            <a rel="noopener" target="_blank" >Machine E</a>
-            <a rel="noopener" target="_blank" >Machine F</a>
-    </div>
    </div>
 
         <button class="save">Save</button>
@@ -157,10 +146,61 @@
                 
             }
             }
-            mysqli_close($conn);
+            
             ?>
 
    </main>
  </body>
 </html>
+<?php // PHP connection for fetching machines from the database
+require_once '../src/api/dbconn.inc.php';
 
+$sql_machines = "SELECT DISTINCT machine_name, status, machine_id FROM logs";
+$result_machines = mysqli_query($conn, $sql_machines);
+
+?>
+
+<div class='dropdown'>
+    <form action="assign_machine.php" method="post">
+        <button class="drpbutton">Select Jobs</button>
+        <div class="dropdown-content">
+            <?php
+            if (mysqli_num_rows($result_machines) > 0) {
+                while ($row = mysqli_fetch_assoc($result_machines)) {
+                    $machineName = htmlspecialchars($row['machine_name']);
+                    echo "<button type='submit' name='machineName' value='$machineName'>" . $machineName . "</button>";
+                }
+            } else {
+                echo "<p>No Machines Available</p>";
+            }
+            mysqli_close($conn);
+            ?>
+        </div>
+    </form>
+</div>
+
+<?php
+require_once '../src/api/dbconn.inc.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['machineName'])) {
+    $machineName = mysqli_real_escape_string($conn, $_POST['machineName']);
+
+    // Update the 'jobs' table to assign the machine to all employees
+    $sql_update = "UPDATE jobs j
+                   JOIN machines m ON j.machine_id = m.machine_id
+                   SET j.machine_id = (SELECT machine_id FROM machines WHERE machine_name = '$machineName')
+                   WHERE m.machine_name != '$machineName'";
+
+    if (mysqli_query($conn, $sql_update)) {
+        echo "Machine assigned successfully to all employees.";
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+
+    mysqli_close($conn);
+
+    // Redirect back to the main page or display a message
+    header("Location: your_main_page.php"); // Replace 'your_main_page.php' with the appropriate page
+    exit();
+}
+?>
