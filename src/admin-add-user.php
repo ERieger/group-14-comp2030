@@ -15,7 +15,7 @@
 <header>
         <div class="navbar">
             <img src="../public/static/images/logo.png" alt="COMPANY LOGO" class="logo">
-            <p>Dashboard</p>
+            <p>Users</p>
             <div class="spacer"></div>
 
             <a  href="login.php"><div class="nav-item">
@@ -23,7 +23,7 @@
                 <p>Logout</p>
             </div></a>
 
-            <a  href="login.php">
+            <a  href="dashboard.managers.php">
             <div class="nav-item">
                 <img src="../public/static/images/icons/dashboard.png" alt="DASHBOARD ICON">
                 <p>Dashboard</p>

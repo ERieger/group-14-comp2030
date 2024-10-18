@@ -13,26 +13,22 @@
 </head>
 <body>
 <header>
-        <div class="navbar">
+<div class="navbar">
             <img src="../public/static/images/logo.png" alt="COMPANY LOGO" class="logo">
-            <p>Dashboard</p>
+            <p>Users</p>
             <div class="spacer"></div>
-            <div class="nav-item">
+
+            <a  href="login.php"><div class="nav-item">
                 <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON">
                 <p>Logout</p>
-            </div>
+            </div></a>
+
+            <a  href="dashboard.managers.php">
             <div class="nav-item">
-                <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
-                <p>Factory</p>
-            </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
-                <p>Tasks</p>
-            </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/menu.png" alt="MENU ICON">
-                <p>Menu</p>
-            </div>
+                <img src="../public/static/images/icons/dashboard.png" alt="DASHBOARD ICON">
+                <p>Dashboard</p>
+            </div></a>
+
         </div>
     </header>
     <div class="grid-container">
