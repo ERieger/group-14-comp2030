@@ -114,3 +114,21 @@
     font-weight: bold;
 }
 
+.nav-item {
+    text-decoration: none;
+}
+
+.nav-item:hover{
+    filter: brightness(0.9) invert(.7) sepia(.5) hue-rotate(100deg) saturate(200%);
+}
+
+.nav-item:visited {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
