@@ -25,6 +25,10 @@
     }
 }
 
+.table-100 {
+    width: 100%;
+}
+
 .card {
     margin: 1rem;
     border: 0.1rem solid hsl(208.24, 7.3%, 65.69%);
@@ -51,6 +55,15 @@
             margin: 0;
         }
     }
+}
+
+.card-main {
+    min-width: 400px;
+}
+
+.card-100p {
+    width: calc(100% - 2rem);
+    box-sizing: border-box;
 }
 
 .card-50p {
@@ -100,3 +113,22 @@
     background: #187ed5;
     font-weight: bold;
 }
+
+.nav-item {
+    text-decoration: none;
+}
+
+.nav-item:hover{
+    filter: brightness(0.9) invert(.7) sepia(.5) hue-rotate(100deg) saturate(200%);
+}
+
+.nav-item:visited {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+

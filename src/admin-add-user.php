@@ -15,36 +15,33 @@
 <header>
         <div class="navbar">
             <img src="../public/static/images/logo.png" alt="COMPANY LOGO" class="logo">
-            <p>Dashboard</p>
+            <p>Users</p>
             <div class="spacer"></div>
-            <div class="nav-item">
+
+            <a  href="login.php"><div class="nav-item">
                 <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON">
                 <p>Logout</p>
-            </div>
+            </div></a>
+
+            <a  href="dashboard.managers.php">
             <div class="nav-item">
-                <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
-                <p>Factory</p>
-            </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
-                <p>Tasks</p>
-            </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/menu.png" alt="MENU ICON">
-                <p>Menu</p>
-            </div>
+                <img src="../public/static/images/icons/dashboard.png" alt="DASHBOARD ICON">
+                <p>Dashboard</p>
+            </div></a>
+
         </div>
     </header>
     <div class="grid-container">
         <div class="grid-item-header"></div>
-    <div class="grid-item1">
+    <div class="card hidden">
         <div class="card-header1">
             <h3 class="card-header1-item1">Users</h3>
             <div class="spacer"></div>
             <a href="admin-add-user.php"><img class="add-img" src="../public\static/images/icons/add-user.png"></a>
-            
         </div>
+    
         <table class="f2-table" id="DisplayTable">
+        <div>
             <thead>
                 <tr>
                     <th>id</th>
@@ -55,7 +52,9 @@
                     <th>delete</th>
                 </tr>
             </thead>
-            <tbody>
+</div>
+    <div class="card-scroll">
+            <tbody >
                 <?php
                     require_once "./api/dbconn.inc.php"; 
                     $sql = "SELECT * FROM employees;";
@@ -70,7 +69,8 @@
                                     <td>' . $row['l_name'] . '</td>
                                     <td>' . $row['role'] . '</td>
                                     <td> <a class="details-btn" href=admin-view-details.php?id=' . $row['employee_id'] . '>details</a> </td>
-                                    <td> <a class="delete-btn" href=api/admin/admin-delete.php?id=' . $row['employee_id'] . '><img class="delete-img" src="../public\static/images/icons/delete-user.png"></a> </td>'
+                                    <td> <img class="delete-img" src="../public\static/images/icons/delete-user.png" onclick="openPopup"></td>
+                                    '
                                     ;
                             }
                         }
@@ -78,8 +78,14 @@
 
                 ?>
             </tbody>
-
+    </div>
         </table>
+        <!-- delete popup -->
+         <div class="delete-popup" id="delete-popup">
+                    <h2>Are you sure you want to delete this user?</h2>
+                    <button type="button">Cancel</button>
+                    <button class="danger-btn" type="button">Delete</button>
+         </div>
 
     </div>
 <!-- grid-item2 - I want to act as a dynamic card interface, that allows me to add and edit users -->
@@ -109,7 +115,6 @@
             <div class="input-box">
                 <span class="details">Role</span> 
                 <select name="role" id="role">
-                    <option value="unselected">unselected</option>
                     <option value="Admin">Admin</option>
                     <option value="Factory Manager">Factory Manager</option>
                     <option value="Factory Worker">Factory Worker</option>

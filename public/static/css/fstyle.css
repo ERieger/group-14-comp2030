@@ -1,0 +1,178 @@
+/*senna test*/
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.dropdown {
+    display:flex;
+    position: absolute;
+    bottom: 50px;
+    padding-top: 0px;
+    z-index: 1;
+    top: 130px;
+    left: 50px;
+    overflow-y: auto;  
+    overflow-x: hidden; 
+    width: 25%;
+    height: 50%;
+    border-radius: 5px;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    font-size: 20px;
+    overflow: auto;
+    z-index: 1;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+  }
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+    background-color: #ddd;
+
+  }
+
+.dropdown-content a {
+    display: flex;
+    color: #080808;
+    padding: 5px;
+    text-decoration: none;
+  
+  }
+
+.dropdown-content a:hover {
+    color: #FFFFFF;
+    background-color: #00A4BD;
+    
+  }
+
+.drpbutton{
+    font-size: 25px;
+    margin-top: 5px;
+    width: 260px;
+  }
+
+
+ 
+  .save{
+    border-radius: 50px;
+    border-color: #040404;
+    display: flex;
+    border-width: 0.5px;
+    position: absolute;
+    align-self: baseline;
+    font-size: 20px;
+    text-align: center;
+    bottom: 160px;
+    right: 300px;
+  }  
+ 
+
+.publish{
+  border-radius: 50px;
+  border-color: #040404;
+  display: flex;
+  border-width: 0.5px;
+  bottom: 160px;
+  align-self: baseline;
+  font-size: 20px;
+  text-align: center;
+  position: absolute;
+  right: 190px;
+    }
+
+.new{
+  border-radius: 50px;
+  border-color: #040404;
+  display: flex;
+  border-width: 0.5px;
+  position: relative;
+  align-self: baseline;
+  font-size: 20px;
+  text-align: center;
+  top: 1000px;
+  left: 1000px;
+}
+
+#add_button{
+  border-radius: 50px;
+  border-color: #040404;
+  display: flex;
+  border-width: 0.5px;
+  position: absolute;
+  align-self: baseline;
+  font-size: 20px;
+  text-align: center;
+  bottom: 160px;
+  left: 540px;
+}
+
+/* Theresa Styles*/
+.machine_details th{
+        background-color:#ddd;   /* style for the machine details table headers */
+      }
+
+.machine_details {
+        width:100%; 
+        border: 1px solid #ccc;       /* style for the machine details body */
+        background-color: #f9f9f9; 
+    }
+    
+.machines-table-container{
+  display: flex;
+  
+}
+#Machine_Id{
+  text-align: center;
+}
+
+
+.machines-table-container {
+  height: 390px;   
+  overflow-y: auto;  
+  overflow-x: hidden; 
+  border: 1px solid #ddd; 
+  top: 135px;                    /* style for the machine details table*/
+  position: absolute;
+  display: flex;
+  bottom: 80px;
+  right: 20px; 
+  left: 35%;   
+  width: 55%;
+  border-radius: 10px;
+  white-space: nowrap;
+    
+}
+
+
+.actions_data{
+  text-align: center;
+  border-radius: 10px;
+}
+
+.details{
+  padding-top: 10px;
+  font-size: 25px;
+  display: flex;
+  position: relative;
+  bottom: 110px;
+  left: 50px;
+  border-color: #000000;
+  border: 1px solid ;
+  border-radius: 3px;
+  background-color: rgb(163, 168, 172);
+  box-shadow: 3px 3px 4px black;
+  width:260px;
+  text-align: left;
+  
+}
+
+.employees-table-container{
+  margin-top: 250px;
+  
+}
+
+

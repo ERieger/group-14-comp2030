@@ -17,26 +17,16 @@
             <img src="../public/static/images/logo.png" alt="COMPANY LOGO" class="logo">
             <p>Dashboard</p>
             <div class="spacer"></div>
+            <a  href="login.php"><div class="nav-item">
+                <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON">
+                <p>Logout</p>
+            </div></a>
+
+            <a  href="javascript:history.back()">
             <div class="nav-item">
-                <a href="/factory-dashboard/src/login.php">
-                    <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON">
-                    <p>Logout</p>
-                </a>
-            </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
-                <p>Factory</p>
-            </div>
-            <div class="nav-item">
-                <a href="/factory-dashboard/src/tasks.php">
-                    <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
-                    <p>Tasks</p>
-                </a>
-            </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/menu.png" alt="MENU ICON">
-                <p>Menu</p>
-            </div>
+                <img src="../public/static/images/icons/tasks.png" alt="DASHBOARD ICON">
+                <p>Users</p>
+            </div></a>
         </div>
     </header>
     <main class="dashboard-container">
@@ -129,14 +119,6 @@
                 </div>
             </div>
             <div class="break"></div>
-            <div class="card card-main card-50p">
-                <div class="card-header current-task logs-head">
-                    <h3>Current Task</h3>
-                </div>
-                <div class="card-content scroll" id="task-box">
-                    <p>No Task Currently Selected.</p>
-                </div>
-            </div>
 
             <div class="card card-main machine-stats card-50p">
                 <div class="card-header logs-head">

@@ -42,7 +42,7 @@ body {
 }
 
 main.dashboard-container {
-    height: calc(100% - 75.4px);
+    height: min-content;
     background: var(--light);
 }
 
@@ -56,8 +56,10 @@ div.dashboard-content {
     .quick-stats {
         /* width: 47%; */
         height: min-content;
-        display: flex;
-        flex-wrap: wrap;
+        .card-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
     }
 
     .scrolling-logs {
@@ -75,7 +77,15 @@ div.dashboard-content {
     }
 
     .machine-stats {
-        width: 50%;
+        height: min-content;
+        .card-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    .current-task {
+        
     }
 }
 
