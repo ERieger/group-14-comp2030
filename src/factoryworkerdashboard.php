@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,6 +39,9 @@
 
         <button class="save">Save</button>
         <button class="publish">Publish</button>
+        <button class="new">Add New Employee</button>
+    
+    </div>
         <button class="new">Add new Employee</button>
 
 
