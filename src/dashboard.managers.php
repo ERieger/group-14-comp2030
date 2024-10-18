@@ -129,14 +129,6 @@
                 </div>
             </div>
             <div class="break"></div>
-            <div class="card card-main card-50p">
-                <div class="card-header current-task logs-head">
-                    <h3>Current Task</h3>
-                </div>
-                <div class="card-content scroll" id="task-box">
-                    <p>No Task Currently Selected.</p>
-                </div>
-            </div>
 
             <div class="card card-main machine-stats card-50p">
                 <div class="card-header logs-head">

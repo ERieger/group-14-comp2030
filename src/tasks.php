@@ -18,16 +18,20 @@
             <p>Tasks</p>
             <div class="spacer"></div>
             <div class="nav-item">
-                <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON">
-                <p>Logout</p>
+                <a href="/factory-dashboard/src/login.php">
+                    <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON">
+                    <p>Logout</p>
+                </a>
             </div>
             <div class="nav-item">
                 <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
                 <p>Factory</p>
             </div>
             <div class="nav-item">
-                <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
-                <p>Tasks</p>
+                <a href="/factory-dashboard/src/dashboard.php">
+                    <img src="../public/static/images/icons/dashboard.png" alt="TASKS ICON">
+                    <p>Dashboard</p>
+                </a>
             </div>
             <div class="nav-item">
                 <img src="../public/static/images/icons/menu.png" alt="MENU ICON">
@@ -50,6 +54,8 @@
                         <div class="quick-stats card-main card card-100p">
                         <div class="card-header">
                             <h3>Work Order For: ' . $row["job_name"] . '</h3>
+                            <div class="spacer"></div>
+                            <button type="button" onclick="activateTask('.$row["job_id"].')">Select Task</button>
                         </div>
                         <div class="card-content">
                             <table id="' . $row["job_id"] . '" class="table table-100">
@@ -59,7 +65,7 @@
                                     <th>Assigned Machine</th>
                                     <th>Progress</th>
                                 </tr>';
-                    $sql2 = "SELECT p.item, p.qty, m.machine_name, p.progress
+                    $sql2 = "SELECT p.item, p.qty, m.machine_name, p.progress, p.image
                     FROM parts p
                     INNER JOIN machines m ON p.machine_id=m.machine_id
                     WHERE p.job_id = '{$row["job_id"]}';";
