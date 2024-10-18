@@ -59,8 +59,8 @@
             </thead>
             <tbody>
                 <?php
-                    require_once "dbconn.inc.php"; 
-                    $sql = "SELECT * FROM users;";
+                    require_once "./api/dbconn.inc.php"; 
+                    $sql = "SELECT * FROM employees;";
 
                     if($result = mysqli_query($conn, $sql)) {
                         if(mysqli_num_rows($result) >= 1) {

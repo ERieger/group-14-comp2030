@@ -94,7 +94,7 @@
     
     <tbody>
     <?php 
-    require_once "dbconn.inc.php"; 
+    require_once "./api/dbconn.inc.php"; 
 
     if(isset($_GET['from_date']) && isset($_GET['from_date']) != '' && isset($_GET['to_date']) && isset($_GET['to_date']) != '') {
         $from_date = $_GET['from_date'];

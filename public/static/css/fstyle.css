@@ -1,0 +1,190 @@
+/*senna test*/
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+    bottom: 50px;
+    display: flex;
+    padding-top: 0px;
+    z-index: 1;
+    width: 250px;
+    height: 30px;
+    left: 5px;
+    overflow-y: auto;  
+    overflow-x: hidden; 
+    width: 25%;
+    height: 20%;
+    border-radius: 5px;
+
+
+
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    font-size: 20px;
+    overflow: auto;
+    z-index: -1;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+  }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    background-color: #ddd;
+  }
+
+.dropdown-content a {
+    display: block;
+    color: #080808;
+    padding: 5px;
+    text-decoration: none;
+  }
+
+.dropdown-content a:hover {
+    color: #FFFFFF;
+    background-color: #00A4BD;
+  }
+
+.drpbutton{
+    font-size: 25px;
+  }
+
+.button2{
+    border-radius: 50px;
+    border-color: #000000;
+    border-width: 0.5px;
+    position: relative;
+    left: 10px;
+    display: flexbox;
+    font-size: 20px;
+    text-align: center;
+  }
+ 
+  .save{
+    border-radius: 50px;
+    border-color: #040404;
+    display: flex;
+    border-width: 0.5px;
+    position: relative;
+    align-self: baseline;
+    font-size: 20px;
+    text-align: center;
+    top: 370px;
+    left: 980px;
+  }  
+ 
+
+.publish{
+  border-radius: 50px;
+  border-color: #040404;
+  display: flex;
+  border-width: 0.5px;
+  position: relative;
+  align-self: baseline;
+  font-size: 20px;
+  text-align: center;
+  top: 344px;
+  left: 1055px;
+    }
+
+.new{
+  border-radius: 50px;
+  border-color: #040404;
+  display: flex;
+  border-width: 0.5px;
+  position: relative;
+  align-self: baseline;
+  font-size: 20px;
+  text-align: center;
+  top: 330px;
+  left: 10px;
+}
+
+#add_button{
+  border-radius: 50px;
+  border-color: #040404;
+  display: flex;
+  border-width: 0.5px;
+  position: relative;
+  align-self: baseline;
+  font-size: 20px;
+  text-align: center;
+  top: 280px;
+  left: 455px;
+}
+
+/* Theresa Styles*/
+
+.machine_details th{
+        background-color:#ddd;   /* style for the machine details table headers */
+      }
+
+.machine_details {
+        width:100%; 
+        border: 1px solid #ccc;       /* style for the machine details body */
+        background-color: #f9f9f9; 
+    }
+    
+.machines-table-container{
+  display: flex;
+  
+}
+#Machine_Id{
+  text-align: center;
+}
+
+
+.machines-table-container {
+  height: 260px; 
+  width: 50%;   
+  overflow-y: auto;  
+  overflow-x: hidden; 
+  border: 1px solid #ddd; 
+  top: 183px;                     /*style for the machine details table*/
+  position: absolute;
+  display: flex;
+  bottom: 80px;
+  right: 20px; 
+  left: 30%;   
+  width: 45%;
+  border-radius: 10px;
+  white-space: nowrap;
+    
+}
+
+
+.actions_data{
+  text-align: center;
+  border-radius: 10px;
+}
+
+.details{
+  padding-top: 10px;
+  font-size: 25px;
+  display: flex;
+  position: relative;
+  bottom: 110px;
+  left: px;
+  border-color: #000000;
+  border: 1px solid ;
+  border-radius: 3px;
+  background-color: rgb(163, 168, 172);
+  box-shadow: 3px 3px 4px black;
+  width:220px;
+  text-align: left;
+}
+
+
+
+      

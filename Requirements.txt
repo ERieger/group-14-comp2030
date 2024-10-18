@@ -1,0 +1,4 @@
+dotenv
+pathlib
+os
+mysql-connector-python
