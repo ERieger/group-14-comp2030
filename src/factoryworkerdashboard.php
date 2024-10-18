@@ -38,10 +38,10 @@
 
         <button class="save">Save</button>
         <button class="publish">Publish</button>
+        <form action="add_new_employee.php" method="POST">
         <button class="new">Add New Employee</button>
     
-    </div>
-        <button class="new">Add new Employee</button>
+
 
 
     <div class="tables-section">
