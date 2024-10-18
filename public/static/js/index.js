@@ -2,8 +2,32 @@ window.addEventListener("load", (event) => {
     console.log("Hello World!");
     fetchOverviewData();
     fetchMachineData();
+
+    job = sessionStorage.getItem("job");
+    if (job !== null) {
+        renderTasks();
+    }
 });
 
+function renderTasks() {
+    $.ajax({
+        url: "/factory-dashboard/src/api/dashboard/fetch-job.php",
+        type: "GET",
+        dataType: "json",
+        data: {
+            job: job,
+        },
+        success: (data) => {
+            console.log("Received Job: ", data);
+            updateTask(data);
+        },
+        error: (jqXHR, textStatus, errorThrown) => {
+            console.error("AJAX Error: ", textStatus, errorThrown);
+        },
+    });
+}
+
+let job;
 let machine = "3D Printer";
 let start = "2024-04-13 02:30:00";
 let end = "2024-04-13 21:00:00";
@@ -148,6 +172,53 @@ function summariseSeries(data) {
     }
 
     return summarised;
+}
+
+function updateTask(data) {
+    $("#task-box").children().remove();
+
+    $("#task-box").append(`
+    <table id="parts-table" class="table table-100">
+        <tr class="text-toupper">
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Assigned Machine</th>
+            <th>Progress</th>
+            <th>Actions</th>
+        </tr>
+        <tbody>
+        </tbody>
+    </table>`);
+
+    data.parts.forEach((part) => {
+        $("#parts-table tbody:last").append(`
+            <tr>
+                <td>${part.item}</td>
+                <td>${part.qty}</td>
+                <td>${part.machine_name}</td>
+                <td>${part.progress} of ${part.qty}</td>
+                <td><button onclick=\"updateTotal('increment')\">+</button><button onclick=\"updateTotal('decrement')\">-</button></td>
+            </tr>
+        `);
+    });
+}
+
+function updateTotal(method) {
+    $.ajax({
+        url: "/factory-dashboard/src/api/dashboard/update-task.php",
+        type: "POST",
+        dataType: "application/json",
+        data: {
+            method: method,
+        },
+        success: (data) => {
+            console.log("Received Job: ", data);
+            updateTask(data);
+        },
+        error: (jqXHR, textStatus, errorThrown) => {
+            console.error("AJAX Error: ", textStatus, errorThrown);
+        },
+    });
 }
 
 function updateOverview(logs) {
