@@ -35,14 +35,11 @@
         </div>
 </header>
 <body>
-   <main class= "main_content">
-   <div class="buttons-section">
 
         <button class="save">Save</button>
         <button class="publish">Publish</button>
         <button class="new">Add new Employee</button>
-    
-    </div>
+
 
     <div class="tables-section">
     <div class="machines-table-container"> <!-- table for machines-->

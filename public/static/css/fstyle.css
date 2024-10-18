@@ -13,7 +13,7 @@ body {
 
 .dropdown {
     display: inline-block;
-    position: fixed;
+    position: relative;
     bottom: 50px;
     
     padding-top: 0px;
@@ -63,15 +63,7 @@ body {
     width: 260px;
   }
 
-.button2{
-    border-radius: 50px;
-    border-color: #000000;
-    border-width: 0.5px;
-    position: relative;
-    left: 10px;
-    font-size: 20px;
-    text-align: center;
-  }
+
  
   .save{
     border-radius: 50px;
@@ -109,8 +101,8 @@ body {
   align-self: baseline;
   font-size: 20px;
   text-align: center;
-  bottom: 300px;
-  left: 35px;
+  top: 1000px;
+  left: 1000px;
 }
 
 #add_button{
