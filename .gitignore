@@ -1,2 +1,2 @@
-
 *.env
+/src/api/dbconn.inc.php

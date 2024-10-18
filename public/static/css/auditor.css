@@ -26,6 +26,10 @@ body {
 tbody {
     width: 95%;
     max-height: 89%;
+
+    height: 350px;       
+    overflow-y: auto;   
+    overflow-x: hidden; 
     
 }
 
@@ -33,13 +37,14 @@ table {
     position: sticky;
     top: 0;
     width: 100%;
+
 }
 
 .table-wrapper {
     margin: 10px 70px 70px;
     width: 85%;
-    height: auto;
-    overflow: hidden;
+    height: 500px;
+    overflow: auto;
     margin: auto;
 }
 
@@ -129,3 +134,22 @@ li {
     background-color: lightgreen;
 }
 
+.msg {
+    text-align: center;
+    margin-top: 20px;
+    color: gray;
+    
+}
+
+.reset-img {
+    width: 20px;
+}
+
+.reset-img:hover {
+    filter: invert(50%) sepia(84%) saturate(2867%) hue-rotate(329deg) brightness(112%) contrast(110%);
+    cursor: pointer;
+}
+
+.filter {
+    margin-bottom: 10px;
+}
