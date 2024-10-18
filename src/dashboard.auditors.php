@@ -22,11 +22,12 @@
                 <p>Logout</p>
             </div></a>
 
-            <a  href="javascript:history.back()">
+            <a  href="auditorDB.php">
             <div class="nav-item">
                 <img src="../public/static/images/icons/tasks.png" alt="DASHBOARD ICON">
-                <p>Users</p>
+                <p>Database</p>
             </div></a>
+            </div>
         </div>
     </header>
     <main class="dashboard-container">

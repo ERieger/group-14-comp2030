@@ -15,7 +15,7 @@
 <header>
         <div class="navbar">
             <img src="../public/static/images/logo.png" alt="COMPANY LOGO" class="logo">
-            <p>Dashboard</p>
+            <p>Users</p>
             <div class="spacer"></div>
             <div class="nav-item">
                 <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON">

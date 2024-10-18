@@ -14,7 +14,6 @@ function loadEnv($filePath) {
 
 loadEnv('../.env');
 
-
 // Use constants to define your connection parameters
 define("DB_HOST", getenv("DB_HOSTNAME"));
 define("DB_NAME", getenv("DB_DATABASE"));
