@@ -6,17 +6,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $last_name = $_POST['last_name'];
     $machine_id = $_POST['machine_name']; 
     $role = 'Production Operator'; 
-    
-    // Assuming you collect phoneNo, email, and password from the form
-    $phoneNo = $_POST['phoneNo']; // Add this field in your form
-    $email = $_POST['email']; // Add this field in your form
-    $password = $_POST['password']; // Add this field in your form
+    $phoneNo = $_POST['phoneNo']; 
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-    // Adjust your SQL statement to include the correct number of fields
+
     $sql_employee = "INSERT INTO employees (role, phoneNo, email, f_name, l_name, password) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt_employee = mysqli_prepare($conn, $sql_employee);
-    
-    // Updated to match the number of parameters
+
     mysqli_stmt_bind_param($stmt_employee, 'ssssss', $role, $phoneNo, $email, $first_name, $last_name, $password);
     
     if (mysqli_stmt_execute($stmt_employee)) {
