@@ -134,10 +134,19 @@ li {
     background-color: lightgreen;
 }
 
+.idle {
+    background-color: rgb(229, 82, 82);
+}
+
+.maintenance {
+    background-color: rgb(245, 225, 73);
+}
+
 .msg {
     text-align: center;
     margin-top: 20px;
     color: gray;
+    display: inline-block;
     
 }
 
@@ -153,3 +162,21 @@ li {
 .filter {
     margin-bottom: 10px;
 }
+
+.pagination {
+    justify-content: center;
+}
+
+.summary a {
+    background-color: greyF;
+    padding: .4rem 0;
+    border-radius: 2rem;
+    display: inline;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+h3 {
+    text-align: center;
+}
+
