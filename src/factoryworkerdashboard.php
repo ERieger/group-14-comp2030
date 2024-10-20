@@ -103,40 +103,44 @@
 
 
         
-        <div class="employees-table-container"> <!-- table for job assignment-->
-        <table class="employees_details">
-             <tbody>
+    <div class="employees-table-container"> <!-- table for job assignment-->
+    <table class="employees_details">
+        <tbody>
+            <?php
+            // PHP connection fetching current jobs from database
+            $sql_jobs = "SELECT DISTINCT e.f_name, e.l_name, j.job_name, j.notes 
+                         FROM employees e 
+                         JOIN jobs j ON e.employee_id = j.employee_id";
+            $result_jobs = mysqli_query($conn, $sql_jobs);
 
-        <?php //php connection fetching current jobs from database
-                        
-                        $sql_jobs = "SELECT DISTINCT e.f_name, e.l_name, j.job_name FROM employees e JOIN jobs j ON e.employee_id = j.employee_id";
-                        $result_jobs = mysqli_query($conn, $sql_jobs);
-                        
+            if (mysqli_num_rows($result_jobs) > 0) {
+                while ($row = mysqli_fetch_assoc($result_jobs)) {
+                    $full_name = htmlspecialchars($row['f_name']) . ' ' . htmlspecialchars($row['l_name']);
+                    $job_name = htmlspecialchars($row['job_name']);
+                    $notes = htmlspecialchars($row['notes']);
 
-                        if (mysqli_num_rows($result_jobs) > 0) {
-                                while ($row = mysqli_fetch_assoc($result_jobs)) {
-                                    $full_name = htmlspecialchars($row['f_name']) . ' ' . htmlspecialchars($row['l_name']);
-                                    $job_name= htmlspecialchars(($row['job_name']));
-                            
-                                echo "<tr>
-                                        <td>
-                                            <details class='details'>
-                                            <summary class='employee_name'>$full_name</summary>
-                                            <p class='current'>Current- $job_name</p>
-                                            </details>
-                                        </td>
-                                      </tr>";
-                            } 
-                        } else {
-                            echo "<tr><td colspan='3'>No data available</td></tr>";
-                        }
-                        
-                        ?>
+                    echo "<tr>
+                            <td>
+                                <details class='details'>
+                                    <summary class='employee_name'>$full_name</summary>
+                                    <p class='current'>Current- $job_name</p>
+                                    <form action='update_notes.php' method='post'>
+                                        <textarea name='notes' rows='4' cols='50'>$notes</textarea>
+                                        <input type='hidden' name='job_id' value='" . htmlspecialchars($row['job_id']) . "' />
+                                        <button type='submit'>Update Notes</button>
+                                    </form>
+                                </details>
+                            </td>
+                          </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='3'>No data available</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
 
-                        </tbody>
-                </table>
-            </div> 
-        </div>
         <?php     //php connection for deleting machine from database
             if(isset($_POST['deleteMachine'])){
             $machineId = $_POST['machine_id'];
