@@ -1,5 +1,5 @@
 <?php
-var_dump($_POST);
+
 require_once '../src/api/dbconn.inc.php';
 
 

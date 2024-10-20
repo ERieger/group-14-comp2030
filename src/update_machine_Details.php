@@ -8,9 +8,9 @@ $result = mysqli_query($conn, $sql);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Machine ID</title>
+    <title>Update Machine</title>
     <link rel="stylesheet" href="../public/static/css/fstyle.css">
     <link rel="stylesheet" href="../public/static/css/normalize.css">
     <link rel="stylesheet" href="../public/static/css/colours.css">
@@ -19,7 +19,7 @@ $result = mysqli_query($conn, $sql);
     <script src="../public/static/js/factorymanager.js" defer></script>
 </head>
 <header>
-        <div class="navbar">
+<div class="navbar">
             <img src="../public/static/images/logo.png" alt="COMPANY LOGO" class="logo">
             <p>Dashboard</p>
             <div class="spacer"></div>
@@ -27,26 +27,19 @@ $result = mysqli_query($conn, $sql);
                 <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON" onclick="window.location.href='login.php'">
                 <p>Logout</p>
             </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
-                <p>Factory</p>
-            </div>
+            
             <div class="nav-item">
                 <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
                 <p>Tasks</p>
             </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/menu.png" alt="MENU ICON">
-                <p>Menu</p>
-            </div>
+           
         </div>
 </header>
 <body>
 
-<h1>Update Machine ID</h1>
-
-
-<form action="update_machine-form.php" method="POST">
+<div class="update-machine-container">
+<h1 id="update-heaading">Update Machine ID</h1>
+<form action="update_machine-form.php" method="POST" class="update-machine-form">
     <label for="machine">Select Machine:</label>
     <select id="machine" name="old_machine_id" required>
         <option value="" disabled selected>Select Machine</option>
@@ -66,5 +59,8 @@ $result = mysqli_query($conn, $sql);
     <label for="new_machine_id">New Machine ID:</label>
     <input type="text" id="new_machine_id" name="new_machine_id" required><br><br>
     
-    <button type="submit" name="updateMachine">Update Machine ID</button>
-</form>
+    <button type="submit" name="updateMachine" id="update-machine-save">Update Machine ID</button>
+  </form>
+</div>
+</body>
+</html>

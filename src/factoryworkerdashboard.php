@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <title>Factory Manager View</title>
     <link rel="stylesheet" href="../public/static/css/fstyle.css">
     <link rel="stylesheet" href="../public/static/css/normalize.css">
@@ -22,29 +21,20 @@
                 <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON" onclick="window.location.href='login.php'">
                 <p>Logout</p>
             </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
-                <p>Factory</p>
-            </div>
+            
             <div class="nav-item">
                 <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
                 <p>Tasks</p>
             </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/menu.png" alt="MENU ICON">
-                <p>Menu</p>
-            </div>
+           
         </div>
 </header>
 <body>
 
-        <button class="save">Save</button>
-        <button class="publish">Publish</button>
+       
         <form action="add_new_employee.php" method="POST">
         <button class="new">Add New Employee</button>
     
-
-
 
     <div class="tables-section">
     <div class="machines-table-container"> <!-- table for machines-->
@@ -57,10 +47,10 @@
                 </tr>
             </thead>
              <tbody>
-
+             
                     <?php //php connection fetching machines for machine details table
                     require_once '../src/api/dbconn.inc.php';
-
+                    $imagePath = '../public/static/images/icons/delete-machine.png';
 
                     $sql_machines = "SELECT DISTINCT machine_name, machine_id FROM machines";
                     $result_machines = mysqli_query($conn, $sql_machines);
@@ -72,13 +62,12 @@
                             
                             echo "<tr>
                                     <td>" . htmlspecialchars($row['machine_name']) . "</td>
-                                    
                                     <td id='Machine_Id'>" . htmlspecialchars($row['machine_id']) . "</td>
                                     <td class='actions_data'>
-
                                         <form id='deleteForm' method= 'POST' action='delete_machine.php'> 
                                         <input type= 'hidden' name= 'machine_id' value='". $row['machine_id']."'>
-                                        <button type='submit' onclick= 'return confirmDelete()' name='deleteMachine' class='actions_button'>🗑</button>
+                                        <button type='submit' onclick= 'return confirmDelete()' name='deleteMachine' class='actions_button'>
+                                        </button>
                                         </form>
                                     </td>
                                 </tr>";
@@ -128,7 +117,7 @@
                                       </tr>";
                             } 
                         } else {
-                            echo "<tr><td colspan='3'>No data available</td></tr>";
+                            echo "<tr><td colspan='1'>No data available</td></tr>";
                         }
                         
                         ?>
@@ -137,19 +126,7 @@
                 </table>
             </div> 
         </div>
-        <?php     //php connection for deleting machine from database
-            if(isset($_POST['deleteMachine'])){
-            $machineId = $_POST['machine_id'];
-
-            $sql = "DELETE FROM machines WHERE machine_id = '$machineId'";
-            if ($conn->query($sql) === TRUE) {
-                
-            } else {
-                
-            }
-            }
-            
-            ?>
+        
    </main>
  </body>
 </html>

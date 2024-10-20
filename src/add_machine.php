@@ -21,7 +21,7 @@ $result = mysqli_query($conn, $sql);
     <script src="../public/static/js/factorymanager.js" defer></script>
 </head>
 <header>
-        <div class="navbar">
+<div class="navbar">
             <img src="../public/static/images/logo.png" alt="COMPANY LOGO" class="logo">
             <p>Dashboard</p>
             <div class="spacer"></div>
@@ -29,29 +29,23 @@ $result = mysqli_query($conn, $sql);
                 <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON" onclick="window.location.href='login.php'">
                 <p>Logout</p>
             </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
-                <p>Factory</p>
-            </div>
+            
             <div class="nav-item">
                 <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
                 <p>Tasks</p>
             </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/menu.png" alt="MENU ICON">
-                <p>Menu</p>
-            </div>
+           
         </div>
 </header>
 <body>
-
+    <div class="add-machine-container">
     <h1>Add New Machine </h1>
     
-    <form action="add_machine-form.php" method="POST">
+    <form action="add_machine-form.php" method="POST" class="add-machine-form" >
         <label for="machine_name">Machine Name:</label>
         <input type="text" id="machine_name" name="machine_name" required><br><br>
         
-        <label for="operator">Assign Operator:</label>
+        <label for="operator">Operator Responsible:</label>
         <select id="operator" name="operator_id" required>
             <option value="" disabled selected>Select Operator</option>
             <?php
@@ -66,9 +60,9 @@ $result = mysqli_query($conn, $sql);
             ?>
         </select><br><br>
         
-        <button type="submit" name="addMachine">Save</button>
-    </form>
-
+        <button type="submit" name="addMachine" id="add-machine-save">Save</button>
+      </form>
+    </div>
 </body>
 </html>
 
