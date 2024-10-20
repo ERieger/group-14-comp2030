@@ -65,7 +65,7 @@
                                     <td>' . $row['l_name'] . '</td>
                                     <td>' . $row['role'] . '</td>
                                     <td> <a class="details-btn" href=admin-view-details.php?id=' . $row['employee_id'] . '>details</a> </td>
-                                    <td> <a class="delete-btn" href=api/admin/admin-delete.php?id=' . $row['employee_id'] . '><img class="delete-img" src="../public\static/images/icons/delete-user.png"></a> </td>'
+                                    <td> <a class="delete-btn" href=api/admin/admin-delete.php?id=' . $row['employee_id'] . ' onclick="return confirm(\'Are you sure you want to delete this employee?\');"><img class="delete-img" src="../public\static/images/icons/delete-user.png"></a> </td>'
                                     ;
                             }
                         }
