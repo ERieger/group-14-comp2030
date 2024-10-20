@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <title>Factory Manager View</title>
     <link rel="stylesheet" href="../public/static/css/fstyle.css">
     <link rel="stylesheet" href="../public/static/css/normalize.css">
@@ -18,7 +19,7 @@
             <p>Dashboard</p>
             <div class="spacer"></div>
             <div class="nav-item">
-                <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON">
+                <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON" onclick="window.location.href='login.php'">
                 <p>Logout</p>
             </div>
             <div class="nav-item">
