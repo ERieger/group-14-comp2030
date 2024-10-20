@@ -10,15 +10,14 @@ body {
     width: 100vw;
     margin: 0;
     padding: 0;
+
 }
 
 .dropdown {
     display:flex;
-    position: relativee;
-    margin-top: -40px;
-    
+    position: relative;
     z-index: 1;
-    bottom:180px;
+    bottom:50px;
     margin-left: 50px;
     overflow-y: auto;  
     overflow-x: auto; 
@@ -30,11 +29,12 @@ body {
   .dropdown-content {
     display: none;
     position: relative;
-    width: 100%;
+    width: 260px;
     font-size: 20px;
     overflow: auto;
     z-index: 1;
     box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+    
   }
 
 .dropdown:hover .dropdown-content {
@@ -58,39 +58,13 @@ body {
   }
 
 .drpbutton{
-    font-size: 25px;
+    font-size: 18px;
     margin-top: 5px;
     width: 260px;
-  }
-
-
- 
-  .save{
+    background-color:rgb(240, 239, 239);
     border-radius: 50px;
-    border-color: #040404;
-    display: flex;
-    border-width: 0.5px;
-    position: absolute;
-    align-self: baseline;
-    font-size: 20px;
-    text-align: center;
-    bottom: 160px;
-    right: 300px;
-  }  
- 
-
-.publish{
-  border-radius: 50px;
-  border-color: #040404;
-  display: flex;
-  border-width: 0.5px;
-  bottom: 160px;
-  align-self: baseline;
-  font-size: 20px;
-  text-align: center;
-  position: absolute;
-  right: 190px;
-    }
+    font-weight: bold;
+  }
 
 .new{
   border-radius: 50px;
@@ -99,11 +73,12 @@ body {
   border-width: 0.5px;
   position: relative;
   align-self: baseline;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   top: 500px;
-
-
+  cursor: pointer;
+  font-weight: bold;
+  width: 260px;
 }
 
 #add_button{
@@ -113,10 +88,14 @@ body {
   border-width: 0.5px;
   position: absolute;
   align-self: baseline;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
-  bottom: 160px;
+  bottom: 145px;
   left: 540px;
+  cursor: pointer;
+  background-color:rgb(240, 239, 239);
+  border-radius: 50px;
+  font-weight: bold;
 }
 
 /* Theresa Styles*/
@@ -160,11 +139,12 @@ body {
 .actions_data{
   text-align: center;
   border-radius: 10px;
+  
 }
 
 .details{
   padding-top: 10px;
-  font-size: 25px;
+  font-size: 1.25rem;
   display: flex;
   position: relative;
   bottom: 90px;
@@ -172,10 +152,11 @@ body {
   border-color: #000000;
   border: 1px solid ;
   border-radius: 3px;
-  background-color: rgb(163, 168, 172);
+  background-color:silver;
   box-shadow: 3px 3px 4px black;
   width:260px;
   text-align: left;
+  cursor: pointer;
   
 }
 
@@ -191,9 +172,87 @@ body {
   border-width: 0.5px;
   position: absolute;
   align-self: baseline;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
-  bottom: 160px;
+  bottom: 145px;
   left: 680px;
+  cursor: pointer;
+  background-color:rgb(240, 239, 239);
+  border-radius: 50px;
+  font-weight: bold;
 }
 
+.actions_button{ 
+  cursor: pointer;
+  background-image: url(../images/icons/delete-machine.png);
+  height: 20px;
+  width: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: none;
+  background-color: #f9f9f9;
+}
+
+
+.add-machine-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.add-machine-form{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+#add-machine-save{
+  cursor: pointer;
+  
+}
+
+#add-machine-save :hover{
+  background-color: #6c757d;
+  
+}
+
+input, select{
+  width: 100%;
+}
+
+label{
+  font-weight: bold;
+}
+
+.update-machine-form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+.update-machine-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+#add-machine-save :hover{
+  background-color: #6c757d;
+  
+}
+
+#update-machine-save{
+  cursor: pointer;
+}
