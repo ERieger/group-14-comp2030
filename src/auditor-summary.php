@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditor home page</title>
+    <title>Auditor-summary</title>
     <link rel="stylesheet" href="../public/static/css/normalize.css">
     <link rel="stylesheet" href="../public/static/css/colours.css">
     <link rel="stylesheet" href="../public/static/css/utility.css">
@@ -59,9 +59,6 @@ session_start();
         $to_date = $_SESSION['to_date'];
     }
 
-  
-    // echo date('Y-m-d H:i:s', $from_date);
-
     echo  '
     <div> 
     <h3>Factory Summary Report</h3>
@@ -86,10 +83,6 @@ session_start();
     <tbody>'; 
 
     // determining the percentage of operational_status
-    // $TOTAL_STATUS = "SELECT COUNT(machine_name) FROM logs WHERE machine_id = 0;";
-    // $ACTIVE_STATUS = "SELECT machine_name FROM logs WHERE machine_id = 0 AND status = 'active';";
-    // $MAINTENANCE_STATUS = "SELECT machine_name FROM logs WHERE machine_id = 0 AND status = 'maintenance';";
-    // $IDLE_STATUS = "SELECT machine_name FROM logs WHERE machine_id = 0 AND status = 'idle';";
 
     // put in for loop to cycle through machines
     for ($i = 0; $i <= 10; $i++) {
@@ -116,7 +109,6 @@ session_start();
     $maintenance = ($maintenance_count / $total_count)*100;
     $idle = ($idle_count / $total_count)*100;
     }
-
 
     $MACHINE = "SELECT machine_name FROM logs WHERE machine_id = $i GROUP BY machine_id;";
     $TOT_PRODUCTION = "SELECT COUNT(production) as total_production FROM logs WHERE machine_id = $i GROUP BY machine_id;";
@@ -188,21 +180,12 @@ session_start();
         }
     } 
      
-}
-    
-    
-    
-    
-    
-    
-    
+} 
     mysqli_free_result($result);
     mysqli_close($conn);
 
    echo  '</tbody>';
     ?>
     </div>
-
-
-
     </body>
+    </html>

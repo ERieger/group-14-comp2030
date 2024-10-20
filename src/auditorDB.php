@@ -7,7 +7,7 @@ require_once "./api/dbconn.inc.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditor home page</title>
+    <title>Auditor-home-page</title>
     <link rel="stylesheet" href="../public/static/css/normalize.css">
     <link rel="stylesheet" href="../public/static/css/colours.css">
     <link rel="stylesheet" href="../public/static/css/utility.css">
@@ -42,12 +42,6 @@ require_once "./api/dbconn.inc.php";
     <div class="summary"><a class="summary" href="auditor-summary.php">Generate Summary Report</a></div>
 <!--filter-->
 <div class="filter">
-    <!-- <div class="nav-container">
-        <ul>
-            <li><a>Dashboard</a></li>
-            <li><a>Summary</a></li>
-        </ul>
-    </div> -->
     
     <form class="form-container" action="" method="GET">
     <div class="filter-item-spacer">    
@@ -65,17 +59,6 @@ require_once "./api/dbconn.inc.php";
         </div>
         <div class="filter-item">
         <a class="reset-btn" href="auditorDB.php?<?php 
-        // require_once "./api/dbconn.inc.php"; 
-        
-        // $t1 = $conn->query("SELECT MIN(timestamp) as timestamp FROM logs;");
-        // $from_date = $t1;
-       
-
-        // $t2 = $conn->query("SELECT MAX(timestamp) as timestamp FROM logs;");
-        // $to_date = $t2;
-
-
-        // echo 'from-date=' . $from_date . '&to-date=' . $to_date; 
         ?>
         
         "><img class="reset-img" src="../public\static/images/icons/reset.png"></a>
