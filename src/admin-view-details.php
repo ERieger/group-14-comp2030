@@ -86,7 +86,6 @@
                     <button type="button">Cancel</button>
                     <button class="danger-btn" type="button">Delete</button>
          </div>
-
     </div>
 <!-- grid-item2 - I want to act as a dynamic card interface, that allows me to add and edit users -->
     <div class="card" id="cs">
@@ -154,15 +153,6 @@
         }
 
         ?>
-
-    <!-- write in html outide, then put inside -->
-        <!-- <p>First Name: </p>
-        <p>Last Name: </p>
-        <p>Role: </p>
-        <p>Phone Number: </p>
-        <p>Gender: </p> -->
-
-
     </div>
 
     </div>

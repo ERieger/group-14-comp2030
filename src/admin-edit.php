@@ -140,20 +140,6 @@
         }
 
         ?>
-        
-
-        
-
-
-
-    <!-- write in html outide, then put inside -->
-        <!-- <p>First Name: </p>
-        <p>Last Name: </p>
-        <p>Role: </p>
-        <p>Phone Number: </p>
-        <p>Gender: </p> -->
-
-
     </div>
 
     </div>
