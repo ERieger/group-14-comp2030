@@ -24,8 +24,10 @@
                 </a>
             </div>
             <div class="nav-item">
-                <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
-                <p>Factory</p>
+                <a href="/factory-dashboard/src/notes.php">
+                    <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
+                    <p>Notes</p>
+                </a>
             </div>
             <div class="nav-item">
                 <a href="/factory-dashboard/src/tasks.php">
