@@ -57,6 +57,15 @@
     }
 }
 
+.card-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-content-block {
+    display: block !important;
+}
+
 .card-main {
     min-width: 400px;
 }
@@ -131,4 +140,6 @@ a {
     color: black;
 }
 
-
+.hidden {
+    display: none;
+}

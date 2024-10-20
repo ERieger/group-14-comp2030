@@ -24,8 +24,10 @@
                 </a>
             </div>
             <div class="nav-item">
-                <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
-                <p>Factory</p>
+                <a href="/factory-dashboard/src/notes.php">
+                    <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
+                    <p>Notes</p>
+                </a>
             </div>
             <div class="nav-item">
                 <a href="/factory-dashboard/src/dashboard.php">
@@ -55,7 +57,7 @@
                         <div class="card-header">
                             <h3>Work Order For: ' . $row["job_name"] . '</h3>
                             <div class="spacer"></div>
-                            <button type="button" onclick="activateTask('.$row["job_id"].')">Select Task</button>
+                            <button type="button" onclick="activateTask(' . $row["job_id"] . ')">Select Task</button>
                         </div>
                         <div class="card-content">
                             <table id="' . $row["job_id"] . '" class="table table-100">
@@ -74,10 +76,10 @@
                         while ($row2 = mysqli_fetch_assoc($result2)) {
                             echo "
                             <tr>
-                                <td>".$row2["item"]."</td>
-                                <td>".$row2["qty"]."</td>
-                                <td>".$row2["machine_name"]."</td>
-                                <td>".$row2["progress"]." of " .$row2["qty"]."</td>
+                                <td>" . $row2["item"] . "</td>
+                                <td>" . $row2["qty"] . "</td>
+                                <td>" . $row2["machine_name"] . "</td>
+                                <td>" . $row2["progress"] . " of " . $row2["qty"] . "</td>
                             </tr>";
                         }
                     }
