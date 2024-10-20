@@ -4,18 +4,24 @@ require_once '../src/api/dbconn.inc.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
-    $phone_no = $_POST['phone_no']; 
-    $machine_id = $_POST['machine_name'];
-    $role = 'Production Operator';
+    $machine_id = $_POST['machine_name']; 
+    $role = 'Production Operator'; 
+    
+    // Assuming you collect phoneNo, email, and password from the form
+    $phoneNo = $_POST['phoneNo']; // Add this field in your form
+    $email = $_POST['email']; // Add this field in your form
+    $password = $_POST['password']; // Add this field in your form
 
-    $sql_employee = "INSERT INTO employees (f_name, l_name, phoneNo, role) VALUES (?, ?, ?, ?)";
+    // Adjust your SQL statement to include the correct number of fields
+    $sql_employee = "INSERT INTO employees (role, phoneNo, email, f_name, l_name, password) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt_employee = mysqli_prepare($conn, $sql_employee);
-    mysqli_stmt_bind_param($stmt_employee, 'ssss', $first_name, $last_name, $phone_no, $role);
+    
+    // Updated to match the number of parameters
+    mysqli_stmt_bind_param($stmt_employee, 'ssssss', $role, $phoneNo, $email, $first_name, $last_name, $password);
     
     if (mysqli_stmt_execute($stmt_employee)) {
-        $employee_id = mysqli_insert_id($conn);
-        
- 
+        $employee_id = mysqli_insert_id($conn); 
+
         $sql_job = "INSERT INTO jobs (employee_id, machine_id) VALUES (?, ?)";
         $stmt_job = mysqli_prepare($conn, $sql_job);
         mysqli_stmt_bind_param($stmt_job, 'ii', $employee_id, $machine_id);
@@ -37,3 +43,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header("Location: factoryworkerdashboard.php");
     exit;
 }
+?>
