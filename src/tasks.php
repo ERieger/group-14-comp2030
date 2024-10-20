@@ -43,6 +43,15 @@
     </header>
     <main class="dashboard-container">
         <div class="dashboard-content">
+            <div class="card card-main card-100p">
+                <div class="card-header current-task logs-head">
+                    <h3>Current Task</h3>
+                </div>
+                <div class="card-content scroll" id="task-box">
+                    <p>No Task Currently Selected.</p>
+                </div>
+            </div>
+
             <?php
             require_once "./api/dbconn.inc.php";
             $sql = "SELECT j.job_id, j.job_name, e.f_name, e.l_name 

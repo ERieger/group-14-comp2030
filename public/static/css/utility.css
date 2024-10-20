@@ -28,6 +28,9 @@
 .table-100 {
     width: 100%;
 }
+.table-50{
+    width: 50%;
+}
 
 .card {
     margin: 1rem;

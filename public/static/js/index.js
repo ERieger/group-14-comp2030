@@ -184,7 +184,6 @@ function updateTask(data) {
             <th>Quantity</th>
             <th>Assigned Machine</th>
             <th>Progress</th>
-            <th>Actions</th>
         </tr>
         <tbody>
         </tbody>
@@ -197,27 +196,8 @@ function updateTask(data) {
                 <td>${part.qty}</td>
                 <td>${part.machine_name}</td>
                 <td>${part.progress} of ${part.qty}</td>
-                <td><button onclick=\"updateTotal('increment')\">+</button><button onclick=\"updateTotal('decrement')\">-</button></td>
             </tr>
         `);
-    });
-}
-
-function updateTotal(method) {
-    $.ajax({
-        url: "/factory-dashboard/src/api/dashboard/update-task.php",
-        type: "POST",
-        dataType: "application/json",
-        data: {
-            method: method,
-        },
-        success: (data) => {
-            console.log("Received Job: ", data);
-            updateTask(data);
-        },
-        error: (jqXHR, textStatus, errorThrown) => {
-            console.error("AJAX Error: ", textStatus, errorThrown);
-        },
     });
 }
 
