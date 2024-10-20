@@ -12,7 +12,7 @@ function loadEnv($filePath) {
     }
 }
 
-loadEnv('../.env');
+loadEnv('/home/erieger/.Programming/group-14-comp2030/.env');
 
 // Use constants to define your connection parameters
 define("DB_HOST", getenv("DB_HOSTNAME"));
