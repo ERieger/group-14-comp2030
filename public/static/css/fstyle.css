@@ -58,11 +58,12 @@ body {
   }
 
 .drpbutton{
-    font-size: 25px;
+    font-size: 18px;
     margin-top: 5px;
     width: 260px;
     background-color:rgb(240, 239, 239);
     border-radius: 50px;
+    font-weight: bold;
   }
 
 .new{
@@ -72,11 +73,12 @@ body {
   border-width: 0.5px;
   position: relative;
   align-self: baseline;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   top: 500px;
-
-
+  cursor: pointer;
+  font-weight: bold;
+  width: 260px;
 }
 
 #add_button{
@@ -86,13 +88,14 @@ body {
   border-width: 0.5px;
   position: absolute;
   align-self: baseline;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   bottom: 145px;
   left: 540px;
   cursor: pointer;
   background-color:rgb(240, 239, 239);
   border-radius: 50px;
+  font-weight: bold;
 }
 
 /* Theresa Styles*/
@@ -169,13 +172,14 @@ body {
   border-width: 0.5px;
   position: absolute;
   align-self: baseline;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   bottom: 145px;
   left: 680px;
   cursor: pointer;
   background-color:rgb(240, 239, 239);
   border-radius: 50px;
+  font-weight: bold;
 }
 
 .actions_button{ 

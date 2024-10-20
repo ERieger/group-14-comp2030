@@ -23,7 +23,7 @@
             </div>
             
             <div class="nav-item">
-                <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
+                <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON" onclick="window.location.href='factoryworkerdashboard.php'">
                 <p>Tasks</p>
             </div>
            

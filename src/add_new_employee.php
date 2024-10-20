@@ -29,18 +29,12 @@ $result = mysqli_query($conn, $sql);
                 <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON" onclick="window.location.href='login.php'">
                 <p>Logout</p>
             </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
-                <p>Factory</p>
-            </div>
+            
             <div class="nav-item">
                 <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
                 <p>Tasks</p>
             </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/menu.png" alt="MENU ICON">
-                <p>Menu</p>
-            </div>
+            
         </div>
 </header>
 <body>
