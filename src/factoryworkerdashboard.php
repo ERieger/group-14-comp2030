@@ -136,9 +136,9 @@ require_once '../src/api/dbconn.inc.php';
 $sql_machines = "SELECT DISTINCT machine_name FROM machines";
 $result_machines = mysqli_query($conn, $sql_machines);
 
-?>
+?> 
 
-<div class="dropdown-section">
+<div class="dropdown-section"> 
     <div class='dropdown'>
             <form action="assign_machine.php" method="post">
                 <button  class="drpbutton">Select Jobs</button>
@@ -158,28 +158,4 @@ $result_machines = mysqli_query($conn, $sql_machines);
             </form>
         </div>
     </div>
-<?php
-require_once '../src/api/dbconn.inc.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['machineName'])) {
-    $machineName = mysqli_real_escape_string($conn, $_POST['machineName']);
-
-    // Update the 'jobs' table to assign the machine to all employees
-    $sql_update = "UPDATE jobs j
-                   JOIN machines m ON j.machine_id = m.machine_id
-                   SET j.machine_id = (SELECT machine_id FROM machines WHERE machine_name = '$machineName')
-                   WHERE m.machine_name != '$machineName'";
-
-    if (mysqli_query($conn, $sql_update)) {
-        echo "Machine assigned successfully to all employees.";
-    } else {
-        echo "Error: " . mysqli_error($conn);
-    }
-
-    mysqli_close($conn);
-
-    // Redirect back to the main page or display a message
-    header("Location: your_main_page.php"); // Replace 'your_main_page.php' with the appropriate page
-    exit();
-}
-?>

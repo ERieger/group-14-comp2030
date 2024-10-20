@@ -1,3 +1,4 @@
+
 <?php
 
 require_once '../src/api/dbconn.inc.php';
@@ -12,6 +13,37 @@ $result = mysqli_query($conn, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Employee</title>
+    <link rel="stylesheet" href="../public/static/css/fstyle.css">
+    <link rel="stylesheet" href="../public/static/css/normalize.css">
+    <link rel="stylesheet" href="../public/static/css/colours.css">
+    <link rel="stylesheet" href="../public/static/css/utility.css">
+    <link rel="stylesheet" href="../public/static/css/index.css">
+    <script src="../public/static/js/factorymanager.js" defer></script>
+</head>
+<header>
+        <div class="navbar">
+            <img src="../public/static/images/logo.png" alt="COMPANY LOGO" class="logo">
+            <p>Dashboard</p>
+            <div class="spacer"></div>
+            <div class="nav-item">
+                <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON" onclick="window.location.href='login.php'">
+                <p>Logout</p>
+            </div>
+            <div class="nav-item">
+                <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
+                <p>Factory</p>
+            </div>
+            <div class="nav-item">
+                <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
+                <p>Tasks</p>
+            </div>
+            <div class="nav-item">
+                <img src="../public/static/images/icons/menu.png" alt="MENU ICON">
+                <p>Menu</p>
+            </div>
+        </div>
+</header>
+<body>
     
 </head>
 <body>
@@ -23,8 +55,15 @@ $result = mysqli_query($conn, $sql);
         <input type="text" id="first_name" name="first_name" required><br><br>
         <label for="Last_name">Last Name:</label>
         <input type="text" id="last_name" name="last_name" required><br><br>
-        <label for="phone_no">Phone Number:</label>
-        <input type="text" id="phone_no" name="phone_no" required><br><br>
+        <label for="phoneNo">Phone Number:</label>
+        <input type="text" id="phoneNo" name="phoneNo" required><br><br>
+    
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+    
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
         
         <label for="Machine Name">Machine Name:</label>
         <select id="Machine Name" name="machine_name" required>
