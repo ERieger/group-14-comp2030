@@ -97,7 +97,7 @@
         <tbody>
             <?php
             // PHP connection fetching current jobs from database
-            $sql_jobs = "SELECT DISTINCT e.f_name, e.l_name, j.job_name, j.notes 
+            $sql_jobs = "SELECT DISTINCT e.f_name, e.l_name, j.job_name, j.notes, j.job_id
                          FROM employees e 
                          JOIN jobs j ON e.employee_id = j.employee_id";
             $result_jobs = mysqli_query($conn, $sql_jobs);
@@ -106,6 +106,8 @@
                                 while ($row = mysqli_fetch_assoc($result_jobs)) {
                                     $full_name = htmlspecialchars($row['f_name']) . ' ' . htmlspecialchars($row['l_name']);
                                     $job_name= htmlspecialchars(($row['job_name']));
+                                    $notes = htmlspecialchars(($row['notes']));
+                                    $job_id = htmlspecialchars(($row['job_id']));
                             
                                 echo "<tr>
                                         <td>
@@ -114,7 +116,7 @@
                                             <p class='current'>Current- $job_name</p>
                                             <form action='update_notes.php' method='post'>
                                             <textarea name='notes' rows='4' cols='50'>$notes</textarea>
-                                            <input type='hidden' name='job_id' value='" . htmlspecialchars($row['job_id']) . "' />
+                                            <input type='hidden' name='job_id' value='$job_id'" . htmlspecialchars($row['job_id']) . "' />
                                             <button type='submit'>Update Notes</button>
                                     </form>
                                             </details>
