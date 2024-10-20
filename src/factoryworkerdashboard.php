@@ -112,6 +112,11 @@
                                             <details class='details'>
                                             <summary class='employee_name'>$full_name</summary>
                                             <p class='current'>Current- $job_name</p>
+                                            <form action='update_notes.php' method='post'>
+                                            <textarea name='notes' rows='4' cols='50'>$notes</textarea>
+                                            <input type='hidden' name='job_id' value='" . htmlspecialchars($row['job_id']) . "' />
+                                            <button type='submit'>Update Notes</button>
+                                    </form>
                                             </details>
                                         </td>
                                       </tr>";
@@ -127,33 +132,7 @@
             </div> 
         </div>
         
-            if (mysqli_num_rows($result_jobs) > 0) {
-                while ($row = mysqli_fetch_assoc($result_jobs)) {
-                    $full_name = htmlspecialchars($row['f_name']) . ' ' . htmlspecialchars($row['l_name']);
-                    $job_name = htmlspecialchars($row['job_name']);
-                    $notes = htmlspecialchars($row['notes']);
 
-                    echo "<tr>
-                            <td>
-                                <details class='details'>
-                                    <summary class='employee_name'>$full_name</summary>
-                                    <p class='current'>Current- $job_name</p>
-                                    <form action='update_notes.php' method='post'>
-                                        <textarea name='notes' rows='4' cols='50'>$notes</textarea>
-                                        <input type='hidden' name='job_id' value='" . htmlspecialchars($row['job_id']) . "' />
-                                        <button type='submit'>Update Notes</button>
-                                    </form>
-                                </details>
-                            </td>
-                          </tr>";
-                }
-            } else {
-                echo "<tr><td colspan='3'>No data available</td></tr>";
-            }
-            ?>
-        </tbody>
-    </table>
-</div>
 
         <?php     //php connection for deleting machine from database
             if(isset($_POST['deleteMachine'])){
