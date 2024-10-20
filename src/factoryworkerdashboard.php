@@ -79,13 +79,6 @@
                                         <input type= 'hidden' name= 'machine_id' value='". $row['machine_id']."'>
                                         <button type='submit' onclick= 'return confirmDelete()' name='deleteMachine' class='actions_button'>🗑</button>
                                         </form>
-
-
-                                        <form id='editForm' method='POST' action='update_machine_Details.php'>
-                                        <input type= 'hidden' name= 'machine_id' value='". $row['machine_id']."'>
-                                        <button type='submit' class='actions_button'>🔧</button>
-                                        </form>
-
                                     </td>
                                 </tr>";
                         }
@@ -100,6 +93,11 @@
 
     <form action="add_machine.php" method="POST">
     <button id="add_button" type="submit">Add Machine</button>
+    </form>
+
+    <form id='editForm' method='POST' action='update_machine_Details.php'>
+    <input type='hidden' name='machine_id' value='<?php echo htmlspecialchars($row['machine_id']); ?>'>
+    <button type='submit' id='edit_button'>Edit Machine</button>
     </form>
 
 
@@ -165,8 +163,8 @@ $result_machines = mysqli_query($conn, $sql_machines);
 <div class="dropdown-section">
     <div class='dropdown'>
             <form action="assign_machine.php" method="post">
-                <button class="drpbutton">Select Jobs</button>
-                <div class="dropdown-content">
+                <button  class="drpbutton">Select Jobs</button>
+                <div id="selectjobsDrop" class="dropdown-content">
                     <?php
                     if (mysqli_num_rows($result_machines) > 0) {
                         while ($row = mysqli_fetch_assoc($result_machines)) {

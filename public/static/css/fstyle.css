@@ -1,27 +1,28 @@
 /*senna test*/
 * {
   font-family: Arial, Helvetica, sans-serif;
+  
 }
 
 
 .dropdown {
     display:flex;
-    position: absolute;
-    bottom: 50px;
-    padding-top: 0px;
+    position: relativee;
+    margin-top: -40px;
+    
     z-index: 1;
-    top: 130px;
-    left: 50px;
+    bottom:180px;
+    margin-left: 50px;
     overflow-y: auto;  
-    overflow-x: hidden; 
+    overflow-x: auto; 
     width: 25%;
-    height: 50%;
+    height: 25%;
     border-radius: 5px;
   }
 
   .dropdown-content {
     display: none;
-    position: absolute;
+    position: relative;
     width: 100%;
     font-size: 20px;
     overflow: auto;
@@ -30,7 +31,7 @@
   }
 
 .dropdown:hover .dropdown-content {
-    display: flex;
+    display: block;
     background-color: #ddd;
 
   }
@@ -171,8 +172,20 @@
 }
 
 .employees-table-container{
-  margin-top: 250px;
+  margin-top: 130px;
   
 }
 
+#edit_button{
+  border-radius: 50px;
+  border-color: #040404;
+  display: flex;
+  border-width: 0.5px;
+  position: absolute;
+  align-self: baseline;
+  font-size: 20px;
+  text-align: center;
+  bottom: 160px;
+  left: 680px;
+}
 

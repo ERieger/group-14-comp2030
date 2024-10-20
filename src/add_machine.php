@@ -16,7 +16,7 @@ $result = mysqli_query($conn, $sql);
 </head>
 <body>
 
-    <h1>Add New Machine and Assign Operator</h1>
+    <h1>Add New Machine </h1>
     
     <form action="add_machine-form.php" method="POST">
         <label for="machine_name">Machine Name:</label>
