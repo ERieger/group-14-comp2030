@@ -196,10 +196,33 @@ $result_machines = mysqli_query($conn, $sql_machines);
                     } else {
                         echo "<p>No Machines Available</p>";
                     }
-                    mysqli_close($conn);
+                
                     ?>
                 </div>
             </form>
         </div>
     </div>
 
+<?php
+// PHP connection for fetching notes from the database
+require_once '../src/api/dbconn.inc.php';
+
+$sql_notes = "SELECT note_content FROM notes";
+$result_notes = mysqli_query($conn, $sql_notes);
+
+if (mysqli_num_rows($result_notes) > 0) {
+    echo "<div class='notes-section'>";
+    echo "<h3>Factory Manager's Notes</h3>";
+    echo "<ul>";
+    while ($row = mysqli_fetch_assoc($result_notes)) {
+        $noteContent = htmlspecialchars($row['note_content']);
+        echo "<li>" . $noteContent . "</li>";
+    }
+    echo "</ul>";
+    echo "</div>";
+} else {
+    echo "<p>No notes available.</p>";
+}
+
+mysqli_close($conn);
+?>
