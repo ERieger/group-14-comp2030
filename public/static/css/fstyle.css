@@ -159,6 +159,29 @@ body {
   cursor: pointer;
   
 }
+/* New CSS class to override existing styles */
+.custom-table-style {
+  width: 260px;
+  border-collapse: collapse;
+}
+
+/* Styling for the table header */
+.custom-table-style th {
+  text-align: left;
+  padding: 8px;
+  background-color: #f2f2f2;
+}
+
+/* Styling for table cells */
+.custom-table-style td {
+  padding: 8px;
+  word-wrap: break-word;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: 1px solid #ddd;
+}
+
 
 .employees-table-container{
   margin-top: 130px;
