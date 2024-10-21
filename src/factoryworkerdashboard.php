@@ -97,8 +97,8 @@
         <tbody>
             <?php
             // PHP connection fetching current jobs from database
-            $sql_jobs = "SELECT DISTINCT e.f_name, e.l_name, j.job_name, j.notes, j.job_id
-                         FROM employees e 
+            $sql_jobs = "SELECT DISTINCT e.f_name, e.l_name, j.job_name, j.job_id, e.employee_id
+                         FROM employees e
                          JOIN jobs j ON e.employee_id = j.employee_id";
             $result_jobs = mysqli_query($conn, $sql_jobs);
 
@@ -106,7 +106,6 @@
                                 while ($row = mysqli_fetch_assoc($result_jobs)) {
                                     $full_name = htmlspecialchars($row['f_name']) . ' ' . htmlspecialchars($row['l_name']);
                                     $job_name= htmlspecialchars(($row['job_name']));
-                                    $notes = htmlspecialchars(($row['notes']));
                                     $job_id = htmlspecialchars(($row['job_id']));
                             
                                 echo "<tr>
@@ -114,11 +113,34 @@
                                             <details class='details'>
                                             <summary class='employee_name'>$full_name</summary>
                                             <p class='current'>Current- $job_name</p>
-                                            <form action='update_notes.php' method='post'>
-                                            <textarea name='notes' rows='4' cols='50'>$notes</textarea>
                                             <input type='hidden' name='job_id' value='$job_id'" . htmlspecialchars($row['job_id']) . "' />
-                                            <button type='submit'>Update Notes</button>
-                                    </form>
+                                            
+                                            <table id=' . $row[job_id] . ' class='table table-100'>
+                                            <tr class='text-toupper'>
+                                              
+                                                <th>Assigned Machine</th>
+                             
+                                            </tr>";
+
+                                                                $sql2 = "SELECT p.item, p.qty, m.machine_name, p.progress, p.image
+                                                                        FROM parts p
+                                                                        INNER JOIN machines m ON p.machine_id=m.machine_id
+                                                                        WHERE p.job_id = '{$row["job_id"]}';";
+                                                                    $result2 = mysqli_query($conn, $sql2);
+                                                                    if (mysqli_num_rows($result2) > 0) {
+                                                                        while ($row2 = mysqli_fetch_assoc($result2)) {
+                                                                            echo "
+                                                                            <tr>
+                                                                              
+                                                                             
+                                                                                <td>".$row2["machine_name"]."</td>
+                                                                              
+                                                                            </tr>";
+                                                                        }
+                                                                    }
+                                                                    echo '</table></div></div>';
+                                                                    mysqli_free_result($result2);
+                                    echo "</form>
                                             </details>
                                         </td>
                                       </tr>";
