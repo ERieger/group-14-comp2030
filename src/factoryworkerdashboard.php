@@ -33,7 +33,7 @@
 
        
         <form action="add_new_employee.php" method="POST">
-        <button class="new">Add New Employee</button>
+        
     
 
     <div class="tables-section">
