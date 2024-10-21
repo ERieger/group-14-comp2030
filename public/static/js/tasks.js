@@ -8,7 +8,7 @@ window.addEventListener("load", (event) => {
 
 function renderTasks() {
     $.ajax({
-        url: "/factory-dashboard/src/api/dashboard/fetch-job.php",
+        url: "api/dashboard/fetch-job.php",
         type: "GET",
         dataType: "json",
         data: {
@@ -55,7 +55,7 @@ function updateTask(data) {
 
 function updateTotal(action, part) {
     $.post(
-        "/factory-dashboard/src/api/dashboard/update-part.php",
+        "api/dashboard/update-part.php",
         {
             action: action,
             part: part,
@@ -69,5 +69,5 @@ function updateTotal(action, part) {
 
 function activateTask(job) {
     sessionStorage.setItem("job", job);
-    window.location.href = "/factory-dashboard/src/dashboard.php";
+    window.location.href = "dashboard.php";
 }

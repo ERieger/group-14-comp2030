@@ -18,19 +18,19 @@
             <p>Tasks</p>
             <div class="spacer"></div>
             <div class="nav-item">
-                <a href="/factory-dashboard/src/login.php">
+                <a href="login.php">
                     <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON">
                     <p>Logout</p>
                 </a>
             </div>
             <div class="nav-item">
-                <a href="/factory-dashboard/src/dashboard.php">
+                <a href="dashboard.php">
                     <img src="../public/static/images/icons/dashboard.png" alt="DASHBOARD ICON">
                     <p>Dashboard</p>
                 </a>
             </div>
             <div class="nav-item">
-                <a href="/factory-dashboard/src/tasks.php">
+                <a href="tasks.php">
                     <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
                     <p>Tasks</p>
                 </a>
@@ -45,7 +45,7 @@
         <div class="dashboard-content">
             <button onclick="addNote()" style="margin: 1rem 0 0 1rem;">Add New Note</button>
             <div id="edit-note-form-container" class="quick-stats card-main card card-100p hidden">
-                <form id="edit-note-form" action="/factory-dashboard/src/api/dashboard/create-note.php" method="post">
+                <form id="edit-note-form" action="api/dashboard/create-note.php" method="post">
                     <div class="card-header">
                         <h3>Update/Create Notes</h3>
                         <div class="spacer"></div>

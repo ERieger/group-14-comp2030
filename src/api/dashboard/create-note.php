@@ -10,7 +10,7 @@ mysqli_stmt_bind_param($statement, 'isi', htmlspecialchars($_POST["target-select
 $result = $statement->execute();
 
 if ($result) {
-    header("location: /factory-dashboard/src/notes.php");
+    header("location: ../../notes.php");
 }
 
 mysqli_close($conn);

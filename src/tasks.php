@@ -18,19 +18,19 @@
             <p>Tasks</p>
             <div class="spacer"></div>
             <div class="nav-item">
-                <a href="/factory-dashboard/src/login.php">
+                <a href="login.php">
                     <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON">
                     <p>Logout</p>
                 </a>
             </div>
             <div class="nav-item">
-                <a href="/factory-dashboard/src/notes.php">
+                <a href="notes.php">
                     <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
                     <p>Notes</p>
                 </a>
             </div>
             <div class="nav-item">
-                <a href="/factory-dashboard/src/dashboard.php">
+                <a href="dashboard.php">
                     <img src="../public/static/images/icons/dashboard.png" alt="TASKS ICON">
                     <p>Dashboard</p>
                 </a>

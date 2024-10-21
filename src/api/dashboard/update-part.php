@@ -19,7 +19,8 @@ mysqli_stmt_prepare($statement, $sql);
 $result = $statement->execute();
 
 if ($result) {
-    header("location: /factory-dashboard/src/tasks.php");
+    // header("location: tasks.php");
+    return;
 }
 
 mysqli_close($conn);

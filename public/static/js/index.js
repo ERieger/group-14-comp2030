@@ -11,7 +11,7 @@ window.addEventListener("load", (event) => {
 
 function renderTasks() {
     $.ajax({
-        url: "/factory-dashboard/src/api/dashboard/fetch-job.php",
+        url: "api/dashboard/fetch-job.php",
         type: "GET",
         dataType: "json",
         data: {
@@ -71,7 +71,7 @@ function fetchMachineData() {
         machine: machine,
     });
     $.ajax({
-        url: "/factory-dashboard/src/api/dashboard/fetch-logs.php",
+        url: "api/dashboard/fetch-logs.php",
         type: "GET",
         dataType: "json",
         data: {
@@ -96,7 +96,7 @@ function fetchOverviewData() {
         machine: "*",
     });
     $.ajax({
-        url: "/factory-dashboard/src/api/dashboard/fetch-logs.php",
+        url: "api/dashboard/fetch-logs.php",
         type: "GET",
         dataType: "json",
         data: {

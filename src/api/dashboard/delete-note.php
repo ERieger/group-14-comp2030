@@ -9,7 +9,8 @@ mysqli_stmt_prepare($statement, $sql);
 $result = $statement->execute();
 
 if ($result) {
-    header("location: /factory-dashboard/src/notes.php");
+    // header("location: ../../src/notes.php")
+    return;
 }
 
 mysqli_close($conn);

@@ -8,7 +8,7 @@ function editNote(note) {
     console.log(noteData);
     $("#edit-note-form").attr(
         "action",
-        "/factory-dashboard/src/api/dashboard/update-note.php"
+        "api/dashboard/update-note.php"
     );
     $("#target-job").val(noteData.job);
     $("#target-select").val(noteData.target);
@@ -20,7 +20,7 @@ function editNote(note) {
 function addNote() {
     $("#edit-note-form").attr(
         "action",
-        "/factory-dashboard/src/api/dashboard/create-note.php"
+        "api/dashboard/create-note.php"
     );
     $("#target-job").val(-999);
     $("#target-select").val(-999);
@@ -31,7 +31,7 @@ function addNote() {
 
 function deleteNote(note) {
     $.post(
-        "/factory-dashboard/src/api/dashboard/delete-note.php",
+        "api/dashboard/delete-note.php",
         `note_id=${note}`,
         () => {
             console.log(`Successfully Deleted Note: ${note}`);
