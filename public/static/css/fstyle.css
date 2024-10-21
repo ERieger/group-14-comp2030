@@ -9,7 +9,6 @@ body {
     width: 100vw;
     margin: 0;
     padding: 0;
-
 }
 
 .dropdown {
@@ -76,7 +75,9 @@ body {
   top: 500px;
   cursor: pointer;
   font-weight: bold;
-  width: 185px;
+  width: 260px;
+  align-items: center;
+  justify-content: center;
 }
 
 #add_button{
