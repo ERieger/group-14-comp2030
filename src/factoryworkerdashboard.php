@@ -115,7 +115,7 @@
                                             <p class='current'>Current- $job_name</p>
                                             <input type='hidden' name='job_id' value='$job_id'" . htmlspecialchars($row['job_id']) . "' />
                                             
-                                            <table id=' . $row[job_id] . ' class='table table-100'>
+                                            <table id=' . $row[job_id] 
                                             <tr class='text-toupper'>
                                               
                                                 <th>Assigned Machine</th>
