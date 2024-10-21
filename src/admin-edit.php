@@ -80,7 +80,7 @@
 <!-- grid-item2 - I want to act as a dynamic card interface, that allows me to add and edit users -->
     <div class="card">
         <div class="card-header1">
-        <h3 class="card-header1-item1">User Details</h3> 
+        <h3 class="card-header1-item1">Edit User Details</h3> 
         
         <?php 
         require_once "./api/dbconn.inc.php";
