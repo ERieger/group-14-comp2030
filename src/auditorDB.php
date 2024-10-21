@@ -1,9 +1,13 @@
+<?php 
+session_start();
+require_once "./api/dbconn.inc.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditor home page</title>
+    <title>Auditor-home-page</title>
     <link rel="stylesheet" href="../public/static/css/normalize.css">
     <link rel="stylesheet" href="../public/static/css/colours.css">
     <link rel="stylesheet" href="../public/static/css/utility.css">
@@ -35,18 +39,12 @@
    
 
 <main class="table-content">
+    <div class="summary"><a class="summary" href="auditor-summary.php">Generate Summary Report</a></div>
 <!--filter-->
 <div class="filter">
-    <!-- <div class="nav-container">
-        <ul>
-            <li><a>Dashboard</a></li>
-            <li><a>Summary</a></li>
-        </ul>
-    </div> -->
-
+    
     <form class="form-container" action="" method="GET">
-    <div class="filter-item-spacer">
-            
+    <div class="filter-item-spacer">    
         </div>
         <div class="filter-item">
             <label for="i1" class="form-label-container">Beginning Date </label>
@@ -60,9 +58,13 @@
             <button id="i2" class="form-button-container" type="submit">Filter</button>
         </div>
         <div class="filter-item">
-        <a class="reset-btn" href=auditorDB.php><img class="reset-img" src="../public\static/images/icons/reset.png"></a>
+        <a class="reset-btn" href="auditorDB.php?<?php 
+        ?>
+        
+        "><img class="reset-img" src="../public\static/images/icons/reset.png"></a>
         </div>
     </form>
+    
 
 
 </div>
@@ -94,13 +96,51 @@
     <?php 
     require_once "./api/dbconn.inc.php"; 
 
-    if(isset($_GET['from_date']) && isset($_GET['from_date']) != '' && isset($_GET['to_date']) && isset($_GET['to_date']) != '') {
-        $from_date = $_GET['from_date'];
-        $to_date = $_GET['to_date'];
-        $sql = "SELECT * FROM logs WHERE timestamp BETWEEN '$from_date' AND '$to_date' LIMIT 100;";
-    } else {
-        $sql = "SELECT * FROM logs LIMIT 100;";
+     // setting the start from value
+     $start = 0;
+     // setting the number of rows to display in a page
+     $rows_per_page = 50;
+     // get total number of rows 
+     $records = $conn->query("SELECT COUNT(*) as count FROM logs;");
+     $num_of_rows = $records->num_rows;
+     
+     $row = mysqli_fetch_assoc($records);
+     $count = $row["count"];
+     // calculatiing the number of pages 
+    $pages = ceil($count / $rows_per_page);
+    // if user clicks on pagination buttons, set a new starting point
+    if(isset($_GET['page-nr'])) {
+        $page = $_GET['page-nr'] - 1;
+        $start = $page * $rows_per_page;
     }
+
+    if(isset($_GET['from_date']) && isset($_GET['from_date']) != '' && isset($_GET['to_date']) && isset($_GET['to_date']) != '') {
+       
+        $_SESSION['from_date'] = $_GET['from_date'];
+        $_SESSION['to_date'] = $_GET['to_date'];
+        $sql = "SELECT * FROM logs WHERE timestamp BETWEEN '{$_SESSION['from_date']}' AND '{$_SESSION['to_date']}' LIMIT $start, $rows_per_page;";
+    } else {
+        $sql = "SELECT * FROM logs LIMIT $start, $rows_per_page;";
+    }
+
+    if (!isset($_SESSION['from_date'])) {
+        $timestamp = $conn->query("SELECT MIN(timestamp) as timestamp FROM logs;");
+        $from_date = $timestamp;
+    } else {
+        $from_date = $_SESSION['from_date'];
+    }
+
+    if (!isset($_SESSION['to_date'])) {
+        $timestamp = $conn->query("SELECT MAX(timestamp) as timestamp FROM logs;");
+        $to_date = $timestamp;
+    } else {
+        $to_date = $_SESSION['to_date'];
+    }
+
+
+
+
+    $page_number = 1;
 
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) >= 1) {
@@ -133,7 +173,40 @@
 </table>
     </div>
 </div>
-<div class="msg">Max 100 rows will be displayed at a time</div>
+
+<div class="pagination">
+
+<?php 
+    if(isset($_GET['page-nr']) && $_GET['page-nr'] > 1 ) {
+        echo '<a href="?page-nr=' . $_GET['page-nr'] - 1 . '">Previous</a>';
+    } else {
+        echo    '<a>Previous</a>';
+    }
+?>
+
+<?php 
+    if(!isset($_GET['page-nr'])) {
+        $page = 1;
+    } else {
+        $page = $_GET['page-nr'];
+    }
+?>
+
+<span class="msg">Showing <?php echo  $page?> of <?php echo  $pages?> pages </span>
+
+    <?php 
+        if(!isset($_GET['page-nr'])) {
+            echo '<a href="?page-nr=2">Next</a>';
+        } else {
+            if($_GET['page-nr'] >= $pages) {
+                echo '<a>Next</a>';
+            } else {
+                echo '<a href="?page-nr=' . $_GET['page-nr'] + 1 . '">Next</a>';
+            }
+        }
+
+    ?>
+</div>
 </main>
 </body>
 

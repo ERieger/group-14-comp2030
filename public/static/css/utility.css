@@ -28,6 +28,9 @@
 .table-100 {
     width: 100%;
 }
+.table-50{
+    width: 50%;
+}
 
 .card {
     margin: 1rem;
@@ -55,6 +58,15 @@
             margin: 0;
         }
     }
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-content-block {
+    display: block !important;
 }
 
 .card-main {
@@ -131,4 +143,6 @@ a {
     color: black;
 }
 
-
+.hidden {
+    display: none;
+}
