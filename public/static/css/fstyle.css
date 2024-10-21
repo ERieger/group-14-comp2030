@@ -11,73 +11,20 @@ body {
     padding: 0;
 }
 
-.dropdown {
+.new{ 
+    width: 25%;
+    align-items: center;
     display:flex;
     position: relative;
-    z-index: 1;
-    bottom:50px;
     margin-left: 50px;
-    overflow-y: auto;  
-    overflow-x: auto; 
-    width: 25%;
-    height: 25%;
-    border-radius: 5px;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: relative;
-    width: 260px;
-    font-size: 20px;
-    overflow: auto;
-    z-index: 1;
-    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
-    
-  }
-
-.dropdown:hover .dropdown-content {
-    display: block;
-    background-color: #ddd;
-
-  }
-
-.dropdown-content a {
-    display: flex;
-    color: #080808;
-    padding: 5px;
-    text-decoration: none;
-  
-  }
-
-.dropdown-content a:hover {
-    color: #FFFFFF;
-    background-color: #00A4BD;
-    
-  }
-
-.drpbutton{
     font-size: 18px;
-    margin-top: 5px;
+    top: 320px;
     width: 260px;
     background-color:rgb(240, 239, 239);
     border-radius: 50px;
     font-weight: bold;
-  }
-
-.new{
-  border-radius: 50px;
-  border-color: #040404;
-  display: flex;
-  border-width: 2px;
-  position: relative;
-  align-self: baseline;
-  font-size: 18px;
-  top: 500px;
-  cursor: pointer;
-  font-weight: bold;
-  width: 260px;
-  align-items: center;
-  justify-content: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 #add_button{
@@ -147,7 +94,7 @@ body {
   font-size: 1.25rem;
   display: flex;
   position: relative;
-  bottom: 90px;
+  bottom: 65px;
   left: 50px;
   border-color: #000000;                   /* style for the employees current jobs table*/
   border: 1px solid ;               
