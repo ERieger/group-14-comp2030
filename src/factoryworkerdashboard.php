@@ -15,7 +15,7 @@
 <header>
         <div class="navbar">
             <img src="../public/static/images/logo.png" alt="COMPANY LOGO" class="logo">
-            <p>Dashboard</p>
+            <p id="dashboard">Dashboard</p>
             <div class="spacer"></div>
             <div class="nav-item">
                 <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON" onclick="window.location.href='login.php'">
@@ -50,7 +50,7 @@
              
                     <?php //php connection fetching machines for machine details table
                     require_once '../src/api/dbconn.inc.php';
-                    $imagePath = '../public/static/images/icons/delete-machine.png';
+                    
 
                     $sql_machines = "SELECT DISTINCT machine_name, machine_id FROM machines";
                     $result_machines = mysqli_query($conn, $sql_machines);
@@ -64,8 +64,8 @@
                                     <td>" . htmlspecialchars($row['machine_name']) . "</td>
                                     <td id='Machine_Id'>" . htmlspecialchars($row['machine_id']) . "</td>
                                     <td class='actions_data'>
-                                        <form id='deleteForm' method= 'POST' action='delete_machine.php'> 
-                                        <input type= 'hidden' name= 'machine_id' value='". $row['machine_id']."'>
+                                        <form id='deleteForm' method= 'POST' action='delete_machine.php'>        
+                                        <input type= 'hidden' name= 'machine_id' value='". $row['machine_id']."'>                            
                                         <button type='submit' onclick= 'return confirmDelete()' name='deleteMachine' class='actions_button'>
                                         </button>
                                         </form>

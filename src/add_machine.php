@@ -41,7 +41,7 @@ $result = mysqli_query($conn, $sql);
     <div class="add-machine-container">
     <h1>Add New Machine </h1>
     
-    <form action="add_machine-form.php" method="POST" class="add-machine-form" >
+    <form action="add_machine-form.php" method="POST" class="add-machine-form" > <!-- adding new machine form-->
         <label for="machine_name">Machine Name:</label>
         <input type="text" id="machine_name" name="machine_name" required><br><br>
         
@@ -51,7 +51,7 @@ $result = mysqli_query($conn, $sql);
             <?php
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<option value='" . htmlspecialchars($row['employee_id']) . "'>" 
+                    echo "<option value='" . htmlspecialchars($row['employee_id']) . "'>"     //fetch and display production operators responsible for new machine as options
                          . htmlspecialchars($row['full_name']) . "</option>";
                 }
             } else {
@@ -60,7 +60,7 @@ $result = mysqli_query($conn, $sql);
             ?>
         </select><br><br>
         
-        <button type="submit" name="addMachine" id="add-machine-save">Save</button>
+        <button type="submit" name="addMachine" id="add-machine-save">Save</button>  <!-- save button -->
       </form>
     </div>
 </body>

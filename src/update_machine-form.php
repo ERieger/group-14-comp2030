@@ -7,10 +7,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $newMachineId = $_POST['new_machine_id'];  
 
     
-    $sql = "UPDATE machines SET machine_id = ? WHERE machine_id = ?";
+    $sql = "UPDATE machines SET machine_id = ? WHERE machine_id = ?"; //sql query for updating machine id in machines table
     if ($stmt = mysqli_prepare($conn, $sql)) {
         
-        mysqli_stmt_bind_param($stmt, "ii", $newMachineId, $oldMachineId); 
+        mysqli_stmt_bind_param($stmt, "ii", $newMachineId, $oldMachineId); //binding parameters to the statement to prevent sql injection
 
         
         if (mysqli_stmt_execute($stmt)) {

@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $sql = "DELETE FROM machines WHERE machine_id=?";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, 'i', $machine_id);
+    mysqli_stmt_bind_param($stmt, 'i', $machine_id); //binding parameters to the statement to prevent sql injection
    
     if (mysqli_stmt_execute($stmt)) {
         echo "<p> Succesful </p>";
