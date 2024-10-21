@@ -1,7 +1,6 @@
 /*senna test*/
 * {
   font-family: Arial, Helvetica, sans-serif;
-  
 }
 
 html,
@@ -70,22 +69,21 @@ body {
   border-radius: 50px;
   border-color: #040404;
   display: flex;
-  border-width: 0.5px;
+  border-width: 2px;
   position: relative;
   align-self: baseline;
   font-size: 18px;
-  text-align: center;
   top: 500px;
   cursor: pointer;
   font-weight: bold;
-  width: 260px;
+  width: 185px;
 }
 
 #add_button{
   border-radius: 50px;
   border-color: #040404;
   display: flex;
-  border-width: 0.5px;
+  border-width: 2px;
   position: absolute;
   align-self: baseline;
   font-size: 18px;
@@ -101,6 +99,7 @@ body {
 /* Theresa Styles*/
 .machine_details th{
         background-color:#ddd;   /* style for the machine details table headers */
+        font-size: 18px;
       }
 
 .machine_details {
@@ -149,8 +148,8 @@ body {
   position: relative;
   bottom: 90px;
   left: 50px;
-  border-color: #000000;
-  border: 1px solid ;
+  border-color: #000000;                   /* style for the employees current jobs table*/
+  border: 1px solid ;               
   border-radius: 3px;
   background-color:silver;
   box-shadow: 3px 3px 4px black;
@@ -184,7 +183,7 @@ body {
 
 
 .employees-table-container{
-  margin-top: 130px;
+  margin-top: 130px;                        
   
 }
 
@@ -192,10 +191,10 @@ body {
   border-radius: 50px;
   border-color: #040404;
   display: flex;
-  border-width: 0.5px;
+  border-width: 2px;
   position: absolute;
   align-self: baseline;
-  font-size: 18px;
+  font-size: 18px;                            /* style for the edit machine button*/
   text-align: center;
   bottom: 145px;
   left: 680px;
@@ -209,8 +208,8 @@ body {
   cursor: pointer;
   background-image: url(../images/icons/delete-machine.png);
   height: 20px;
-  width: 20px;
-  background-repeat: no-repeat;
+  width: 20px; 
+  background-repeat: no-repeat;                                        /* style for the delete machine button*/
   background-position: center;
   background-size: contain;
   border: none;
@@ -221,7 +220,7 @@ body {
 .add-machine-container{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;                     /* style for the add machine container*/
   align-items: center;
   height: 80vh;
 }
@@ -229,14 +228,14 @@ body {
 .add-machine-form{
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 10px;                                /* style for the add machine form*/
   gap: 10px;
   align-items: center;
   justify-content: center;
 }
 
 #add-machine-save{
-  cursor: pointer;
+  cursor: pointer;                              /* style for the save button in add machine page*/
   
 }
 
@@ -245,8 +244,8 @@ body {
   
 }
 
-input, select{
-  width: 100%;
+input, select{                                   
+  width: 100%;                                   
 }
 
 label{
@@ -256,7 +255,7 @@ label{
 .update-machine-form{
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 10px;                              /* style for the update machine form*/
     gap: 10px;
     align-items: center;
     justify-content: center;
@@ -265,7 +264,7 @@ label{
 
 .update-machine-container{
   display: flex;
-  flex-direction: column;
+  flex-direction: column;                        /* style for the update machine container*/
   justify-content: center;
   align-items: center;
   height: 70vh;
@@ -278,4 +277,9 @@ label{
 
 #update-machine-save{
   cursor: pointer;
+}
+
+#dashboard{
+  font-size: 23px;
+  font-weight: bold;
 }

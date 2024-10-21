@@ -59,7 +59,7 @@ $result = mysqli_query($conn, $sql);
         <input type="password" id="password" name="password" required><br><br>
 
         
-        <label for="Machine Name">Machine Name:</label>
+        <label for="Machine Name">Machine Name:</label>    <!-- form for adding new employee-->
         <select id="Machine Name" name="machine_name" required>
             <option value="" disabled selected>Select Machines</option>
             <?php

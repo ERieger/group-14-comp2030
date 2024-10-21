@@ -39,14 +39,14 @@ $result = mysqli_query($conn, $sql);
 
 <div class="update-machine-container">
 <h1 id="update-heaading">Update Machine ID</h1>
-<form action="update_machine-form.php" method="POST" class="update-machine-form">
+<form action="update_machine-form.php" method="POST" class="update-machine-form"> <!-- form for updating machine details-->
     <label for="machine">Select Machine:</label>
     <select id="machine" name="old_machine_id" required>
         <option value="" disabled selected>Select Machine</option>
         <?php
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                echo "<option value='" . htmlspecialchars($row['machine_id']) . "'>" 
+                echo "<option value='" . htmlspecialchars($row['machine_id']) . "'>"  //fetching and displaying machines from the table and their IDs as options
                      . htmlspecialchars($row['machine_name']) . " (ID: " 
                      . htmlspecialchars($row['machine_id']) . ")</option>";
             }
@@ -57,8 +57,7 @@ $result = mysqli_query($conn, $sql);
     </select><br><br>
 
     <label for="new_machine_id">New Machine ID:</label>
-    <input type="text" id="new_machine_id" name="new_machine_id" required><br><br>
-    
+    <input type="text" id="new_machine_id" name="new_machine_id" required><br><br> <!-- new machine id input form-->
     <button type="submit" name="updateMachine" id="update-machine-save">Update Machine ID</button>
   </form>
 </div>
