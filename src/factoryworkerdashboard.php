@@ -111,17 +111,17 @@
                                         <td>
                                             <details class='details'>
                                             <summary class='employee_name'>$full_name</summary>
-                                            <p class='current'>Current- $job_name</p>
+                                            <p class='current'>Current:</br></p> <p> $job_name</p>
                                             <input type='hidden' name='job_id' value='$job_id'" . htmlspecialchars($row['job_id']) . "' />
                                             <form id='deleteForm' method= 'POST' action='delete_employees.php'>        
                                             <input type= 'hidden' name= 'job_id' value='". $row['job_id']."'>                            
-                                            <button type='submit' onclick= 'return confirmDelete()' name='deleteMachine' class='actions_button'>
+                                            <button type='submit' onclick= 'return confirmDelete()' name='deleteMachine' class='employees_delete_button'>
                                             </button>
                                             
                                             <table id=' . $row[job_id] 
                                             <tr class='text-toupper'>
                                               
-                                                <th>Assigned Machine</th>
+                                                <th>Assigned Machine:</th>
                              
                                             </tr>";
 
@@ -175,21 +175,24 @@
             
             ?>
    </main>
- </body><?php
+ </body>
+ 
+ <?php
 // PHP connection for fetching notes from the database
 require_once '../src/api/dbconn.inc.php';
 
-$sql_notes = "SELECT note_content FROM notes";
+$sql_notes = "SELECT note_content, job_id FROM notes";
 $result_notes = mysqli_query($conn, $sql_notes);
 
 if (mysqli_num_rows($result_notes) > 0) {
     echo "<div class='notes-section'>";
     echo "<h3>Factory Manager's Notes</h3>";
     echo "<table class='notes-table'>";
-    echo "<thead><tr><th>Note Content</th></tr></thead><tbody>";
+    echo "<thead><tr><th>Job ID</th><th>Note Content</th></tr></thead><tbody>";
     while ($row = mysqli_fetch_assoc($result_notes)) {
         $noteContent = htmlspecialchars($row['note_content']);
-        echo "<tr><td>" . $noteContent . "</td></tr>";
+        $job_id = htmlspecialchars($row['job_id']);
+        echo "<tr><td>" . $job_id . "</td><td>" . $noteContent . "</td></tr>";
     }
     echo "</tbody></table>";
     echo "</div>";
@@ -200,4 +203,3 @@ if (mysqli_num_rows($result_notes) > 0) {
 mysqli_close($conn);
 ?>
 
-</html>
