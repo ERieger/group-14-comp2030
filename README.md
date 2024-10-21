@@ -3,11 +3,11 @@ This is our solution to the smart factory dashboard problem.
 Navigate to login.php to begin.
 
 # Home Pages
-/src/login.php
-/src/auditorDB.php
-/arc/admin-index.php
-/src/dashboard.php
-/src/factoryworkerdashboard.php
+- /src/login.php
+- /src/auditorDB.php
+- /arc/admin-index.php
+- /src/dashboard.php
+- /src/factoryworkerdashboard.php
 
 # Sample Logins
 - **Senna Josh** - Factory Manager - Email: senna@factory.com / Password: 123456
