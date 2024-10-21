@@ -115,8 +115,7 @@
                                             <input type='hidden' name='job_id' value='$job_id'" . htmlspecialchars($row['job_id']) . "' />
                                             <form id='deleteForm' method= 'POST' action='delete_employees.php'>        
                                             <input type= 'hidden' name= 'job_id' value='". $row['job_id']."'>                            
-                                            <button type='submit' onclick= 'return confirmDelete()' name='deleteMachine' class='employees_delete_button'>
-                                            </button>
+                                           
                                             
                                             <table id=' . $row[job_id] 
                                             <tr class='text-toupper'>
