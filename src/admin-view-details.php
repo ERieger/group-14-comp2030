@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Admin-view-details</title>
     <link rel="stylesheet" href="../public/static/css/normalize.css">
     <link rel="stylesheet" href="../public/static/css/colours.css">
     <link rel="stylesheet" href="../public/static/css/utility.css">
@@ -69,8 +69,8 @@
                                     <td>' . $row['l_name'] . '</td>
                                     <td>' . $row['role'] . '</td>
                                     <td> <a class="details-btn" href=admin-view-details.php?id=' . $row['employee_id'] . '>details</a> </td>
-                                    <td> <img class="delete-img" src="../public\static/images/icons/delete-user.png" onclick="openPopup"></td>
-                                    '
+                                    <td> <a class="delete-btn" href=api/admin/admin-delete.php?id=' . $row['employee_id'] . ' onclick="return confirm(\'Are you sure you want to delete this employee?\');"><img class="delete-img" src="../public\static/images/icons/delete-user.png"></a> </td>'
+                                    
                                     ;
                             }
                         }
@@ -86,7 +86,6 @@
                     <button type="button">Cancel</button>
                     <button class="danger-btn" type="button">Delete</button>
          </div>
-
     </div>
 <!-- grid-item2 - I want to act as a dynamic card interface, that allows me to add and edit users -->
     <div class="card" id="cs">
@@ -154,15 +153,6 @@
         }
 
         ?>
-
-    <!-- write in html outide, then put inside -->
-        <!-- <p>First Name: </p>
-        <p>Last Name: </p>
-        <p>Role: </p>
-        <p>Phone Number: </p>
-        <p>Gender: </p> -->
-
-
     </div>
 
     </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Admin-add-user</title>
     <link rel="stylesheet" href="../public/static/css/normalize.css">
     <link rel="stylesheet" href="../public/static/css/colours.css">
     <link rel="stylesheet" href="../public/static/css/utility.css">
@@ -69,7 +69,7 @@
                                     <td>' . $row['l_name'] . '</td>
                                     <td>' . $row['role'] . '</td>
                                     <td> <a class="details-btn" href=admin-view-details.php?id=' . $row['employee_id'] . '>details</a> </td>
-                                    <td> <img class="delete-img" src="../public\static/images/icons/delete-user.png" onclick="openPopup"></td>
+                                    <td> <a class="delete-btn" href=api/admin/admin-delete.php?id=' . $row['employee_id'] . ' onclick="return confirm(\'Are you sure you want to delete this employee?\');"><img class="delete-img" src="../public\static/images/icons/delete-user.png"></a> </td>
                                     '
                                     ;
                             }
@@ -104,14 +104,6 @@
                 <span class="details">Last Name</span> 
                 <input type="text" name="lname" placeholder="" required>
             </div>
-            <!-- <div class="gender-details">
-                <span class="gender-title">Gender</span>
-                <select name="gender" id="gender">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div> -->
             <div class="input-box">
                 <span class="details">Role</span> 
                 <select name="role" id="role">
@@ -133,23 +125,6 @@
                 <span class="details">Password</span> 
                 <input type="text" name="pwd" placeholder="" required>
             </div>
-            
-
-                <!-- <div class="category">
-                    <label for=""> -->
-                        <!-- <span class="dot one"></span>
-                        <span class="gender">Male</span>
-                    </label>
-                    <label for="">
-                        <span class="dot one"></span>
-                        <span class="gender">Female</span>
-                    </label>
-                    <label for="">
-                        <span class="dot one"></span>
-                        <span class="gender">Other</span>
-                    </label>
-                </div>
-            </div> -->
            <div class="button">
                 <input class="submit-btn" type="submit" name="submit" value="Create User">
            </div>

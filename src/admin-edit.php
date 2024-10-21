@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Admin-edit-user</title>
     <link rel="stylesheet" href="../public/static/css/normalize.css">
     <link rel="stylesheet" href="../public/static/css/colours.css">
     <link rel="stylesheet" href="../public/static/css/utility.css">
@@ -65,7 +65,7 @@
                                     <td>' . $row['l_name'] . '</td>
                                     <td>' . $row['role'] . '</td>
                                     <td> <a class="details-btn" href=admin-view-details.php?id=' . $row['employee_id'] . '>details</a> </td>
-                                    <td> <a class="delete-btn" href=api/admin/admin-delete.php?id=' . $row['employee_id'] . '><img class="delete-img" src="../public\static/images/icons/delete-user.png"></a> </td>'
+                                    <td> <a class="delete-btn" href=api/admin/admin-delete.php?id=' . $row['employee_id'] . ' onclick="return confirm(\'Are you sure you want to delete this employee?\');"><img class="delete-img" src="../public\static/images/icons/delete-user.png"></a> </td>'
                                     ;
                             }
                         }
@@ -80,7 +80,7 @@
 <!-- grid-item2 - I want to act as a dynamic card interface, that allows me to add and edit users -->
     <div class="card">
         <div class="card-header1">
-        <h3 class="card-header1-item1">User Details</h3> 
+        <h3 class="card-header1-item1">Edit User Details</h3> 
         
         <?php 
         require_once "./api/dbconn.inc.php";
@@ -140,20 +140,6 @@
         }
 
         ?>
-        
-
-        
-
-
-
-    <!-- write in html outide, then put inside -->
-        <!-- <p>First Name: </p>
-        <p>Last Name: </p>
-        <p>Role: </p>
-        <p>Phone Number: </p>
-        <p>Gender: </p> -->
-
-
     </div>
 
     </div>
