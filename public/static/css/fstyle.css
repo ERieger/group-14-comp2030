@@ -18,7 +18,7 @@ body {
     position: relative;
     margin-left: 50px;
     font-size: 18px;
-    top: 320px;
+    top: 295px;
     width: 260px;
     background-color:rgb(240, 239, 239);
     border-radius: 50px;
@@ -131,9 +131,9 @@ body {
 }
 
 .notes-section {
-  margin: 20px 0;
+  margin: 20px 30px;
   padding: 10px;
-  max-width: 300px; /* Set a smaller width for the notes table */
+  max-width: 280px; /* Set a smaller width for the notes table */
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #f9f9f9;
@@ -213,7 +213,8 @@ body {
 
 #add-machine-save{
   cursor: pointer;                              /* style for the save button in add machine page*/
-  
+  font-weight: bold;
+  border-radius: 50px;
 }
 
 #add-machine-save :hover{
@@ -254,6 +255,8 @@ label{
 
 #update-machine-save{
   cursor: pointer;
+  font-weight: bold;
+  border-radius: 50px;
 }
 
 #dashboard{
