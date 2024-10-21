@@ -15,35 +15,26 @@
 <header>
         <div class="navbar">
             <img src="../public/static/images/logo.png" alt="COMPANY LOGO" class="logo">
-            <p>Dashboard</p>
+            <p id="dashboard">Dashboard</p>
             <div class="spacer"></div>
             <div class="nav-item">
-                <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON">
+                <img src="../public/static/images/icons/logout.png" alt="LOGOUT ICON" onclick="window.location.href='login.php'">
                 <p>Logout</p>
             </div>
+            
             <div class="nav-item">
-                <img src="../public/static/images/icons/helmet.png" alt="HELMET ICON">
-                <p>Factory</p>
-            </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON">
+                <img src="../public/static/images/icons/tasks.png" alt="TASKS ICON" onclick="window.location.href='factoryworkerdashboard.php'">
                 <p>Tasks</p>
             </div>
-            <div class="nav-item">
-                <img src="../public/static/images/icons/menu.png" alt="MENU ICON">
-                <p>Menu</p>
-            </div>
+           
         </div>
 </header>
 <body>
 
-        <button class="save">Save</button>
-        <button class="publish">Publish</button>
-        <button class="new">Add New Employee</button>
+       
+        <form action="add_new_employee.php" method="POST">
+        
     
-    </div>
-        <button class="new">Add new Employee</button>
-
 
     <div class="tables-section">
     <div class="machines-table-container"> <!-- table for machines-->
@@ -56,10 +47,10 @@
                 </tr>
             </thead>
              <tbody>
-
+             
                     <?php //php connection fetching machines for machine details table
                     require_once '../src/api/dbconn.inc.php';
-
+                    
 
                     $sql_machines = "SELECT DISTINCT machine_name, machine_id FROM machines";
                     $result_machines = mysqli_query($conn, $sql_machines);
@@ -71,21 +62,13 @@
                             
                             echo "<tr>
                                     <td>" . htmlspecialchars($row['machine_name']) . "</td>
-                                    
                                     <td id='Machine_Id'>" . htmlspecialchars($row['machine_id']) . "</td>
                                     <td class='actions_data'>
-
-                                        <form id='deleteForm' method= 'POST' action='delete_machine.php'> 
-                                        <input type= 'hidden' name= 'machine_id' value='". $row['machine_id']."'>
-                                        <button type='submit' onclick= 'return confirmDelete()' name='deleteMachine' class='actions_button'>🗑</button>
+                                        <form id='deleteForm' method= 'POST' action='delete_machine.php'>        
+                                        <input type= 'hidden' name= 'machine_id' value='". $row['machine_id']."'>                            
+                                        <button type='submit' onclick= 'return confirmDelete()' name='deleteMachine' class='actions_button'>
+                                        </button>
                                         </form>
-
-
-                                        <form id='editForm' method='POST' action='update_machine_Details.php'>
-                                        <input type= 'hidden' name= 'machine_id' value='". $row['machine_id']."'>
-                                        <button type='submit' class='actions_button'>🔧</button>
-                                        </form>
-
                                     </td>
                                 </tr>";
                         }
@@ -102,34 +85,71 @@
     <button id="add_button" type="submit">Add Machine</button>
     </form>
 
+    <form id='editForm' method='POST' action='update_machine_Details.php'>
+    <input type='hidden' name='machine_id' value='<?php echo htmlspecialchars($row['machine_id']); ?>'>
+    <button type='submit' id='edit_button'>Edit Machine</button>
+    </form>
 
         
-        <div class="employees-table-container"> <!-- table for job assignment-->
-        <table class="employees_details">
-             <tbody>
-
-        <?php //php connection fetching current jobs from database
-                        
-                        $sql_jobs = "SELECT DISTINCT e.f_name, e.l_name, j.job_name FROM employees e JOIN jobs j ON e.employee_id = j.employee_id";
-                        $result_jobs = mysqli_query($conn, $sql_jobs);
-                        
+    <div class="employees-table-container"> <!-- table for job assignment-->
+    <table class="employees_details">
+        <tbody>
+            <?php
+            // PHP connection fetching current jobs from database
+            $sql_jobs = "SELECT DISTINCT e.f_name, e.l_name, j.job_name, j.job_id, e.employee_id
+                         FROM employees e
+                         JOIN jobs j ON e.employee_id = j.employee_id";
+            $result_jobs = mysqli_query($conn, $sql_jobs);
 
                         if (mysqli_num_rows($result_jobs) > 0) {
                                 while ($row = mysqli_fetch_assoc($result_jobs)) {
                                     $full_name = htmlspecialchars($row['f_name']) . ' ' . htmlspecialchars($row['l_name']);
                                     $job_name= htmlspecialchars(($row['job_name']));
+                                    $job_id = htmlspecialchars(($row['job_id']));
                             
                                 echo "<tr>
                                         <td>
                                             <details class='details'>
                                             <summary class='employee_name'>$full_name</summary>
-                                            <p class='current'>Current- $job_name</p>
+                                            <p class='current'>Current:</br></p> <p> $job_name</p>
+                                            <input type='hidden' name='job_id' value='$job_id'" . htmlspecialchars($row['job_id']) . "' />
+                                            <form id='deleteForm' method= 'POST' action='delete_employees.php'>        
+                                            <input type= 'hidden' name= 'job_id' value='". $row['job_id']."'>                            
+                                            <button type='submit' onclick= 'return confirmDelete()' name='deleteMachine' class='employees_delete_button'>
+                                            </button>
+                                            
+                                            <table id=' . $row[job_id] 
+                                            <tr class='text-toupper'>
+                                              
+                                                <th>Assigned Machine:</th>
+                             
+                                            </tr>";
+
+                                                                $sql2 = "SELECT p.item, p.qty, m.machine_name, p.progress, p.image
+                                                                        FROM parts p
+                                                                        INNER JOIN machines m ON p.machine_id=m.machine_id
+                                                                        WHERE p.job_id = '{$row["job_id"]}';";
+                                                                    $result2 = mysqli_query($conn, $sql2);
+                                                                    if (mysqli_num_rows($result2) > 0) {
+                                                                        while ($row2 = mysqli_fetch_assoc($result2)) {
+                                                                            echo "
+                                                                            <tr>
+                                                                              
+                                                                             
+                                                                                <td>".$row2["machine_name"]."</td>
+                                                                              
+                                                                            </tr>";
+                                                                        }
+                                                                    }
+                                                                    echo '</table></div></div>';
+                                                                    mysqli_free_result($result2);
+                                    echo "</form>
                                             </details>
                                         </td>
                                       </tr>";
                             } 
                         } else {
-                            echo "<tr><td colspan='3'>No data available</td></tr>";
+                            echo "<tr><td colspan='1'>No data available</td></tr>";
                         }
                         
                         ?>
@@ -138,6 +158,9 @@
                 </table>
             </div> 
         </div>
+        
+
+
         <?php     //php connection for deleting machine from database
             if(isset($_POST['deleteMachine'])){
             $machineId = $_POST['machine_id'];
@@ -153,57 +176,30 @@
             ?>
    </main>
  </body>
-</html>
-<?php // PHP connection for fetching machines from the database
+ 
+ <?php
+// PHP connection for fetching notes from the database
 require_once '../src/api/dbconn.inc.php';
 
-$sql_machines = "SELECT DISTINCT machine_name FROM machines";
-$result_machines = mysqli_query($conn, $sql_machines);
+$sql_notes = "SELECT note_content, job_id FROM notes";
+$result_notes = mysqli_query($conn, $sql_notes);
 
-?>
-
-<div class="dropdown-section">
-    <div class='dropdown'>
-            <form action="assign_machine.php" method="post">
-                <button class="drpbutton">Select Jobs</button>
-                <div class="dropdown-content">
-                    <?php
-                    if (mysqli_num_rows($result_machines) > 0) {
-                        while ($row = mysqli_fetch_assoc($result_machines)) {
-                            $machineName = htmlspecialchars($row['machine_name']);
-                            echo "<button type='submit' name='machineName' value='$machineName'>" . $machineName . "</button>";
-                        }
-                    } else {
-                        echo "<p>No Machines Available</p>";
-                    }
-                    mysqli_close($conn);
-                    ?>
-                </div>
-            </form>
-        </div>
-    </div>
-<?php
-require_once '../src/api/dbconn.inc.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['machineName'])) {
-    $machineName = mysqli_real_escape_string($conn, $_POST['machineName']);
-
-    // Update the 'jobs' table to assign the machine to all employees
-    $sql_update = "UPDATE jobs j
-                   JOIN machines m ON j.machine_id = m.machine_id
-                   SET j.machine_id = (SELECT machine_id FROM machines WHERE machine_name = '$machineName')
-                   WHERE m.machine_name != '$machineName'";
-
-    if (mysqli_query($conn, $sql_update)) {
-        echo "Machine assigned successfully to all employees.";
-    } else {
-        echo "Error: " . mysqli_error($conn);
+if (mysqli_num_rows($result_notes) > 0) {
+    echo "<div class='notes-section'>";
+    echo "<h3>Factory Manager's Notes</h3>";
+    echo "<table class='notes-table'>";
+    echo "<thead><tr><th>Job ID</th><th>Note Content</th></tr></thead><tbody>";
+    while ($row = mysqli_fetch_assoc($result_notes)) {
+        $noteContent = htmlspecialchars($row['note_content']);
+        $job_id = htmlspecialchars($row['job_id']);
+        echo "<tr><td>" . $job_id . "</td><td>" . $noteContent . "</td></tr>";
     }
-
-    mysqli_close($conn);
-
-    // Redirect back to the main page or display a message
-    header("Location: your_main_page.php"); // Replace 'your_main_page.php' with the appropriate page
-    exit();
+    echo "</tbody></table>";
+    echo "</div>";
+} else {
+    echo "<p>No notes available.</p>";
 }
+
+mysqli_close($conn);
 ?>
+

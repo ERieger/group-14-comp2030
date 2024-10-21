@@ -1,5 +1,4 @@
 <?php
-var_dump($_POST);
 require_once '../src/api/dbconn.inc.php';
 
 
@@ -11,9 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     
-    $sql_machine = "INSERT INTO machines (machine_name) VALUES (?)";
+    $sql_machine = "INSERT INTO machines (machine_name) VALUES (?)"; //sql query for inserting new machines into machines table
     $stmt_machine = mysqli_prepare($conn, $sql_machine);
-    mysqli_stmt_bind_param($stmt_machine, 's', $machine_name);
+    mysqli_stmt_bind_param($stmt_machine, 's', $machine_name); //binding parameters to the statement to prevent sql injection
     $machine_id = mysqli_insert_id($conn);
     if (mysqli_stmt_execute($stmt_machine)) {
         echo "<p> Succesull </p>";
