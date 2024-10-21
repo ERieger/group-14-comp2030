@@ -174,32 +174,3 @@
    </main>
  </body>
 </html>
-<?php // PHP connection for fetching machines from the database
-require_once '../src/api/dbconn.inc.php';
-
-$sql_machines = "SELECT DISTINCT machine_name FROM machines";
-$result_machines = mysqli_query($conn, $sql_machines);
-
-?> 
-
-<div class="dropdown-section"> 
-    <div class='dropdown'>
-            <form action="assign_machine.php" method="post">
-                <button  class="drpbutton">Select Jobs</button>
-                <div id="selectjobsDrop" class="dropdown-content">
-                    <?php
-                    if (mysqli_num_rows($result_machines) > 0) {
-                        while ($row = mysqli_fetch_assoc($result_machines)) {
-                            $machineName = htmlspecialchars($row['machine_name']);
-                            echo "<button type='submit' name='machineName' value='$machineName'>" . $machineName . "</button>";
-                        }
-                    } else {
-                        echo "<p>No Machines Available</p>";
-                    }
-                    mysqli_close($conn);
-                    ?>
-                </div>
-            </form>
-        </div>
-    </div>
-
