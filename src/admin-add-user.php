@@ -33,7 +33,7 @@
     </header>
     <div class="grid-container">
         <div class="grid-item-header"></div>
-    <div class="card hidden">
+    <div class="card">
         <div class="card-header1">
             <h3 class="card-header1-item1">Users</h3>
             <div class="spacer"></div>
