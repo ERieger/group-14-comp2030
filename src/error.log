@@ -1,0 +1,14 @@
+SELECT * FROM employees WHERE employee_id = SELECT MIN(employee_id) FROM employees;
+SELECT * FROM employees WHERE employee_id = (SELECT MIN(employee_id) FROM employees);
+SELECT * FROM employees WHERE employee_id = (SELECT MIN(employee_id) FROM employees);
+SELECT * FROM employees WHERE employee_id = (SELECT MIN(employee_id) FROM employees);
+SELECT * FROM employees WHERE employee_id = (SELECT MIN(employee_id) FROM employees);
+SELECT * FROM employees WHERE employee_id = (SELECT MIN(employee_id) FROM employees);
+SELECT * FROM employees WHERE employee_id = (SELECT MIN(employee_id) FROM employees);
+SELECT * FROM employees WHERE employee_id = (SELECT MIN(employee_id) FROM employees);
+SELECT * FROM employees WHERE employee_id = 3;
+SELECT * FROM employees WHERE employee_id = 1;
+SELECT * FROM employees WHERE employee_id = 2;
+SELECT * FROM employees WHERE employee_id = (SELECT MIN(employee_id) FROM employees);
+SELECT * FROM employees WHERE employee_id = 4;
+SELECT * FROM employees WHERE employee_id = 1;
