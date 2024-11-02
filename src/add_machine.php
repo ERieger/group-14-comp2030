@@ -3,7 +3,7 @@
 
 require_once '../src/api/dbconn.inc.php';
 
-$sql = "SELECT employee_id, CONCAT(f_name, ' ', l_name) AS full_name FROM employees WHERE role = 'Production Operator'";
+$sql = "SELECT employee_id, CONCAT(f_name, ' ', l_name) AS full_name FROM employees WHERE role = 'Factory Worker'";
 $result = mysqli_query($conn, $sql);
 ?>
 
